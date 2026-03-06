@@ -144,6 +144,7 @@ export function ServicesSchema() {
     <>
       {SERVICES_SEO.map((service) => (
         <Script
+          id={`ld-service-${service.slug}`}
           key={service.slug}
           data={{
             "@context": "https://schema.org",
