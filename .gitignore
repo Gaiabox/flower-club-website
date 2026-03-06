@@ -1,0 +1,43 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Large original video files — keep locally, never push to GitHub
+public/assets/videos/*-original.mp4
+public/assets/videos/home-feature-1.mp4
+public/assets/videos/home-feature-2-vertical.mp4
+public/assets/videos/her-story.mp4
+public/assets/videos/courvoisier-pride.mov
+public/assets/videos/jase-candy-land.mp4

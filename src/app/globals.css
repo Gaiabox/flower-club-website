@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-navy font-sans;
+  }
+
+  ::selection {
+    @apply bg-red text-cream;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20 xl:px-28;
+  }
+
+  .nav-link {
+    @apply text-sm font-mono uppercase tracking-widest text-cream/70 hover:text-cream transition-colors duration-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-red text-cream font-semibold text-sm uppercase tracking-wider 
+           hover:bg-red-hover transition-all duration-300 rounded-sm max-w-full;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-8 py-4 border border-cream/30 text-cream font-semibold text-sm uppercase tracking-wider 
+           hover:bg-cream/10 transition-all duration-300 rounded-sm;
+  }
+
+  .label {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-navy/50;
+  }
+
+  .label-light {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-cream/50;
+  }
+
+  .placeholder-asset {
+    @apply relative overflow-hidden bg-gradient-to-br from-navy-dark to-navy flex items-center justify-center;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-navy-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-navy-light rounded-full;
+}
+
+/* Page transition */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes lbFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes lbScaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+/* Film grain overlay */
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+/* ─── SKETCHBOOK BACKGROUND ─── */
+.sketchbook-bg {
+  /* Heavy warm art paper */
+  background-color: #efe9d8;
+  background-image:
+    /* paper grain — fine diagonal tooth like Strathmore */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeBlend in='SourceGraphic' mode='multiply'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23grain)' opacity='0.09'/%3E%3C/svg%3E"),
+    /* dot grid — Moleskine sketchbook feel */
+    radial-gradient(circle, rgba(90,65,35,0.32) 1.2px, transparent 1.2px);
+  background-size: 400px 400px, 26px 26px;
+}
+
+/* Edge shadow — paper depth */
+.sketchbook-bg::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  box-shadow: inset 40px 0 80px -20px rgba(80,60,30,0.08),
+              inset -40px 0 80px -20px rgba(80,60,30,0.08),
+              inset 0 0 120px -40px rgba(80,60,30,0.06);
+}
+
+/* GSAP safety net — ensure animated elements never stay invisible */
+.client-bar,
+.portfolio-card,
+.cta-strip-content {
+  opacity: 1;
+}
