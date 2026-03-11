@@ -92,6 +92,8 @@ interface PortfolioAssetProps {
   name: string;
   category?: string;
   aspect?: "video" | "square" | "portrait";
+  teaserSrc?: string;
+  onVideoClick?: () => void;
   className?: string;
 }
 
@@ -101,6 +103,8 @@ export default function PortfolioAsset({
   category,
   aspect = "video",
   className = "",
+  teaserSrc,
+  onVideoClick,
 }: PortfolioAssetProps) {
   const imageSrc = imageMap[slug];
   const videoSrc = videoMap[slug];
@@ -115,9 +119,12 @@ export default function PortfolioAsset({
   if (videoSrc) {
     const poster = posterMap[slug];
     return (
-      <div className={`relative ${aspectClass} rounded-sm overflow-hidden bg-navy-dark ${className}`}>
+      <div
+        className={`relative ${aspectClass} rounded-sm overflow-hidden bg-navy-dark ${className}${onVideoClick ? " cursor-pointer" : ""}`}
+        onClick={onVideoClick}
+      >
         <video
-          src={videoSrc}
+          src={teaserSrc || videoSrc}
           poster={poster}
           className="absolute inset-0 w-full h-full object-cover"
           muted

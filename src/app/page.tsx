@@ -36,18 +36,24 @@ const featuredWork = [
     title: "AI Animation",
     category: "Motion Design",
     slug: "ai-animation-hero",
+    teaserSrc: "/assets/videos/ai-animation-hero-teaser.mp4",
+    fullSrc: "/assets/videos/ai-animation-hero.mp4",
   },
   {
     client: "Animation",
     title: "Animation",
     category: "Motion Design",
     slug: "animation-card",
+    teaserSrc: "/assets/videos/animation-card.mov",
+    fullSrc: "/assets/videos/animation-card.mov",
   },
   {
     client: "3D Animation",
     title: "3D Animation",
     category: "Motion Design",
     slug: "3d-animation-card",
+    teaserSrc: "/assets/videos/3d-animation-card-teaser.mp4",
+    fullSrc: "/assets/videos/3d-animation-card.mp4",
   },
 ];
 
@@ -327,16 +333,14 @@ export default function Home() {
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {featuredWork.map((project) => (
-              <Link
-                href={`/work`}
-                key={project.slug}
-                className="portfolio-card group block"
-              >
+              <div key={project.slug} className="portfolio-card group block">
                 <PortfolioAsset
                   slug={project.slug}
                   name={project.client}
                   category={project.category}
                   aspect="portrait"
+                  teaserSrc={project.teaserSrc}
+                  onVideoClick={() => { setLightboxSrc(project.fullSrc); setLightboxLabel(project.title); }}
                 />
                 <div className="mt-4">
                   <h3 className="text-cream font-bold text-lg group-hover:text-red transition-colors duration-300">
@@ -344,20 +348,17 @@ export default function Home() {
                   </h3>
                   <p className="label-light mt-1">{project.category}</p>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
 
           {/* Extra video row above View All Work */}
           <div className="mt-8 flex flex-col md:flex-row gap-4">
             {/* Horizontal video — flex 3 */}
-            <div
-              className="group relative overflow-hidden rounded-sm md:flex-[3] cursor-pointer"
-              onClick={() => { setLightboxSrc("/assets/videos/home-feature-1-web.mp4"); setLightboxLabel("Featured Work"); }}
-            >
+            <div className="group relative overflow-hidden rounded-sm md:flex-[3] cursor-pointer">
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "56.25%"}}>
                 <video
-                  src="/assets/videos/home-feature-1-teaser.mp4"
+                  src="/assets/videos/home-feature-1-web.mp4"
                   poster="/assets/images/home-feature-1-thumb.jpg"
                   muted={activeSound !== "feat1"} loop playsInline
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -380,13 +381,10 @@ export default function Home() {
               </div>
             </div>
             {/* Vertical video — flex 1, hidden on mobile to avoid 1700px height */}
-            <div
-              className="hidden md:block group relative overflow-hidden rounded-sm md:flex-[1] cursor-pointer"
-              onClick={() => { setLightboxSrc("/assets/videos/home-feature-2-vertical-web.mp4"); setLightboxLabel("Featured Work"); }}
-            >
+            <div className="hidden md:block group relative overflow-hidden rounded-sm md:flex-[1] cursor-pointer">
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "177.78%"}}>
                 <video
-                  src="/assets/videos/home-feature-2-vertical-teaser.mp4"
+                  src="/assets/videos/home-feature-2-vertical-web.mp4"
                   poster="/assets/images/home-feature-2-thumb.jpg"
                   muted={activeSound !== "feat2"} loop playsInline
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
