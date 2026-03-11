@@ -104,16 +104,6 @@ export default function ContactPage() {
 
             <div className="contact-info space-y-8">
               <div>
-                <p className="label mb-2">Email</p>
-                <a
-                  href="mailto:hello@theflowerclub.co"
-                  className="text-navy font-semibold hover:text-red transition-colors"
-                >
-                  hello@theflowerclub.co
-                </a>
-              </div>
-
-              <div>
                 <p className="label mb-2">Based In</p>
                 <p className="text-navy/70">Charlotte, NC</p>
               </div>
