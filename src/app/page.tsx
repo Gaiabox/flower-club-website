@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PortfolioAsset from "@/components/PortfolioAsset";
-import Lightbox from "@/components/Lightbox";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -62,8 +62,7 @@ export default function Home() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [activeSound, setActiveSound] = useState<string | null>(null);
   const toggleSound = (id: string) => setActiveSound(prev => prev === id ? null : id);
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
-  const [lightboxLabel, setLightboxLabel] = useState<string>("");
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -267,7 +266,7 @@ export default function Home() {
             </div>
 
             {/* Right column — featured video */}
-            <div className="hidden lg:block lg:w-[420px] flex-shrink-0">
+            <div className="block w-full lg:w-[420px] flex-shrink-0">
               <div className="relative group rounded-sm overflow-hidden bg-navy-dark sticky top-32">
                 {/* Thumbnail label badge */}
                 <div className="absolute top-4 left-4 z-20 flex items-center gap-2 bg-navy-dark/80 backdrop-blur-sm border border-cream/10 rounded-full px-3 py-1.5">
@@ -340,7 +339,6 @@ export default function Home() {
                   category={project.category}
                   aspect="portrait"
                   teaserSrc={project.teaserSrc}
-                  onVideoClick={() => { setLightboxSrc(project.fullSrc); setLightboxLabel(project.title); }}
                 />
                 <div className="mt-4">
                   <h3 className="text-cream font-bold text-lg group-hover:text-red transition-colors duration-300">
@@ -469,15 +467,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── VIDEO LIGHTBOX ─── */}
-      {lightboxSrc && (
-        <Lightbox
-          src={lightboxSrc}
-          alt={lightboxLabel}
-          isVideo
-          onClose={() => setLightboxSrc(null)}
-        />
-      )}
+
     </>
   );
 }
