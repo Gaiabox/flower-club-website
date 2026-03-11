@@ -33,6 +33,7 @@ export default function ContactPage() {
     projectType: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -64,12 +65,24 @@ export default function ContactPage() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be added post-launch
-    alert(
-      "Thanks for reaching out! We'll get back to you within 24 hours."
-    );
+    setStatus("sending");
+    try {
+      const res = await fetch("https://raucously-pluglike-julene.ngrok-free.dev/webhook/flower-club-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setFormData({ name: "", company: "", budget: "", projectType: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -209,9 +222,18 @@ export default function ContactPage() {
 
               {/* Submit */}
               <div className="pt-4">
-                <button type="submit" className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto">
-                  Send Message
-                </button>
+                {status === "sent" ? (
+                  <p className="text-navy font-semibold text-lg">✓ Message sent — we&apos;ll be in touch within 24 hours.</p>
+                ) : status === "error" ? (
+                  <div>
+                    <p className="text-red font-semibold mb-3">Something went wrong. Email us directly at <a href="mailto:hello@theflowerclub.co" className="underline">hello@theflowerclub.co</a></p>
+                    <button type="submit" className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto">Try Again</button>
+                  </div>
+                ) : (
+                  <button type="submit" disabled={status === "sending"} className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto disabled:opacity-50">
+                    {status === "sending" ? "Sending..." : "Send Message"}
+                  </button>
+                )}
               </div>
             </form>
           </div>
