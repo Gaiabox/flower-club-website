@@ -4,13 +4,13 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "The Flower Club — Culture-Forward Creative Agency | Charlotte · Miami · New York · LA",
+  title: "The Flower Club — Culture-Forward Agency | Charlotte · Miami · New York · LA",
   description:
-    "Full-service creative agency for Fortune 500 brands and independent artists. Brand activations, AI animation, web design, video production, and graphic design across Charlotte NC, Miami FL, New York NY, and Los Angeles CA.",
+    "Full-service agency for Fortune 500 brands and independent artists. Brand activations, AI animation, web design, video production, and graphic design across Charlotte NC, Miami FL, New York NY, and Los Angeles CA.",
   metadataBase: new URL("https://theflowerclub.co"),
   openGraph: {
-    title: "The Flower Club — Culture-Forward Creative Agency",
-    description: "Full-service creative agency. Brand activations, AI animation, web design & video production. Charlotte · Miami · New York · LA",
+    title: "The Flower Club — Culture-Forward Agency",
+    description: "Full-service agency. Brand activations, AI animation, web design & video production. Charlotte · Miami · New York · LA",
     url: "https://theflowerclub.co",
     siteName: "The Flower Club",
     images: [{ url: "https://theflowerclub.co/og-image.jpg", width: 1200, height: 630 }],
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Flower Club — Culture-Forward Creative Agency",
+    title: "The Flower Club — Culture-Forward Agency",
     description: "Brand activations, AI animation, web design & video production.",
     images: ["https://theflowerclub.co/og-image.jpg"],
   },

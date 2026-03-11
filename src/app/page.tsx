@@ -153,7 +153,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-dark to-transparent" />
 
         <div className="relative z-10 text-center section-padding max-w-5xl mx-auto">
-          <p className="label-light mb-6">Creative Agency</p>
+          <p className="label-light mb-6">Agency</p>
           <h1
             ref={headlineRef}
             className="text-display-xl text-cream font-bold mb-6"
