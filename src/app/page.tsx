@@ -269,12 +269,9 @@ export default function Home() {
                   <span className="text-cream/80 font-mono text-[10px] uppercase tracking-widest">Featured</span>
                 </div>
                 {/* Video */}
-                <div
-                  className="aspect-[9/16] relative overflow-hidden cursor-pointer"
-                  onClick={() => { setLightboxSrc("/assets/videos/makers-mark-rev-run.mp4"); setLightboxLabel("Maker's Mark × Rev Run"); }}
-                >
+                <div className="aspect-[9/16] relative overflow-hidden">
                   <video
-                    src="/assets/videos/makers-mark-rev-run-teaser.mp4"
+                    src="/assets/videos/makers-mark-rev-run.mp4"
                     poster="/assets/images/makers-mark-rev-run-thumb.jpg"
                     muted={activeSound !== "revrun"}
                     loop
@@ -292,7 +289,7 @@ export default function Home() {
                   </div>
                   {/* Sound toggle */}
                   <button
-                    onClick={(e) => { e.stopPropagation(); toggleSound("revrun"); }}
+                    onClick={() => toggleSound("revrun")}
                     className="absolute bottom-14 right-3 z-30 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors"
                   >
                     {activeSound !== "revrun" ? (
