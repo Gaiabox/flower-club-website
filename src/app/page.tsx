@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PortfolioAsset from "@/components/PortfolioAsset";
+import Lightbox from "@/components/Lightbox";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,6 +56,8 @@ export default function Home() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [activeSound, setActiveSound] = useState<string | null>(null);
   const toggleSound = (id: string) => setActiveSound(prev => prev === id ? null : id);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [lightboxLabel, setLightboxLabel] = useState<string>("");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -266,9 +269,12 @@ export default function Home() {
                   <span className="text-cream/80 font-mono text-[10px] uppercase tracking-widest">Featured</span>
                 </div>
                 {/* Video */}
-                <div className="aspect-[9/16] relative overflow-hidden">
+                <div
+                  className="aspect-[9/16] relative overflow-hidden cursor-pointer"
+                  onClick={() => { setLightboxSrc("/assets/videos/makers-mark-rev-run.mp4"); setLightboxLabel("Maker's Mark × Rev Run"); }}
+                >
                   <video
-                    src="/assets/videos/makers-mark-rev-run.mp4"
+                    src="/assets/videos/makers-mark-rev-run-teaser.mp4"
                     poster="/assets/images/makers-mark-rev-run-thumb.jpg"
                     muted={activeSound !== "revrun"}
                     loop
@@ -286,7 +292,7 @@ export default function Home() {
                   </div>
                   {/* Sound toggle */}
                   <button
-                    onClick={() => toggleSound("revrun")}
+                    onClick={(e) => { e.stopPropagation(); toggleSound("revrun"); }}
                     className="absolute bottom-14 right-3 z-30 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors"
                   >
                     {activeSound !== "revrun" ? (
@@ -348,10 +354,13 @@ export default function Home() {
           {/* Extra video row above View All Work */}
           <div className="mt-8 flex flex-col md:flex-row gap-4">
             {/* Horizontal video — flex 3 */}
-            <div className="group relative overflow-hidden rounded-sm md:flex-[3] cursor-pointer">
+            <div
+              className="group relative overflow-hidden rounded-sm md:flex-[3] cursor-pointer"
+              onClick={() => { setLightboxSrc("/assets/videos/home-feature-1-web.mp4"); setLightboxLabel("Featured Work"); }}
+            >
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "56.25%"}}>
                 <video
-                  src="/assets/videos/home-feature-1-web.mp4"
+                  src="/assets/videos/home-feature-1-teaser.mp4"
                   poster="/assets/images/home-feature-1-thumb.jpg"
                   muted={activeSound !== "feat1"} loop playsInline
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -374,10 +383,13 @@ export default function Home() {
               </div>
             </div>
             {/* Vertical video — flex 1, hidden on mobile to avoid 1700px height */}
-            <div className="hidden md:block group relative overflow-hidden rounded-sm md:flex-[1] cursor-pointer">
+            <div
+              className="hidden md:block group relative overflow-hidden rounded-sm md:flex-[1] cursor-pointer"
+              onClick={() => { setLightboxSrc("/assets/videos/home-feature-2-vertical-web.mp4"); setLightboxLabel("Featured Work"); }}
+            >
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "177.78%"}}>
                 <video
-                  src="/assets/videos/home-feature-2-vertical-web.mp4"
+                  src="/assets/videos/home-feature-2-vertical-teaser.mp4"
                   poster="/assets/images/home-feature-2-thumb.jpg"
                   muted={activeSound !== "feat2"} loop playsInline
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -461,6 +473,16 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* ─── VIDEO LIGHTBOX ─── */}
+      {lightboxSrc && (
+        <Lightbox
+          src={lightboxSrc}
+          alt={lightboxLabel}
+          isVideo
+          onClose={() => setLightboxSrc(null)}
+        />
+      )}
     </>
   );
 }
