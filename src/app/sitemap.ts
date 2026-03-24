@@ -9,5 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE.url}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE.url}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE.url}/services/charlotte`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE.url}/services/pg-county`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }
