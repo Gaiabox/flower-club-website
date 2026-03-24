@@ -208,4 +208,11 @@ export const services = [
       "Technical SEO, content strategy, and on-page optimization that drives organic growth. We build visibility that compounds over time.",
     example: "Integrated SEO across all web builds",
   },
+  {
+    title: "AI Systems + Automation",
+    headline: "Your business runs. Even when you don't.",
+    description:
+      "We build the workflows that replace the manual work eating your day — lead follow-up, appointment reminders, missed call recovery, client onboarding, review requests. All automated. All running in the background. You handle the work that actually needs you.",
+    example: "Automated intake + follow-up pipelines for service businesses",
+  },
 ];
