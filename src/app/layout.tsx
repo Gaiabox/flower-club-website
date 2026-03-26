@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <body className="antialiased">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TT0B6TVGV9"
           strategy="afterInteractive"
@@ -46,8 +46,6 @@ export default function RootLayout({
             gtag('config', 'G-TT0B6TVGV9');
           `}
         </Script>
-      </head>
-      <body className="antialiased">
         <Navigation />
         <main>{children}</main>
         <Footer />
