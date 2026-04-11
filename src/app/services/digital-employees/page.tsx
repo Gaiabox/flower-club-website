@@ -109,13 +109,12 @@ export default function DigitalEmployeesPage() {
         <section className="de-hero max-w-4xl mb-20 md:mb-24">
           <p className="label mb-4">AI-Powered Digital Employees</p>
           <h1 className="text-display-xl text-navy font-bold mb-6">
-            Give your business a custom AI-powered support layer for the tasks
-            that eat time and slow growth.
+            AI support for the tasks that eat time and slow growth.
           </h1>
           <p className="text-navy/65 text-xl max-w-3xl leading-relaxed mb-6">
-            We build AI-powered digital employees customized around your business
-            to help handle repetitive operational work like follow-up,
-            scheduling, intake, reporting, admin, and content support.
+            We build custom digital employees around your business to handle
+            follow-up, scheduling, intake, reporting, admin, and content
+            support — so your team can focus on the work that matters.
           </p>
           <p className="text-navy/55 text-lg max-w-3xl leading-relaxed">
             Built for real businesses. Deployed locally, in the cloud, or in a
@@ -165,9 +164,8 @@ export default function DigitalEmployeesPage() {
           </div>
           <div className="lg:col-span-7">
             <p className="text-navy/65 text-lg leading-relaxed mb-8 de-section-title">
-              We look at how your business currently works, where time gets lost,
-              where follow-up breaks down, where admin starts piling up, and
-              where communication gets inconsistent. Then we build the right
+              We study where time gets lost, follow-up breaks down, and
+              communication gets inconsistent — then build the right support
               layer around that.
             </p>
             <div className="de-grid grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -187,7 +185,7 @@ export default function DigitalEmployeesPage() {
           <div className="lg:col-span-5">
             <p className="label de-section-title mb-4">Deployment options</p>
             <h2 className="text-display-sm text-navy font-bold de-section-title">
-              Built to fit the level of control and flexibility you need.
+              Your level of control. Your call.
             </h2>
           </div>
           <div className="lg:col-span-7 de-grid grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -209,8 +207,7 @@ export default function DigitalEmployeesPage() {
           <div className="lg:col-span-5">
             <p className="label de-section-title mb-4">Start with the right layer</p>
             <h2 className="text-display-sm text-navy font-bold de-section-title">
-              Some businesses are ready for AI support now. Some need the
-              digital foundation fixed first.
+              AI-ready or foundation first — we&apos;ll tell you which.
             </h2>
           </div>
           <div className="lg:col-span-7">
@@ -248,13 +245,11 @@ export default function DigitalEmployeesPage() {
         <section className="de-cta bg-navy rounded-sm p-10 md:p-14 text-center max-w-4xl mx-auto">
           <p className="label-light mb-4">Want to see where this fits?</p>
           <h2 className="text-display-sm text-cream font-bold mb-4">
-            We&apos;ll look at your website, customer flow, and operational friction
-            points, then show you what kind of system makes sense.
+            Let&apos;s find where AI fits in your business.
           </h2>
           <p className="text-cream/65 max-w-2xl mx-auto mb-8 leading-relaxed">
-            Some businesses need a stronger digital foundation first. Some are
-            ready for AI-powered support right now. We&apos;ll tell you which one is
-            true, and why.
+            We&apos;ll look at your website, customer flow, and friction points —
+            then show you what kind of support system makes sense and why.
           </p>
           <Link href="/contact" className="btn-primary">
             Start a Conversation
