@@ -209,10 +209,10 @@ export const services = [
     example: "Integrated SEO across all web builds",
   },
   {
-    title: "AI Systems + Automation",
-    headline: "Your business runs. Even when you don't.",
+    title: "AI-Powered Digital Employees",
+    headline: "Custom support systems for the tasks that slow businesses down.",
     description:
-      "We build the workflows that replace the manual work eating your day — lead follow-up, appointment reminders, missed call recovery, client onboarding, review requests. All automated. All running in the background. You handle the work that actually needs you.",
-    example: "Automated intake + follow-up pipelines for service businesses",
+      "We build AI-powered digital employees around real business needs — follow-up, scheduling, intake, reporting, admin, customer communication, and other repetitive operational work. Deployed locally, in the cloud, or in a hybrid setup depending on the level of control and flexibility you need.",
+    example: "Custom support layers for businesses that need smoother operations",
   },
 ];

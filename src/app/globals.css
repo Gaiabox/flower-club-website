@@ -134,6 +134,32 @@
               inset 0 0 120px -40px rgba(80,60,30,0.06);
 }
 
+/* ─── BLUEPRINT / LAB BACKGROUND ─── */
+.blueprint-bg {
+  background-color: #FAF7F2;
+  background-image:
+    /* subtle paper grain */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeBlend in='SourceGraphic' mode='multiply'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E"),
+    /* fine grid — engineering paper */
+    linear-gradient(rgba(27,42,74,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,42,74,0.04) 1px, transparent 1px),
+    /* major grid lines */
+    linear-gradient(rgba(27,42,74,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,42,74,0.07) 1px, transparent 1px);
+  background-size: 400px 400px, 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+}
+
+.blueprint-bg::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  box-shadow: inset 40px 0 80px -20px rgba(27,42,74,0.04),
+              inset -40px 0 80px -20px rgba(27,42,74,0.04),
+              inset 0 0 120px -40px rgba(27,42,74,0.03);
+}
+
 /* GSAP safety net — ensure animated elements never stay invisible */
 .client-bar,
 .portfolio-card,
