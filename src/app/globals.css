@@ -98,6 +98,12 @@
   100% { transform: translateX(-33.333%); }
 }
 
+/* Outlined display text (marquee alternating words) */
+.text-outline {
+  -webkit-text-stroke: 1.5px currentColor;
+  color: transparent !important;
+}
+
 /* ─── SCROLL-TO-TOP: double chevron marching upward ─── */
 @keyframes chevron-rise {
   0% { transform: translateY(10px); opacity: 0; }

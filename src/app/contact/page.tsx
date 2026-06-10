@@ -86,7 +86,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-cream min-h-screen pt-32 pb-24">
+    <div className="sketchbook-bg relative min-h-screen pt-32 pb-24">
       <div className="section-padding max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           {/* Left — Header + Info */}

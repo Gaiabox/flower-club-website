@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import FlowerWatermark from "@/components/FlowerWatermark";
+import Marquee from "@/components/Marquee";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,6 +95,18 @@ export default function AboutPage() {
           start: "top 80%",
         },
       });
+
+      // Timeline line draws itself in as you scroll
+      gsap.from(".timeline-line", {
+        scaleY: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".milestones",
+          start: "top 75%",
+          end: "bottom 60%",
+          scrub: 0.8,
+        },
+      });
     });
 
     return () => ctx.revert();
@@ -101,8 +115,9 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="bg-navy-dark pt-32 pb-24 md:pb-32">
-        <div className="section-padding max-w-5xl mx-auto">
+      <section className="bg-navy-dark pt-32 pb-24 md:pb-32 relative overflow-hidden grain-overlay">
+        <FlowerWatermark className="w-[560px] md:w-[760px] -right-32 md:-right-44 -top-32 text-cream opacity-[0.05]" />
+        <div className="section-padding max-w-5xl mx-auto relative z-10">
           <div className="about-header mb-12">
             <p className="label-light mb-4">About</p>
             <h1 className="text-display-xl text-cream font-bold">
@@ -133,12 +148,23 @@ export default function AboutPage() {
         <div className="section-padding max-w-5xl mx-auto">
           <p className="label mb-12">The Journey</p>
 
-          <div className="milestones space-y-0">
-            {milestones.map((milestone) => (
+          <div className="milestones relative space-y-0">
+            {/* Red line that draws itself in on scroll */}
+            <div className="timeline-line absolute left-[-1px] top-1 bottom-0 w-[2px] bg-red origin-top" />
+            {milestones.map((milestone, i) => (
               <div
                 key={milestone.year}
                 className="milestone relative pl-12 md:pl-20 pb-16 last:pb-0 border-l-2 border-navy/10 last:border-transparent"
               >
+                {/* Ghost number */}
+                <span
+                  className="pointer-events-none select-none absolute right-0 top-0 font-bold text-navy/[0.06] leading-none"
+                  style={{ fontSize: "clamp(5rem, 12vw, 9rem)" }}
+                  aria-hidden="true"
+                >
+                  0{i + 1}
+                </span>
+
                 {/* Dot */}
                 <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 bg-red rounded-full" />
 
@@ -159,9 +185,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <Marquee items={["Strategy", "Craft", "Culture", "Results"]} />
+
       {/* Values */}
-      <section className="bg-navy py-24 md:py-32">
-        <div className="section-padding max-w-6xl mx-auto">
+      <section className="bg-navy py-24 md:py-32 relative overflow-hidden">
+        <FlowerWatermark className="w-[520px] md:w-[700px] -left-36 md:-left-48 -bottom-36 text-cream opacity-[0.04]" />
+        <div className="section-padding max-w-6xl mx-auto relative z-10">
           <p className="label-light mb-4">Philosophy</p>
           <h2 className="text-display-md text-cream font-bold mb-16">
             How We Work.

@@ -5,6 +5,9 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import PortfolioAsset from "@/components/PortfolioAsset";
+import FlowerWatermark from "@/components/FlowerWatermark";
+import Marquee from "@/components/Marquee";
+import CountUp from "@/components/CountUp";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -205,11 +208,11 @@ export default function Home() {
         <div className="section-padding max-w-7xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-16">
             {[
-              { stat: "150+", label: "Events Produced" },
-              { stat: "50+", label: "Brands Worked With" },
-              { stat: "Fortune 500", label: "to Independent Artists" },
-            ].map(({ stat, label }) => (
-              <div key={stat} className="flex items-center gap-3">
+              { stat: <CountUp end={150} suffix="+" />, key: "events", label: "Events Produced" },
+              { stat: <CountUp end={50} suffix="+" />, key: "brands", label: "Brands Worked With" },
+              { stat: "Fortune 500", key: "f500", label: "to Independent Artists" },
+            ].map(({ stat, key, label }) => (
+              <div key={key} className="flex items-center gap-3">
                 <span className="text-cream font-bold text-xl md:text-2xl uppercase tracking-tight">{stat}</span>
                 <span className="text-cream/60 font-mono text-[10px] uppercase tracking-widest leading-tight max-w-[80px]">{label}</span>
               </div>
@@ -236,8 +239,9 @@ export default function Home() {
       </section>
 
       {/* ─── THE TWO-STEP SYSTEM ─── */}
-      <section className="system-section bg-navy py-24 md:py-32">
-        <div className="section-padding max-w-7xl mx-auto">
+      <section className="system-section bg-navy py-24 md:py-32 relative overflow-hidden">
+        <FlowerWatermark className="w-[560px] md:w-[760px] -right-36 md:-right-48 -top-40 text-cream opacity-[0.04]" />
+        <div className="section-padding max-w-7xl mx-auto relative z-10">
           <div className="mb-16">
             <p className="label-light mb-4">The Biggest Opportunities</p>
             <h2 className="text-display-md text-cream font-bold">
@@ -500,6 +504,17 @@ export default function Home() {
         </div>
       </section>
 
+      <Marquee
+        items={[
+          "Brand Identity",
+          "Web Design",
+          "AI Employees",
+          "Activations",
+          "Motion",
+          "Content",
+        ]}
+      />
+
       {/* ─── STATEMENT SECTION ─── */}
       <section
         className="relative py-20 md:py-28 overflow-hidden border-t border-cream/5 w-full"
@@ -532,8 +547,9 @@ export default function Home() {
       </section>
 
       {/* ─── CTA STRIP ─── */}
-      <section className="cta-strip bg-navy py-24 md:py-32">
-        <div className="cta-strip-content section-padding max-w-4xl mx-auto text-center">
+      <section className="cta-strip bg-navy py-24 md:py-32 relative overflow-hidden">
+        <FlowerWatermark className="w-[480px] md:w-[640px] left-1/2 -translate-x-1/2 -bottom-56 text-cream opacity-[0.05]" />
+        <div className="cta-strip-content section-padding max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-display-md text-cream font-bold mb-6">
             Ready to make your website actually work?
           </h2>
