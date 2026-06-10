@@ -167,26 +167,24 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-dark to-transparent" />
 
         <div className="relative z-10 text-center section-padding max-w-5xl mx-auto">
-          <p className="label-light mb-6">Web Design × AI Systems — Charlotte, NC</p>
+          <p className="label-light mb-6">Full-Service Creative Agency — Charlotte, NC</p>
           <h1
             ref={headlineRef}
             className="text-display-xl text-cream font-bold mb-6"
           >
-            Websites that convert.
-            <br />
-            AI that does the busywork.
+            We build brands people remember.
           </h1>
           <p className="hero-sub text-cream/70 text-lg md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed w-full px-2">
-            We build your digital front door first — then install AI employees
-            behind it to handle follow-up, scheduling, and intake. One system.
-            More revenue, less admin.
+            Identity, content, activations, motion — everything a memorable
+            brand needs. Including the two that move revenue fastest: a website
+            built to convert, and AI employees working behind it.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary">
-              Start With Your Website
+              Start a Project
             </Link>
-            <Link href="/services/digital-employees" className="btn-outline">
-              Meet the AI Employees
+            <Link href="/work" className="btn-outline">
+              See the Work
             </Link>
           </div>
 
@@ -241,11 +239,11 @@ export default function Home() {
       <section className="system-section bg-navy py-24 md:py-32">
         <div className="section-padding max-w-7xl mx-auto">
           <div className="mb-16">
-            <p className="label-light mb-4">The System</p>
+            <p className="label-light mb-4">The Biggest Opportunities</p>
             <h2 className="text-display-md text-cream font-bold">
-              One front door.
+              Where brands get
               <br />
-              One engine behind it.
+              the most leverage.
             </h2>
           </div>
 
@@ -355,8 +353,9 @@ export default function Home() {
                 {/* Video */}
                 <div className="aspect-[9/16] relative overflow-hidden">
                   <video
-                    src="/assets/videos/makers-mark-rev-run.mp4"
+                    src="/assets/videos/makers-mark-rev-run-teaser.mp4"
                     poster="/assets/images/makers-mark-rev-run-thumb.jpg"
+                    preload="none"
                     muted={activeSound !== "revrun"}
                     loop
                     playsInline
@@ -435,8 +434,9 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-sm md:flex-[3] cursor-pointer">
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "56.25%"}}>
                 <video
-                  src="/assets/videos/home-feature-1-web.mp4"
+                  src="/assets/videos/home-feature-1-teaser.mp4"
                   poster="/assets/images/home-feature-1-thumb.jpg"
+                  preload="none"
                   muted={activeSound !== "feat1"} loop playsInline
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
@@ -461,8 +461,9 @@ export default function Home() {
             <div className="hidden md:block group relative overflow-hidden rounded-sm md:flex-[1] cursor-pointer">
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "177.78%"}}>
                 <video
-                  src="/assets/videos/home-feature-2-vertical-web.mp4"
+                  src="/assets/videos/home-feature-2-vertical-teaser.mp4"
                   poster="/assets/images/home-feature-2-thumb.jpg"
+                  preload="none"
                   muted={activeSound !== "feat2"} loop playsInline
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}

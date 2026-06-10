@@ -126,6 +126,7 @@ export default function PortfolioAsset({
         <video
           src={teaserSrc || videoSrc}
           poster={poster}
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover"
           muted
           loop
