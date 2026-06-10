@@ -132,30 +132,59 @@ export default function Preloader() {
 
     document.body.style.overflow = "hidden";
 
-    let current = 0;
-    const start = performance.now();
-    const tick = window.setInterval(() => {
-      // page is ready, OR we've waited long enough — heavy videos shouldn't
-      // hold the door shut (readyState can stay incomplete for a long time)
-      const loaded =
-        document.readyState === "complete" || performance.now() - start > 4500;
-      // crawl toward 90 while loading, sprint to 100 once the page is ready
-      const step = loaded ? 6 + Math.random() * 5 : 1.5 + Math.random() * 3.5;
-      current = Math.min(loaded ? 100 : 90, current + step);
-      setProgress(current);
+    // Tunables — kept small so the loader never overstays its welcome.
+    const MIN_MS = 1100; // show the bloom long enough to read as intentional
+    const MAX_MS = 5000; // hard ceiling: finish no matter what after this
+    const FADE_MS = 700; // must match the CSS transition duration below
 
-      if (current >= 100) {
-        window.clearInterval(tick);
-        window.setTimeout(() => setFading(true), 400);
-        window.setTimeout(() => {
-          document.body.style.overflow = "";
-          setDone(true);
-        }, 1100);
+    let raf = 0;
+    let finishing = false;
+    let pageLoaded = document.readyState === "complete";
+    const start = performance.now();
+
+    const onLoad = () => {
+      pageLoaded = true;
+    };
+    window.addEventListener("load", onLoad);
+
+    // One owner of completion. Safe to call multiple times — it no-ops
+    // after the first run, so nothing can leave the overlay stuck up.
+    const finish = () => {
+      if (finishing) return;
+      finishing = true;
+      cancelAnimationFrame(raf);
+      setProgress(100);
+      setFading(true);
+      window.setTimeout(() => {
+        document.body.style.overflow = "";
+        setDone(true);
+      }, FADE_MS);
+    };
+
+    const frame = (now: number) => {
+      const elapsed = now - start;
+      // Ease toward 90% over the min window; the last 10% waits for load.
+      const base = Math.min(90, (elapsed / MIN_MS) * 90);
+      const ready = pageLoaded && elapsed >= MIN_MS;
+      const target = ready ? 100 : base;
+      setProgress((p) => (target > p ? target : p));
+
+      if (ready || elapsed >= MAX_MS) {
+        finish();
+        return;
       }
-    }, 90);
+      raf = requestAnimationFrame(frame);
+    };
+    raf = requestAnimationFrame(frame);
+
+    // Absolute safety net — independent of rAF (which pauses when the tab
+    // is backgrounded). Guarantees the site is never permanently blocked.
+    const failsafe = window.setTimeout(finish, MAX_MS + 200);
 
     return () => {
-      window.clearInterval(tick);
+      cancelAnimationFrame(raf);
+      window.clearTimeout(failsafe);
+      window.removeEventListener("load", onLoad);
       document.body.style.overflow = "";
     };
   }, []);
