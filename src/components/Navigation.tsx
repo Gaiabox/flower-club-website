@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import FlowerLogo from "@/components/FlowerLogo";
+import AnimatedLogo from "@/components/AnimatedLogo";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,8 +46,8 @@ export default function Navigation() {
       <div className="section-padding flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-50">
-          <span className="text-cream text-xl">
-            <FlowerLogo />
+          <span className={`text-xl ${!scrolled && isLightPage && !mobileOpen ? "text-navy" : "text-cream"}`}>
+            <AnimatedLogo />
           </span>
         </Link>
 

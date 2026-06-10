@@ -22,12 +22,12 @@ const clients = [
 ];
 
 const serviceTiles = [
-  { title: "Brand Activations", icon: "◆" },
-  { title: "Video Production", icon: "◉" },
-  { title: "Brand Identity + Design", icon: "◈" },
-  { title: "Web Design + Development", icon: "▣" },
-  { title: "AI Animation", icon: "◎" },
-  { title: "Content Creation", icon: "◐" },
+  { title: "Web Design + Development", icon: "▣", href: "/services" },
+  { title: "AI-Powered Digital Employees", icon: "◎", href: "/services/digital-employees" },
+  { title: "Brand Identity + Design", icon: "◈", href: "/services" },
+  { title: "Video Production + AI Animation", icon: "◉", href: "/services" },
+  { title: "Brand Activations", icon: "◆", href: "/services" },
+  { title: "Content Creation", icon: "◐", href: "/services" },
 ];
 
 const featuredWork = [
@@ -118,6 +118,20 @@ export default function Home() {
         },
       });
 
+      // Two-step system cards
+      gsap.from(".system-card", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: ".system-section",
+          start: "top 80%",
+        },
+      });
+
       // CTA strip
       gsap.from(".cta-strip-content", {
         opacity: 0,
@@ -153,22 +167,26 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-dark to-transparent" />
 
         <div className="relative z-10 text-center section-padding max-w-5xl mx-auto">
-          <p className="label-light mb-6">Agency</p>
+          <p className="label-light mb-6">Web Design × AI Systems — Charlotte, NC</p>
           <h1
             ref={headlineRef}
             className="text-display-xl text-cream font-bold mb-6"
           >
-            We Build Brands.
+            Websites that convert.
+            <br />
+            AI that does the busywork.
           </h1>
           <p className="hero-sub text-cream/70 text-lg md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed w-full px-2">
-            From the stage to the feed — we build brands that get felt.
+            We build your digital front door first — then install AI employees
+            behind it to handle follow-up, scheduling, and intake. One system.
+            More revenue, less admin.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/work" className="btn-primary">
-              See the Work ↓
+            <Link href="/contact" className="btn-primary">
+              Start With Your Website
             </Link>
-            <Link href="/contact" className="btn-outline">
-              Start a Project
+            <Link href="/services/digital-employees" className="btn-outline">
+              Meet the AI Employees
             </Link>
           </div>
 
@@ -219,8 +237,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── THE TWO-STEP SYSTEM ─── */}
+      <section className="system-section bg-navy py-24 md:py-32">
+        <div className="section-padding max-w-7xl mx-auto">
+          <div className="mb-16">
+            <p className="label-light mb-4">The System</p>
+            <h2 className="text-display-md text-cream font-bold">
+              One front door.
+              <br />
+              One engine behind it.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Step 01 — The Website */}
+            <Link
+              href="/contact"
+              className="system-card group block border border-cream/15 bg-navy-dark/60 p-10 md:p-12 rounded-sm hover:border-red/60 transition-colors duration-500"
+            >
+              <p className="font-mono text-red text-sm mb-6">01</p>
+              <h3 className="text-display-sm text-cream font-bold mb-4">
+                The Website
+              </h3>
+              <p className="text-cream/60 leading-relaxed mb-8">
+                Custom-coded, conversion-focused, fast. No templates, no
+                Squarespace. Your digital front door — built to turn visitors
+                into customers, not just look good.
+              </p>
+              <span className="inline-flex items-center gap-2 text-cream font-semibold text-sm uppercase tracking-wider group-hover:text-red transition-colors">
+                Start here
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </Link>
+
+            {/* Step 02 — The AI Layer */}
+            <Link
+              href="/services/digital-employees"
+              className="system-card group block border border-cream/15 bg-navy-dark/60 p-10 md:p-12 rounded-sm hover:border-red/60 transition-colors duration-500"
+            >
+              <p className="font-mono text-red text-sm mb-6">02</p>
+              <h3 className="text-display-sm text-cream font-bold mb-4">
+                The AI Employees
+              </h3>
+              <p className="text-cream/60 leading-relaxed mb-8">
+                Custom digital employees installed behind your site — lead
+                follow-up, intake, scheduling, reporting. The busywork runs
+                itself, so growth doesn&apos;t mean more headcount.
+              </p>
+              <span className="inline-flex items-center gap-2 text-cream font-semibold text-sm uppercase tracking-wider group-hover:text-red transition-colors">
+                See how it works
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </Link>
+          </div>
+
+          <p className="text-cream/40 font-mono text-xs uppercase tracking-widest mt-10 text-center">
+            Weak site? We fix that first. Solid site? We build the layer on top.
+          </p>
+        </div>
+      </section>
+
       {/* ─── SERVICES BRIEF ─── */}
-      <section className="bg-cream py-24 md:py-32">
+      <section className="no-breathe bg-cream py-24 md:py-32">
         <div className="section-padding max-w-7xl mx-auto">
 
           {/* Two-col: left = heading + tiles, right = video */}
@@ -239,8 +317,9 @@ export default function Home() {
 
               <div className="services-grid grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {serviceTiles.map((service) => (
-                  <div
+                  <Link
                     key={service.title}
+                    href={service.href}
                     className="service-tile group p-8 border border-navy/25 bg-white/60 rounded-sm hover:border-red/50 hover:bg-navy transition-all duration-500 cursor-pointer shadow-sm"
                   >
                     <span className="text-red text-2xl mb-4 block group-hover:scale-110 transition-transform duration-300">
@@ -250,7 +329,7 @@ export default function Home() {
                       {service.title}
                     </h3>
                     <div className="w-8 h-0.5 bg-red/50 group-hover:w-12 transition-all duration-500" />
-                  </div>
+                  </Link>
                 ))}
               </div>
 
@@ -455,11 +534,12 @@ export default function Home() {
       <section className="cta-strip bg-navy py-24 md:py-32">
         <div className="cta-strip-content section-padding max-w-4xl mx-auto text-center">
           <h2 className="text-display-md text-cream font-bold mb-6">
-            Ready to build something?
+            Ready to make your website actually work?
           </h2>
           <p className="text-cream/60 text-lg mb-10 max-w-xl mx-auto">
-            We work with brands that take their creative seriously. If
-            that&apos;s you, let&apos;s talk.
+            Tell us about your business. We&apos;ll look at your site and your
+            customer flow, then show you what to build first — and what it
+            gets you.
           </p>
           <Link href="/contact" className="btn-primary">
             Start a Project

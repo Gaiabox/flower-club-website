@@ -98,6 +98,45 @@
   100% { transform: translateX(-33.333%); }
 }
 
+/* ─── SCROLL-TO-TOP: double chevron marching upward ─── */
+@keyframes chevron-rise {
+  0% { transform: translateY(10px); opacity: 0; }
+  35% { opacity: 1; }
+  65% { opacity: 1; }
+  100% { transform: translateY(-10px); opacity: 0; }
+}
+.chevron-rise {
+  animation: chevron-rise 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.chevron-rise-delayed {
+  animation-delay: -0.8s;
+}
+
+/* ─── DESKTOP-ONLY INTERACTIONS ─── */
+@media (pointer: fine) {
+  /* Section breathe — content leans toward you on hover */
+  main > section {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  main > section:hover {
+    transform: scale(1.015);
+  }
+  /* sections with sticky children can't be transformed without breaking them */
+  main > section.no-breathe:hover {
+    transform: none;
+  }
+  html, body {
+    overflow-x: clip;
+  }
+
+  /* Custom VIEW cursor replaces the native one over work cards */
+  .portfolio-card, .portfolio-card *,
+  .work-item, .work-item *,
+  [data-cursor="view"], [data-cursor="view"] * {
+    cursor: none !important;
+  }
+}
+
 /* Film grain overlay */
 .grain-overlay::after {
   content: "";

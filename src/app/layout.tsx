@@ -2,27 +2,43 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollToTop from "@/components/ScrollToTop";
+import { OrgSchema, WebsiteSchema } from "@/components/JsonLd";
+import { SITE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "The Flower Club — Culture-Forward Agency | Charlotte · Miami · New York · LA",
+  title: {
+    default: "Web Design & AI Employees for Business | The Flower Club — Charlotte NC",
+    template: "%s | The Flower Club",
+  },
   description:
-    "Full-service agency for Fortune 500 brands and independent artists. Brand activations, AI animation, web design, video production, and graphic design across Charlotte NC, Miami FL, New York NY, and Los Angeles CA.",
-  metadataBase: new URL("https://theflowerclub.design"),
+    "The Flower Club builds conversion-focused websites, then installs AI employees behind them — lead follow-up, scheduling, intake. Charlotte NC creative agency also serving Miami, New York & LA. Brand activations for Bacardi, Red Bull & more.",
+  metadataBase: new URL(SITE.url),
+  alternates: { canonical: SITE.url },
   openGraph: {
-    title: "The Flower Club — Culture-Forward Agency",
-    description: "Full-service agency. Brand activations, AI animation, web design & video production. Charlotte · Miami · New York · LA",
-    url: "https://theflowerclub.design",
+    title: "Web Design & AI Employees for Business | The Flower Club",
+    description:
+      "Websites built to convert. AI employees built to run the busywork behind them. Charlotte NC · Miami · New York · LA.",
+    url: SITE.url,
     siteName: "The Flower Club",
-    images: [{ url: "https://theflowerclub.design/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: `${SITE.url}/og-image.jpg`, width: 1200, height: 630 }],
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Flower Club — Culture-Forward Agency",
-    description: "Brand activations, AI animation, web design & video production.",
-    images: ["https://theflowerclub.design/og-image.jpg"],
+    title: "Web Design & AI Employees for Business | The Flower Club",
+    description:
+      "Websites built to convert. AI employees built to run the busywork behind them.",
+    images: [`${SITE.url}/og-image.jpg`],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 export default function RootLayout({
@@ -47,9 +63,14 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <Preloader />
+        <CustomCursor />
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <ScrollToTop />
+        <OrgSchema />
+        <WebsiteSchema />
       </body>
     </html>
   );
