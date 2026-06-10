@@ -133,8 +133,12 @@ export default function Preloader() {
     document.body.style.overflow = "hidden";
 
     let current = 0;
+    const start = performance.now();
     const tick = window.setInterval(() => {
-      const loaded = document.readyState === "complete";
+      // page is ready, OR we've waited long enough — heavy videos shouldn't
+      // hold the door shut (readyState can stay incomplete for a long time)
+      const loaded =
+        document.readyState === "complete" || performance.now() - start > 4500;
       // crawl toward 90 while loading, sprint to 100 once the page is ready
       const step = loaded ? 6 + Math.random() * 5 : 1.5 + Math.random() * 3.5;
       current = Math.min(loaded ? 100 : 90, current + step);
