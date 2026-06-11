@@ -6,10 +6,10 @@
 
 export const SITE = {
   name: "The Flower Club",
-  url: "https://theflowerclub.co",
-  tagline: "Culture-Forward Creative Agency | Brand Activations, Video, Design & AI Animation",
+  url: "https://theflowerclub.design",
+  tagline: "Web Design & AI Employees for Business | Charlotte NC Creative Agency",
   description:
-    "The Flower Club is a full-service creative agency specializing in brand activations, video production, AI animation, web design, and graphic design. Serving Fortune 500 brands and independent artists across Charlotte, Miami, New York, and Los Angeles.",
+    "The Flower Club builds conversion-focused websites and AI-powered digital employees for growing businesses — plus brand activations, video production, and AI animation for Fortune 500 brands and independent artists. Charlotte NC · Miami · New York · Los Angeles.",
   email: "hello@theflowerclub.co",
   location: {
     city: "Charlotte",
@@ -42,6 +42,36 @@ export const CITIES = [
 
 export const SERVICES_SEO = [
   {
+    slug: "web-design",
+    name: "Web Design + Development",
+    keywords: [
+      "web design agency Charlotte NC",
+      "web design agency",
+      "custom website design Charlotte",
+      "web development agency",
+      "conversion focused website design",
+      "Next.js web development agency",
+      "small business web design Charlotte",
+    ],
+    description:
+      "Custom-coded, conversion-focused websites for brands that need more than a template. No Squarespace. No shortcuts.",
+  },
+  {
+    slug: "digital-employees",
+    name: "AI-Powered Digital Employees",
+    keywords: [
+      "AI employees for business",
+      "AI automation agency Charlotte NC",
+      "custom AI agents for small business",
+      "AI lead follow-up system",
+      "business process automation agency",
+      "AI receptionist for business",
+      "AI appointment scheduling automation",
+    ],
+    description:
+      "Custom AI-powered digital employees that handle lead follow-up, intake, scheduling, reporting, and admin — built around how your business already works.",
+  },
+  {
     slug: "brand-identity",
     name: "Brand Identity + Design",
     keywords: [
@@ -54,20 +84,6 @@ export const SERVICES_SEO = [
     ],
     description:
       "Strategic brand identity and logo design for artists, startups, and Fortune 500 companies. We build visual systems that last — not trend-chasing.",
-  },
-  {
-    slug: "web-design",
-    name: "Web Design + Development",
-    keywords: [
-      "web design agency",
-      "web development agency",
-      "custom website design",
-      "creative agency web design",
-      "website design for brands",
-      "Next.js web development agency",
-    ],
-    description:
-      "Custom-coded, conversion-focused websites for brands that need more than a template. No Squarespace. No shortcuts.",
   },
   {
     slug: "content-creation",

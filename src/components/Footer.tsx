@@ -1,40 +1,111 @@
 import Link from "next/link";
 import FlowerLogo from "@/components/FlowerLogo";
+import { SITE } from "@/lib/seo";
+
+const pages = [
+  { href: "/", label: "Home" },
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+const services = [
+  { href: "/services", label: "Web Design + Development" },
+  { href: "/services/digital-employees", label: "AI Employees" },
+  { href: "/services", label: "Brand Identity" },
+  { href: "/services", label: "Brand Activations" },
+  { href: "/services", label: "Video + AI Animation" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-dark border-t border-cream/10 section-padding py-6">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="bg-navy-dark border-t border-cream/10 relative overflow-hidden">
+      <div className="section-padding max-w-7xl mx-auto pt-16 md:pt-20 pb-8">
 
-        {/* Left — brand */}
-        <div className="flex items-center gap-2">
-          <FlowerLogo />
-        </div>
+        {/* Big wordmark */}
+        <Link href="/" className="block text-cream hover:text-cream/80 transition-colors">
+          <span className="text-3xl sm:text-4xl md:text-6xl">
+            <FlowerLogo />
+          </span>
+        </Link>
 
-        {/* Center — nav */}
-        <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
-          {[
-            { href: "/", label: "Home" },
-            { href: "/work", label: "Work" },
-            { href: "/services", label: "Services" },
-            { href: "/about", label: "About" },
-            { href: "/contact", label: "Contact" },
-          ].map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-white hover:text-white/70 transition-colors text-[11px] font-mono uppercase tracking-wider"
+        {/* Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-14 md:mt-16">
+          <div>
+            <p className="label-light mb-5">Explore</p>
+            <ul className="space-y-3">
+              {pages.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-cream/70 hover:text-cream transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="label-light mb-5">Services</p>
+            <ul className="space-y-3">
+              {services.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-cream/70 hover:text-cream transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-span-2">
+            <p className="label-light mb-5">Start a Conversation</p>
+            <a
+              href={`mailto:${SITE.email}`}
+              className="font-mono text-cream text-lg md:text-2xl hover:text-red transition-colors break-all"
             >
-              {link.label}
-            </Link>
-          ))}
+              {SITE.email}
+            </a>
+            <p className="text-cream/40 text-sm mt-6 leading-relaxed">
+              Charlotte, NC — serving Miami, New York, Los Angeles, and
+              everywhere in between.
+            </p>
+            <div className="flex gap-6 mt-6">
+              <a
+                href={SITE.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cream/60 hover:text-cream transition-colors text-xs font-mono uppercase tracking-widest"
+              >
+                Instagram
+              </a>
+              <a
+                href={SITE.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cream/60 hover:text-cream transition-colors text-xs font-mono uppercase tracking-widest"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* Right — copyright */}
-        <p className="text-white text-[10px] font-mono">
-          © {new Date().getFullYear()} The Flower Club. All rights reserved.
-        </p>
-
+        {/* Bottom row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-16 pt-6 border-t border-cream/10">
+          <p className="text-cream/40 text-[11px] font-mono uppercase tracking-wider">
+            © {new Date().getFullYear()} The Flower Club. All rights reserved.
+          </p>
+          <p className="text-cream/40 text-[11px] font-mono uppercase tracking-wider">
+            Culture-forward. Results-driven.
+          </p>
+        </div>
       </div>
     </footer>
   );
