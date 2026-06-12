@@ -1,0 +1,20 @@
+<!--
+  Static form definitions for Netlify Forms detection.
+  The build bot scans static HTML for data-netlify forms; the live
+  contact page (a React client component) POSTs to this file's path
+  with matching field names. Not linked anywhere — never seen by users.
+-->
+<html>
+  <head><title>Forms</title></head>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="text" name="company" />
+      <input type="text" name="projectType" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

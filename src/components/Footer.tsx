@@ -66,12 +66,13 @@ export default function Footer() {
 
           <div className="col-span-2">
             <p className="label-light mb-5">Start a Conversation</p>
-            <a
-              href={`mailto:${SITE.email}`}
-              className="font-mono text-cream text-lg md:text-2xl hover:text-red transition-colors break-all"
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 text-cream text-lg md:text-2xl font-bold hover:text-red transition-colors group"
             >
-              {SITE.email}
-            </a>
+              Start a Project
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
             <p className="text-cream/40 text-sm mt-6 leading-relaxed">
               Charlotte, NC — serving Miami, New York, Los Angeles, and
               everywhere in between.

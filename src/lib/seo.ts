@@ -10,7 +10,6 @@ export const SITE = {
   tagline: "Web Design & AI Employees for Business | Charlotte NC Creative Agency",
   description:
     "The Flower Club builds conversion-focused websites and AI-powered digital employees for growing businesses — plus brand activations, video production, and AI animation for Fortune 500 brands and independent artists. Charlotte NC · Miami · New York · Los Angeles.",
-  email: "hello@theflowerclub.co",
   location: {
     city: "Charlotte",
     state: "NC",
