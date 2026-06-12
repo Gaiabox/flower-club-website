@@ -8,6 +8,7 @@ import PortfolioAsset from "@/components/PortfolioAsset";
 import FlowerWatermark from "@/components/FlowerWatermark";
 import Marquee from "@/components/Marquee";
 import CountUp from "@/components/CountUp";
+import BeforeAfter from "@/components/BeforeAfter";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -135,6 +136,35 @@ export default function Home() {
         },
       });
 
+      // Statement lines reveal as you scroll through them
+      gsap.from(".statement-line", {
+        yPercent: 70,
+        opacity: 0,
+        stagger: 0.18,
+        ease: "none",
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: ".statement-sec",
+          start: "top 85%",
+          end: "center 55%",
+          scrub: 0.6,
+        },
+      });
+
+      // Before/after section reveal
+      gsap.from(".ba-section .max-w-5xl > *", {
+        opacity: 0,
+        y: 35,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power3.out",
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: ".ba-section",
+          start: "top 75%",
+        },
+      });
+
       // CTA strip
       gsap.from(".cta-strip-content", {
         opacity: 0,
@@ -159,10 +189,20 @@ export default function Home() {
         ref={heroRef}
         className="grain-overlay relative min-h-screen flex items-center justify-center bg-navy-dark overflow-hidden"
       >
-        {/* Hero background image */}
+        {/* Hero background image (always present — poster on mobile, fallback under video on desktop) */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/assets/images/hero-bg.jpg')" }}
+        />
+        {/* Hero background video — desktop only, mobile keeps the still */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover hidden md:block"
+          src="/assets/videos/makers-mark-rev-run-teaser.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/assets/images/hero-bg.jpg"
         />
         {/* Dark overlay — keeps text legible */}
         <div className="absolute inset-0 bg-navy-dark/75" />
@@ -194,8 +234,17 @@ export default function Home() {
 
         </div>
 
+        {/* Work credit — what you're looking at IS the work */}
+        <div className="absolute bottom-8 left-6 md:left-12 z-10 flex items-center gap-2.5">
+          <span className="h-2 w-2 rounded-full bg-red animate-pulse flex-shrink-0" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-cream/70 leading-relaxed">
+            <span className="md:hidden">Our work — Pusha T listening party, produced by The Flower Club</span>
+            <span className="hidden md:inline">Our work — Maker&apos;s Mark × Rev Run activation, produced by The Flower Club</span>
+          </span>
+        </div>
+
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream/30">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-cream/30">
           <span className="font-mono text-xs uppercase tracking-widest">
             Scroll
           </span>
@@ -296,6 +345,31 @@ export default function Home() {
           <p className="text-cream/40 font-mono text-xs uppercase tracking-widest mt-10 text-center">
             Weak site? We fix that first. Solid site? We build the layer on top.
           </p>
+        </div>
+      </section>
+
+      {/* ─── BEFORE / AFTER ─── */}
+      <section className="ba-section bg-navy-dark py-24 md:py-32 relative overflow-hidden">
+        <div className="section-padding max-w-5xl mx-auto">
+          <div className="mb-12">
+            <p className="label-light mb-4">The Difference</p>
+            <h2 className="text-display-md text-cream font-bold">
+              Drag it. See it.
+            </h2>
+            <p className="text-cream/55 text-lg mt-4 max-w-xl">
+              Every site we touch goes from template to brand. Grab the handle.
+            </p>
+          </div>
+          <BeforeAfter />
+          <div className="mt-10">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-cream font-semibold text-sm uppercase tracking-wider hover:text-red transition-colors group"
+            >
+              Your site is the before. Let&apos;s fix that
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -517,7 +591,7 @@ export default function Home() {
 
       {/* ─── STATEMENT SECTION ─── */}
       <section
-        className="relative py-20 md:py-28 overflow-hidden border-t border-cream/5 w-full"
+        className="statement-sec relative py-20 md:py-28 overflow-hidden border-t border-cream/5 w-full"
         style={{ backgroundImage: "url('/assets/images/culture-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
       >
         <div className="absolute inset-0 bg-navy-dark/70" />
@@ -525,19 +599,19 @@ export default function Home() {
           <p className="label-light mb-6 text-center">The Standard</p>
           <div className="flex flex-col items-center text-center gap-2">
             <span
-              className="text-cream font-bold uppercase leading-none tracking-tight select-none"
+              className="statement-line text-cream font-bold uppercase leading-none tracking-tight select-none"
               style={{ fontSize: "clamp(3rem, 12vw, 11rem)", letterSpacing: "-0.03em" }}
             >
               CULTURE
             </span>
             <span
-              className="text-red font-bold uppercase leading-none tracking-tight select-none"
+              className="statement-line text-red font-bold uppercase leading-none tracking-tight select-none"
               style={{ fontSize: "clamp(3rem, 12vw, 11rem)", letterSpacing: "-0.03em" }}
             >
               IS THE
             </span>
             <span
-              className="text-cream/20 font-bold uppercase leading-none tracking-tight select-none"
+              className="statement-line text-cream/20 font-bold uppercase leading-none tracking-tight select-none"
               style={{ fontSize: "clamp(3rem, 12vw, 11rem)", letterSpacing: "-0.03em" }}
             >
               MEDIUM.

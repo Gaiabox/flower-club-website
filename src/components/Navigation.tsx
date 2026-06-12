@@ -99,7 +99,7 @@ export default function Navigation() {
         backdrop-blur creates a containing block that would trap this
         fixed overlay inside the bar and squash it. */}
     <div
-      className={`md:hidden fixed inset-0 bg-navy-dark z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
+      className={`md:hidden fixed inset-0 bg-navy-dark z-[45] flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
         mobileOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
