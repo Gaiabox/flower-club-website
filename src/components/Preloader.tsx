@@ -123,18 +123,13 @@ export default function Preloader() {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    // Desktop only — touch devices go straight to the site
-    const isDesktop = window.matchMedia("(pointer: fine) and (min-width: 768px)").matches;
-    if (!isDesktop) {
-      setDone(true);
-      return;
-    }
-
     document.body.style.overflow = "hidden";
 
     // Tunables — kept small so the loader never overstays its welcome.
-    const MIN_MS = 1100; // show the bloom long enough to read as intentional
-    const MAX_MS = 5000; // hard ceiling: finish no matter what after this
+    // Mobile gets a tighter window: connections vary more, patience is shorter.
+    const mobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+    const MIN_MS = mobile ? 900 : 1100; // show the bloom long enough to read as intentional
+    const MAX_MS = mobile ? 3500 : 5000; // hard ceiling: finish no matter what after this
     const FADE_MS = 700; // must match the CSS transition duration below
 
     let raf = 0;

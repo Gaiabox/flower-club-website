@@ -54,9 +54,6 @@ export default function AnimatedLogo({ className = "" }: { className?: string })
   const [animating, setAnimating] = useState(false);
 
   useEffect(() => {
-    const desktop = window.matchMedia("(pointer: fine) and (min-width: 768px)").matches;
-    if (!desktop) return;
-
     const update = () => setAnimating(window.scrollY < 50);
     update();
     window.addEventListener("scroll", update, { passive: true });
