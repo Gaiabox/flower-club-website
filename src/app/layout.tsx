@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollToTop from "@/components/ScrollToTop";
+import BudChat from "@/components/BudChat";
 import { OrgSchema, WebsiteSchema } from "@/components/JsonLd";
 import { SITE } from "@/lib/seo";
 
@@ -69,6 +70,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <ScrollToTop />
+        <BudChat />
         <OrgSchema />
         <WebsiteSchema />
       </body>
