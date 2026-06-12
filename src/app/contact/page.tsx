@@ -68,11 +68,23 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
+
+    // Best-effort ping to the automation webhook — never blocks the visitor.
+    fetch("https://raucously-pluglike-julene.ngrok-free.dev/webhook/flower-club-contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    }).catch(() => {});
+
     try {
-      const res = await fetch("https://raucously-pluglike-julene.ngrok-free.dev/webhook/flower-club-contact", {
+      // Netlify Forms — the static form lives in public/__forms.html
+      const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...formData,
+        }).toString(),
       });
       if (res.ok) {
         setStatus("sent");
@@ -216,7 +228,7 @@ export default function ContactPage() {
                   <p className="text-navy font-semibold text-lg">✓ Message sent — we&apos;ll be in touch within 24 hours.</p>
                 ) : status === "error" ? (
                   <div>
-                    <p className="text-red font-semibold mb-3">Something went wrong. Email us directly at <a href="mailto:hello@theflowerclub.co" className="underline">hello@theflowerclub.co</a></p>
+                    <p className="text-red font-semibold mb-3">Something went wrong — please try again.</p>
                     <button type="submit" className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto">Try Again</button>
                   </div>
                 ) : (

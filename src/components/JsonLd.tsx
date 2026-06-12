@@ -31,7 +31,6 @@ export function OrgSchema() {
         logo: `${SITE.url}/assets/images/flower-club-logo.png`,
         image: `${SITE.url}/og-image.jpg`,
         description: SITE.description,
-        email: SITE.email,
         foundingDate: "2022",
         address: {
           "@type": "PostalAddress",
