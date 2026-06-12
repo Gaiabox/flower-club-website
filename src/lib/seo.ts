@@ -180,13 +180,13 @@ export function buildMeta({
       siteName: SITE.name,
       type: "website" as const,
       locale: "en_US",
-      images: [{ url: `${SITE.url}/og-image.jpg`, width: 1200, height: 630, alt: title }],
+      images: [{ url: `${SITE.url}/og-card.jpg`, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image" as const,
       title,
       description,
-      images: [`${SITE.url}/og-image.jpg`],
+      images: [`${SITE.url}/og-card.jpg`],
     },
     keywords: [
       ...SERVICES_SEO.flatMap((s) => s.keywords),

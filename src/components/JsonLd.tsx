@@ -29,7 +29,7 @@ export function OrgSchema() {
         name: SITE.name,
         url: SITE.url,
         logo: `${SITE.url}/assets/images/flower-club-logo.png`,
-        image: `${SITE.url}/og-image.jpg`,
+        image: `${SITE.url}/og-card.jpg`,
         description: SITE.description,
         foundingDate: "2022",
         address: {

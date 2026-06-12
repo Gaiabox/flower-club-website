@@ -14,25 +14,25 @@ export const metadata: Metadata = {
     template: "%s | The Flower Club",
   },
   description:
-    "The Flower Club builds conversion-focused websites, then installs AI employees behind them — lead follow-up, scheduling, intake. Charlotte NC creative agency also serving Miami, New York & LA. Brand activations for Bacardi, Red Bull & more.",
+    "Charlotte NC creative agency — conversion-focused web design, AI employees, brand identity, activations, video production & AI animation. Fortune 500 to rising brands.",
   metadataBase: new URL(SITE.url),
   alternates: { canonical: SITE.url },
   openGraph: {
-    title: "Web Design & AI Employees for Business | The Flower Club",
+    title: "We build brands people remember.",
     description:
-      "Websites built to convert. AI employees built to run the busywork behind them. Charlotte NC · Miami · New York · LA.",
+      "Charlotte NC creative agency — conversion-focused web design, AI employees, brand identity, activations, video production & AI animation. Fortune 500 to rising brands.",
     url: SITE.url,
     siteName: "The Flower Club",
-    images: [{ url: `${SITE.url}/og-image.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE.url}/og-card.jpg`, width: 1200, height: 630 }],
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Design & AI Employees for Business | The Flower Club",
+    title: "We build brands people remember.",
     description:
-      "Websites built to convert. AI employees built to run the busywork behind them.",
-    images: [`${SITE.url}/og-image.jpg`],
+      "Charlotte NC creative agency — web design, AI employees, brand identity, activations, video & AI animation.",
+    images: [`${SITE.url}/og-card.jpg`],
   },
   robots: {
     index: true,
