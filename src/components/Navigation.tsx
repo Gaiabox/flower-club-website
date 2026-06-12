@@ -34,6 +34,7 @@ export default function Navigation() {
   ];
 
   return (
+    <>
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
@@ -76,7 +77,7 @@ export default function Navigation() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden relative z-50 w-8 h-8 flex flex-col justify-center gap-1.5 ${!scrolled && isLightPage ? "[&>span]:bg-navy" : ""}`}
+          className={`md:hidden relative z-50 w-8 h-8 flex flex-col justify-center gap-1.5 ${!scrolled && isLightPage && !mobileOpen ? "[&>span]:bg-navy" : ""}`}
           aria-label="Toggle menu"
         >
           <span
@@ -91,28 +92,32 @@ export default function Navigation() {
           />
         </button>
 
-        {/* Mobile Menu */}
-        <div
-          className={`fixed inset-0 bg-navy-dark z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
-            mobileOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          }`}
-        >
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-cream text-display-sm font-bold uppercase tracking-wider hover:text-red transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/contact" className="btn-primary mt-4">
-            Start a Project
-          </Link>
-        </div>
       </div>
     </nav>
+
+    {/* Mobile Menu — sibling of <nav>, NOT inside it: the nav's
+        backdrop-blur creates a containing block that would trap this
+        fixed overlay inside the bar and squash it. */}
+    <div
+      className={`md:hidden fixed inset-0 bg-navy-dark z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
+        mobileOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      }`}
+    >
+      {links.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          className="text-cream text-display-sm font-bold uppercase tracking-wider hover:text-red transition-colors"
+        >
+          {link.label}
+        </Link>
+      ))}
+      <Link href="/contact" className="btn-primary mt-4">
+        Start a Project
+      </Link>
+    </div>
+    </>
   );
 }
