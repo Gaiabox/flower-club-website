@@ -178,7 +178,7 @@ export default function ServicesPage() {
             build the right solution.
           </p>
           <Link href="/contact" className="btn-primary">
-            Let's Grow
+            Let&apos;s Grow
           </Link>
         </div>
       </div>{/* end max-w-6xl */}
