@@ -215,7 +215,7 @@ export default function Home() {
             ref={headlineRef}
             className="text-display-xl text-cream font-bold mb-6"
           >
-            Your Website Should Be Bringing You Customers.
+            Turn Website Visitors Into Customers.
           </h1>
           <p className="hero-sub text-cream/70 text-lg md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed w-full px-2">
             We build websites, AI employees, and digital experiences that help businesses capture more leads, respond faster, and grow without adding headcount.
