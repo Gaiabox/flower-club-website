@@ -106,11 +106,11 @@ export default function ContactPage() {
             <div className="contact-header mb-12">
               <p className="label mb-4">Contact</p>
               <h1 className="text-display-lg text-navy font-bold mb-6">
-                Let's Figure Out What's Holding Growth Back.
+                Let&apos;s Figure Out What&apos;s Holding Growth Back.
               </h1>
               <p className="text-navy/60 text-lg leading-relaxed">
                 Whether you need a better website, stronger branding, AI automation, content, or a clearer strategy, 
-                we'll help identify the biggest opportunities for growth. Expect response within 24 hours.
+                we&apos;ll help identify the biggest opportunities for growth. Expect response within 24 hours.
               </p>
             </div>
 
