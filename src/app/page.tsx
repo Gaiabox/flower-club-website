@@ -222,7 +222,7 @@ export default function Home() {
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary">
-              Let's Grow
+              Let&apos;s Grow
             </Link>
             <Link href="/work" className="btn-outline">
               See the Work
@@ -626,11 +626,11 @@ export default function Home() {
             Ready to turn your website into a growth tool?
           </h2>
           <p className="text-cream/60 text-lg mb-10 max-w-xl mx-auto">
-            Tell us about your business, your goals, and what's slowing growth. 
-            We'll show you the highest-impact opportunities first.
+            Tell us about your business, your goals, and what&apos;s slowing growth. 
+            We&apos;ll show you the highest-impact opportunities first.
           </p>
           <Link href="/contact" className="btn-primary">
-           Let's Grow
+           Let&apos;s Grow
           </Link>
         </div>
       </section>
