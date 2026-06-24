@@ -70,7 +70,7 @@ export default function Navigation() {
             </Link>
           ))}
           <Link href="/contact" className={`!py-3 !px-6 !text-xs ${!scrolled && isLightPage ? "border border-navy text-navy font-bold uppercase tracking-widest text-xs px-6 py-3 hover:bg-navy hover:text-cream transition-colors" : "btn-primary"}`}>
-            Let's Grow
+            Let&apos;s Grow
           </Link>
         </div>
 
@@ -115,7 +115,7 @@ export default function Navigation() {
         </Link>
       ))}
       <Link href="/contact" className="btn-primary mt-4">
-        Let's Grow
+        Let&apos;s Grow
       </Link>
     </div>
     </>
