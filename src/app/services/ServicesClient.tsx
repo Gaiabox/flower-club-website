@@ -115,7 +115,7 @@ export default function ServicesPage() {
         <div className="services-header mb-20">
           <p className="label mb-4">Services</p>
           <h1 className="text-display-xl text-navy font-bold mb-4">
-            What We Do.
+            How We Help Businesses Grow.
           </h1>
           <p className="text-navy/60 text-xl max-w-xl">
             From websites and branding to AI automation and content, 
