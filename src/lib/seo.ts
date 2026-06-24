@@ -18,7 +18,7 @@ export const SITE = {
   },
   social: {
     instagram: "https://instagram.com/theflowerclub",
-    linkedin: "https://linkedin.com/company/theflowerclub",
+    linkedin: "https://linkedin.com/company/flowerclubhq",
   },
   clients: [
     "Maker's Mark",
