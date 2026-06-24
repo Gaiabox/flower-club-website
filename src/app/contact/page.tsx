@@ -106,11 +106,11 @@ export default function ContactPage() {
             <div className="contact-header mb-12">
               <p className="label mb-4">Contact</p>
               <h1 className="text-display-lg text-navy font-bold mb-6">
-                Let&apos;s Build.
+                Let's Figure Out What's Holding Growth Back.
               </h1>
               <p className="text-navy/60 text-lg leading-relaxed">
-                Have a project in mind? Tell us about it. We respond within 24
-                hours.
+                Whether you need a better website, stronger branding, AI automation, content, or a clearer strategy, 
+                we'll help identify the biggest opportunities for growth. Expect response within 24 hours.
               </p>
             </div>
 
@@ -233,7 +233,7 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <button type="submit" disabled={status === "sending"} className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto disabled:opacity-50">
-                    {status === "sending" ? "Sending..." : "Send Message"}
+                    {status === "sending" ? "Sending..." : "Let's Grow"}
                   </button>
                 )}
               </div>
