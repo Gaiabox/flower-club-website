@@ -118,8 +118,8 @@ export default function ServicesPage() {
             What We Do.
           </h1>
           <p className="text-navy/60 text-xl max-w-xl">
-            Full-service creative — from brand identity to AI animation.
-            Everything your brand needs to show up and stand out.
+            From websites and branding to AI automation and content, 
+            we build the systems businesses need to attract customers, earn trust, and grow.
           </p>
         </div>
 
@@ -178,7 +178,7 @@ export default function ServicesPage() {
             build the right solution.
           </p>
           <Link href="/contact" className="btn-primary">
-            Start a Conversation
+            Let's Grow
           </Link>
         </div>
       </div>{/* end max-w-6xl */}
