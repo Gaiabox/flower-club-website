@@ -32,22 +32,22 @@ const milestones = [
 
 const values = [
   {
-    title: "We don't decorate. We build.",
+    title: "Discover.",
     description:
-      "Every project gets the same level of strategic thinking and execution — whether it's a Fortune 500 brand or an independent artist.",
+      "Before recommending anything, we take the time to understand your goals, current challenges, and what success actually looks like for you.",
   },
   {
-    title: "Range is the proof.",
+    title: "Build the plan.",
     description:
-      "Album art to law firm branding. Event activations to AI animation. We don't specialize in one thing — we specialize in doing every thing at a high level.",
+      "We identify the highest-impact opportunities first so your time and budget are spent where they'll create the most value.",
   },
   {
-    title: "Culture is not a buzzword.",
+    title: "Build mode.",
     description:
-      "We don't slap 'culture' on a pitch deck. We come from it, we create within it, and we know when something is authentic versus manufactured.",
+      "Once we lock in plan, we design and develop the tools needed to move your business forward.",
   },
   {
-    title: "Real experience. Real results.",
+    title: "Launch and grow.",
     description:
       "Built on years of corporate America and creative execution — not on pitch decks and promises. The work speaks.",
   },
