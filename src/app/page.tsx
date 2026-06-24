@@ -215,16 +215,14 @@ export default function Home() {
             ref={headlineRef}
             className="text-display-xl text-cream font-bold mb-6"
           >
-            We build brands people remember.
+            Your Website Should Be Bringing You Customers.
           </h1>
           <p className="hero-sub text-cream/70 text-lg md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed w-full px-2">
-            Identity, content, activations, motion — everything a memorable
-            brand needs. Including the two that move revenue fastest: a website
-            built to convert, and AI employees working behind it.
+            We build websites, AI employees, and digital experiences that help businesses capture more leads, respond faster, and grow without adding headcount.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Let's Grow
             </Link>
             <Link href="/work" className="btn-outline">
               See the Work
@@ -383,11 +381,11 @@ export default function Home() {
             {/* Left column */}
             <div className="flex-1 min-w-0">
               <div className="mb-16">
-                <p className="label mb-4">What We Do</p>
+                <p className="label mb-4">How We Help Businesses Grow</p>
                 <h2 className="text-display-md text-navy font-bold">
-                  Culture-Forward.
+                  Built For Growth.
                   <br />
-                  Results-Driven.
+                  Powered By Strategy.
                 </h2>
               </div>
 
@@ -625,15 +623,14 @@ export default function Home() {
         <FlowerWatermark className="w-[480px] md:w-[640px] left-1/2 -translate-x-1/2 -bottom-56 text-cream opacity-[0.05]" />
         <div className="cta-strip-content section-padding max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-display-md text-cream font-bold mb-6">
-            Ready to make your website actually work?
+            Ready to turn your website into a growth tool?
           </h2>
           <p className="text-cream/60 text-lg mb-10 max-w-xl mx-auto">
-            Tell us about your business. We&apos;ll look at your site and your
-            customer flow, then show you what to build first — and what it
-            gets you.
+            Tell us about your business, your goals, and what's slowing growth. 
+            We'll show you the highest-impact opportunities first.
           </p>
           <Link href="/contact" className="btn-primary">
-            Start a Project
+           Let's Grow
           </Link>
         </div>
       </section>
