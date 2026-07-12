@@ -41,6 +41,22 @@ export const CITIES = [
 
 export const SERVICES_SEO = [
   {
+    slug: "ai-audit",
+    name: "The Audit — AI Consulting",
+    keywords: [
+      "AI audit for med spas",
+      "AI audit for law firms",
+      "AI audit for manufacturers",
+      "AI audit for dental practices",
+      "AI readiness assessment small business",
+      "AI consulting Charlotte NC",
+      "business process audit AI",
+      "AI ROI assessment",
+    ],
+    description:
+      "Paid AI consulting audit for owner-run businesses — we map how your business runs, find where it bleeds money, and deliver a roadmap priced in dollars per year. From $2,500.",
+  },
+  {
     slug: "web-design",
     name: "Web Design + Development",
     keywords: [

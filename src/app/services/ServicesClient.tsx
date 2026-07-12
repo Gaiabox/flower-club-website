@@ -115,12 +115,20 @@ export default function ServicesPage() {
         <div className="services-header mb-20">
           <p className="label mb-4">Services</p>
           <h1 className="text-display-xl text-navy font-bold mb-4">
-            How We Help Businesses Grow.
+            In the order that pays.
           </h1>
-          <p className="text-navy/60 text-xl max-w-xl">
-            From websites and branding to AI automation and content, 
-            we build the systems businesses need to attract customers, earn trust, and grow.
+          <p className="text-navy/60 text-xl max-w-xl mb-6">
+            We diagnose before we prescribe. The Audit finds where your
+            business bleeds money — then we build exactly what it needs:
+            AI systems, brand, website, content.
           </p>
+          <Link
+            href="/services/audit"
+            className="inline-flex items-center gap-2 text-navy font-semibold text-sm uppercase tracking-wider hover:text-red transition-colors group"
+          >
+            Start with the Audit — from $2,500
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
         </div>
 
         {/* Services List */}
@@ -171,15 +179,20 @@ export default function ServicesPage() {
         {/* CTA */}
         <div className="services-cta mt-20 bg-navy rounded-sm p-12 md:p-16 text-center">
           <h2 className="text-display-sm text-cream font-bold mb-4">
-            Need something specific?
+            Not sure where to start? That&apos;s the point of the Audit.
           </h2>
           <p className="text-cream/60 mb-8 max-w-md mx-auto">
-            Every project is different. Tell us what you need and we&apos;ll
-            build the right solution.
+            Two to three weeks, from $2,500 — and you&apos;ll know exactly what
+            to build first and what it&apos;s worth per year.
           </p>
-          <Link href="/contact" className="btn-primary">
-            Let&apos;s Grow
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/services/audit" className="btn-primary">
+              See the Audit
+            </Link>
+            <Link href="/contact" className="btn-outline">
+              Let&apos;s Grow
+            </Link>
+          </div>
         </div>
       </div>{/* end max-w-6xl */}
     </div>

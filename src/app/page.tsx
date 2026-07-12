@@ -26,7 +26,7 @@ const clients = [
 ];
 
 const serviceTiles = [
-  { title: "The Audit — AI Consulting", icon: "❖", href: "#audit" },
+  { title: "The Audit — AI Consulting", icon: "❖", href: "/services/audit" },
   { title: "AI Systems + Digital Employees", icon: "◎", href: "/services/digital-employees" },
   { title: "Web Design + Development", icon: "▣", href: "/services" },
   { title: "Brand Identity + Design", icon: "◈", href: "/services" },
@@ -308,7 +308,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {/* 01 — The Audit */}
             <Link
-              href="/contact"
+              href="/services/audit"
               className="system-card group flex flex-col border border-cream/15 bg-navy-dark/60 p-8 rounded-sm hover:border-red/60 transition-colors duration-500"
             >
               <p className="font-mono text-red text-sm mb-5">01</p>

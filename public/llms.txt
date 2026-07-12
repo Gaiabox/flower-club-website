@@ -45,6 +45,7 @@ https://theflowerclub.design/contact
 ## Pages
 
 - Home: https://theflowerclub.design
+- The Audit (AI consulting, from $2,500): https://theflowerclub.design/services/audit
 - Work (portfolio): https://theflowerclub.design/work
 - Services: https://theflowerclub.design/services
 - AI Employees: https://theflowerclub.design/services/digital-employees

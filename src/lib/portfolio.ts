@@ -153,6 +153,20 @@ export const projects: Project[] = [
 
 export const services = [
   {
+    title: "The Audit (AI Consulting)",
+    headline: "Find out where the business bleeds money. From $2,500.",
+    description:
+      "Paid diagnosis for owner-run businesses. We map how the work actually happens, find where time and revenue leak, and deliver a roadmap where every fix is priced in dollars per year. Scoped by complexity and task count.",
+    example: "Med spas, law firms, manufacturers, practices",
+  },
+  {
+    title: "AI-Powered Digital Employees",
+    headline: "Custom support systems for the tasks that slow businesses down.",
+    description:
+      "We build AI-powered digital employees around real business needs — follow-up, scheduling, intake, reporting, admin, and customer communication. System builds from $4,500; monthly retainers from $2,500.",
+    example: "Custom support layers for smoother operations",
+  },
+  {
     title: "Brand Identity",
     headline: "Your brand is your first impression. Make it count.",
     description:
@@ -207,12 +221,5 @@ export const services = [
     description:
       "Technical SEO, content strategy, and on-page optimization that drives organic growth. We build visibility that compounds over time.",
     example: "Integrated SEO across all web builds",
-  },
-  {
-    title: "AI-Powered Digital Employees",
-    headline: "Custom support systems for the tasks that slow businesses down.",
-    description:
-      "We build AI-powered digital employees around real business needs — follow-up, scheduling, intake, reporting, admin, customer communication, and other repetitive operational work. Deployed locally, in the cloud, or in a hybrid setup depending on the level of control and flexibility you need.",
-    example: "Custom support layers for businesses that need smoother operations",
   },
 ];
