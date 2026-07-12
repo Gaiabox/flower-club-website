@@ -21,14 +21,14 @@ export default function Navigation() {
   }, [pathname]);
 
   // Pages with light (cream) background — nav text must be dark when unscrolled
-  const lightBgPages = ["/services", "/services/digital-employees", "/contact", "/about"];
+  const lightBgPages = ["/services", "/services/digital-employees", "/services/audit", "/contact", "/about"];
   const isLightPage = lightBgPages.includes(pathname);
 
   const links = [
     { href: "/", label: "Home" },
     { href: "/work", label: "Work" },
     { href: "/services", label: "Services" },
-    { href: "/#audit", label: "The Audit" },
+    { href: "/services/audit", label: "The Audit" },
     { href: "/services/digital-employees", label: "AI Employees" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },

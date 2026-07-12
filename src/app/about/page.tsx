@@ -28,6 +28,12 @@ const milestones = [
     description:
       "Took everything learned at the Fortune 500 level and built an agency that brings that same craft to artists, companies, and culture brands that deserve it. Independent. Culture-forward. Results-driven.",
   },
+  {
+    year: "Now",
+    title: "Brand × AI Systems",
+    description:
+      "The next chapter: paid AI audits that find where owner-run businesses bleed money, systems and digital employees that fix it, and a concierge seat — the Club — for owners who want an AI advisor on call. Look like the market leader. Run like one.",
+  },
 ];
 
 const values = [
@@ -129,15 +135,17 @@ export default function AboutPage() {
 
           <div className="about-blurb max-w-3xl">
             <p className="text-cream/80 text-xl md:text-2xl leading-relaxed">
-              The Flower Club is a full-service creative agency built on real
+              The Flower Club is a brand and AI systems firm built on real
               experience. Before the agency, our founder spent years building
               some of the biggest spirits brands in the country — Maker&apos;s Mark,
               Courvoisier, Effen — executing activations with J. Cole, at
               CultureCon, with Buzzfeed.
             </p>
             <p className="text-cream/60 text-lg md:text-xl leading-relaxed mt-6">
-              Now we bring that same level of craft to artists, companies, and
-              culture brands that deserve it.
+              Now we bring Fortune 500 brand craft and AI-forward operations to
+              owners who built something real — med spas, law firms,
+              manufacturers, practices — and to the artists and culture brands
+              we&apos;ve always served.
             </p>
           </div>
         </div>
