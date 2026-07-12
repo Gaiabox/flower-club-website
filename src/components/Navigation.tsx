@@ -28,6 +28,7 @@ export default function Navigation() {
     { href: "/", label: "Home" },
     { href: "/work", label: "Work" },
     { href: "/services", label: "Services" },
+    { href: "/#audit", label: "The Audit" },
     { href: "/services/digital-employees", label: "AI Employees" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },

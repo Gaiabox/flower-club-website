@@ -15,32 +15,32 @@ type Msg = { from: "bud" | "user"; text: string };
 type Step = "name" | "service" | "budget" | "details" | "sending" | "done";
 
 const SERVICES = [
-  "Website",
+  "The Audit",
   "AI Employees",
+  "Website",
   "Branding / Design",
   "Video / Animation",
-  "Event / Activation",
   "Not sure yet",
 ];
 
-const BUDGETS = ["Under $5,000", "$5,000 — $15,000", "$15,000 — $50,000", "$50,000+", "Let's discuss"];
+const BUDGETS = ["Under $2,500", "$2,500 — $5,000", "$5,000 — $15,000", "$15,000+", "Let's discuss"];
 
 const SERVICE_MAP: Record<string, string> = {
-  Website: "Web Design + Development",
+  "The Audit": "The Audit (AI Consulting)",
   "AI Employees": "AI-Powered Digital Employees",
+  Website: "Web Design + Development",
   "Branding / Design": "Brand Identity",
   "Video / Animation": "AI Animation + Video",
-  "Event / Activation": "Event Creative",
   "Not sure yet": "Not Sure Yet",
 };
 
 const SERVICE_REPLIES: Record<string, string> = {
-  Website: "Good call — that's the front door of everything. Rough budget range?",
+  "The Audit": "Best place to start — we find where the business bleeds money and price every fix in dollars per year. Audits start at $2.5K, scoped by complexity. Rough budget range?",
   "AI Employees": "Smart. You're literally talking to one right now. Rough budget range?",
+  Website: "Good call — that's the front door of everything. Rough budget range?",
   "Branding / Design": "The foundation. Rough budget range?",
   "Video / Animation": "Motion moves people. Rough budget range?",
-  "Event / Activation": "Our specialty — 150+ produced. Rough budget range?",
-  "Not sure yet": "No problem, that's what the team is for. Rough budget range?",
+  "Not sure yet": "No problem — that's literally what our Audit is for. Rough budget range?",
 };
 
 function FlowerIcon({ size = 22 }: { size?: number }) {

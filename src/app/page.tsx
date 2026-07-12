@@ -26,12 +26,12 @@ const clients = [
 ];
 
 const serviceTiles = [
+  { title: "The Audit — AI Consulting", icon: "❖", href: "#audit" },
+  { title: "AI Systems + Digital Employees", icon: "◎", href: "/services/digital-employees" },
   { title: "Web Design + Development", icon: "▣", href: "/services" },
-  { title: "AI-Powered Digital Employees", icon: "◎", href: "/services/digital-employees" },
   { title: "Brand Identity + Design", icon: "◈", href: "/services" },
   { title: "Video Production + AI Animation", icon: "◉", href: "/services" },
   { title: "Brand Activations", icon: "◆", href: "/services" },
-  { title: "Content Creation", icon: "◐", href: "/services" },
 ];
 
 const featuredWork = [
@@ -210,7 +210,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-dark to-transparent" />
 
         <div className="relative z-10 text-center section-padding max-w-5xl mx-auto">
-          <p className="label-light mb-6">Full-Service Creative Agency — Charlotte, NC</p>
+          <p className="label-light mb-6">Brand × AI Systems — For Owners Who Built Something Real</p>
           <h1
             ref={headlineRef}
             className="text-display-xl text-cream font-bold mb-6"
@@ -218,11 +218,13 @@ export default function Home() {
             Turn Website Visitors Into Customers.
           </h1>
           <p className="hero-sub text-cream/70 text-lg md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed w-full px-2">
-            We build websites, AI employees, and digital experiences that help businesses capture more leads, respond faster, and grow without adding headcount.
+            We make your business impossible to ignore — and impossible to
+            out-operate. Brand on the outside, AI systems on the inside, every
+            fix priced in dollars per year.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary">
-              Let&apos;s Grow
+              Book the Audit
             </Link>
             <Link href="/work" className="btn-outline">
               See the Work
@@ -285,63 +287,113 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── THE TWO-STEP SYSTEM ─── */}
-      <section className="system-section bg-navy py-24 md:py-32 relative overflow-hidden">
+      {/* ─── THE LADDER ─── */}
+      <section id="audit" className="system-section bg-navy py-24 md:py-32 relative overflow-hidden">
         <FlowerWatermark className="w-[560px] md:w-[760px] -right-36 md:-right-48 -top-40 text-cream opacity-[0.04]" />
         <div className="section-padding max-w-7xl mx-auto relative z-10">
           <div className="mb-16">
-            <p className="label-light mb-4">The Biggest Opportunities</p>
+            <p className="label-light mb-4">How It Works</p>
             <h2 className="text-display-md text-cream font-bold">
-              Where brands get
+              Four rungs.
               <br />
-              the most leverage.
+              Each one earns the next.
             </h2>
+            <p className="text-cream/55 text-lg mt-5 max-w-2xl">
+              For owners who built something real — med spas, law firms,
+              manufacturers, practices. We diagnose before we prescribe, and
+              every finding is priced in dollars per year.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Step 01 — The Website */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {/* 01 — The Audit */}
             <Link
               href="/contact"
-              className="system-card group block border border-cream/15 bg-navy-dark/60 p-10 md:p-12 rounded-sm hover:border-red/60 transition-colors duration-500"
+              className="system-card group flex flex-col border border-cream/15 bg-navy-dark/60 p-8 rounded-sm hover:border-red/60 transition-colors duration-500"
             >
-              <p className="font-mono text-red text-sm mb-6">01</p>
-              <h3 className="text-display-sm text-cream font-bold mb-4">
-                The Website
-              </h3>
-              <p className="text-cream/60 leading-relaxed mb-8">
-                Custom-coded, conversion-focused, fast. No templates, no
-                Squarespace. Your digital front door — built to turn visitors
-                into customers, not just look good.
+              <p className="font-mono text-red text-sm mb-5">01</p>
+              <h3 className="text-cream font-bold text-2xl mb-1">The Audit</h3>
+              <p className="font-mono text-cream/45 text-[11px] uppercase tracking-widest mb-4">
+                from $2.5K · one-time
               </p>
-              <span className="inline-flex items-center gap-2 text-cream font-semibold text-sm uppercase tracking-wider group-hover:text-red transition-colors">
-                Start here
+              <p className="text-cream/60 text-sm leading-relaxed mb-6 flex-1">
+                Paid diagnosis. We map how your business actually runs, find
+                where it bleeds money, and hand you a roadmap priced in
+                dollars per year. Scoped by complexity and task count.
+              </p>
+              <span className="inline-flex items-center gap-2 text-cream font-semibold text-xs uppercase tracking-wider group-hover:text-red transition-colors">
+                Book the Audit
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </span>
             </Link>
 
-            {/* Step 02 — The AI Layer */}
+            {/* 02 — The Build */}
+            <Link
+              href="/services"
+              className="system-card group flex flex-col border border-cream/15 bg-navy-dark/60 p-8 rounded-sm hover:border-red/60 transition-colors duration-500"
+            >
+              <p className="font-mono text-red text-sm mb-5">02</p>
+              <h3 className="text-cream font-bold text-2xl mb-1">The Build</h3>
+              <p className="font-mono text-cream/45 text-[11px] uppercase tracking-widest mb-4">
+                from $4.5K · project
+              </p>
+              <p className="text-cream/60 text-sm leading-relaxed mb-6 flex-1">
+                Whatever the audit prescribes — AI systems for intake,
+                follow-up, and scheduling, plus the brand and website. Looking
+                small is an operational problem too.
+              </p>
+              <span className="inline-flex items-center gap-2 text-cream font-semibold text-xs uppercase tracking-wider group-hover:text-red transition-colors">
+                See the systems
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </Link>
+
+            {/* 03 — AI Employees */}
             <Link
               href="/services/digital-employees"
-              className="system-card group block border border-cream/15 bg-navy-dark/60 p-10 md:p-12 rounded-sm hover:border-red/60 transition-colors duration-500"
+              className="system-card group flex flex-col border border-cream/15 bg-navy-dark/60 p-8 rounded-sm hover:border-red/60 transition-colors duration-500"
             >
-              <p className="font-mono text-red text-sm mb-6">02</p>
-              <h3 className="text-display-sm text-cream font-bold mb-4">
-                The AI Employees
-              </h3>
-              <p className="text-cream/60 leading-relaxed mb-8">
-                Custom digital employees installed behind your site — lead
-                follow-up, intake, scheduling, reporting. The busywork runs
-                itself, so growth doesn&apos;t mean more headcount.
+              <p className="font-mono text-red text-sm mb-5">03</p>
+              <h3 className="text-cream font-bold text-2xl mb-1">AI Employees</h3>
+              <p className="font-mono text-cream/45 text-[11px] uppercase tracking-widest mb-4">
+                from $2.5K / month
               </p>
-              <span className="inline-flex items-center gap-2 text-cream font-semibold text-sm uppercase tracking-wider group-hover:text-red transition-colors">
-                See how it works
+              <p className="text-cream/60 text-sm leading-relaxed mb-6 flex-1">
+                The systems, staffed. Machines on payroll that answer in
+                seconds, follow up every lead, and never call in sick —
+                monitored and improved monthly.
+              </p>
+              <span className="inline-flex items-center gap-2 text-cream font-semibold text-xs uppercase tracking-wider group-hover:text-red transition-colors">
+                Meet them
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </span>
+            </Link>
+
+            {/* 04 — The Club */}
+            <Link
+              href="/contact"
+              className="system-card group flex flex-col border border-gold/40 bg-navy-dark/60 p-8 rounded-sm hover:border-gold transition-colors duration-500"
+              style={{ borderColor: "rgba(244,163,0,0.4)" }}
+            >
+              <p className="font-mono text-sm mb-5" style={{ color: "#F4A300" }}>04</p>
+              <h3 className="text-cream font-bold text-2xl mb-1">The Club</h3>
+              <p className="font-mono text-cream/45 text-[11px] uppercase tracking-widest mb-4">
+                retainers from $2.5K / month
+              </p>
+              <p className="text-cream/60 text-sm leading-relaxed mb-6 flex-1">
+                Membership. Your AI concierge — the call you make before any
+                tech decision. Monthly counsel, vendor vetting, quarterly
+                re-audits, first look at what&apos;s new.
+              </p>
+              <span className="inline-flex items-center gap-2 font-semibold text-xs uppercase tracking-wider transition-colors" style={{ color: "#F4A300" }}>
+                Apply for membership
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </span>
             </Link>
           </div>
 
           <p className="text-cream/40 font-mono text-xs uppercase tracking-widest mt-10 text-center">
-            Weak site? We fix that first. Solid site? We build the layer on top.
+            One audit becomes years of momentum. Diagnose → Build → Staff → Belong.
           </p>
         </div>
       </section>
@@ -600,19 +652,19 @@ export default function Home() {
               className="statement-line text-cream font-bold uppercase leading-none tracking-tight select-none"
               style={{ fontSize: "clamp(3rem, 12vw, 11rem)", letterSpacing: "-0.03em" }}
             >
-              CULTURE
+              BUILT
             </span>
             <span
               className="statement-line text-red font-bold uppercase leading-none tracking-tight select-none"
               style={{ fontSize: "clamp(3rem, 12vw, 11rem)", letterSpacing: "-0.03em" }}
             >
-              IS THE
+              TO BE
             </span>
             <span
               className="statement-line text-cream/20 font-bold uppercase leading-none tracking-tight select-none"
               style={{ fontSize: "clamp(3rem, 12vw, 11rem)", letterSpacing: "-0.03em" }}
             >
-              MEDIUM.
+              SEEN.
             </span>
           </div>
         </div>
@@ -622,15 +674,18 @@ export default function Home() {
       <section className="cta-strip bg-navy py-24 md:py-32 relative overflow-hidden">
         <FlowerWatermark className="w-[480px] md:w-[640px] left-1/2 -translate-x-1/2 -bottom-56 text-cream opacity-[0.05]" />
         <div className="cta-strip-content section-padding max-w-4xl mx-auto text-center relative z-10">
+          <p className="label-light mb-4">Membership</p>
           <h2 className="text-display-md text-cream font-bold mb-6">
-            Ready to turn your website into a growth tool?
+            Join the Club.
           </h2>
           <p className="text-cream/60 text-lg mb-10 max-w-xl mx-auto">
-            Tell us about your business, your goals, and what&apos;s slowing growth. 
-            We&apos;ll show you the highest-impact opportunities first.
+            The concierge seat: monthly counsel, vendor vetting, quarterly
+            re-audits, and first look at every new AI capability — the call you
+            make before any tech decision. Retainers from $2.5K/month.
+            Members get their calls answered first.
           </p>
           <Link href="/contact" className="btn-primary">
-           Let&apos;s Grow
+            Apply for Membership
           </Link>
         </div>
       </section>

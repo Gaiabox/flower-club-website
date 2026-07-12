@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 
 const projectTypes = [
-  "Brand Identity",
+  "The Audit (AI Consulting)",
+  "AI Systems + Digital Employees",
   "Web Design + Development",
+  "Brand Identity",
   "Content Creation",
   "AI Animation + Video",
   "Graphic Design",
@@ -17,11 +19,11 @@ const projectTypes = [
 ];
 
 const budgetRanges = [
-  "Under $5,000",
+  "Under $2,500",
+  "$2,500 — $5,000",
   "$5,000 — $15,000",
   "$15,000 — $30,000",
-  "$30,000 — $50,000",
-  "$50,000+",
+  "$30,000+",
   "Let's Discuss",
 ];
 

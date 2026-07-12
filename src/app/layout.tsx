@@ -11,11 +11,11 @@ import { SITE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
-    default: "Web Design & AI Employees for Business | The Flower Club — Charlotte NC",
+    default: "AI Consulting, Web Design & AI Employees | The Flower Club — Charlotte NC",
     template: "%s | The Flower Club",
   },
   description:
-    "Charlotte NC creative agency — conversion-focused web design, AI employees, brand identity, activations, video production & AI animation. Fortune 500 to rising brands.",
+    "AI audits from $2.5K, system builds, AI employees & brand design for owner-run businesses — med spas, law firms, manufacturers. Charlotte NC agency trusted by Bacardi, Red Bull & Maker's Mark.",
   metadataBase: new URL(SITE.url),
   alternates: { canonical: SITE.url },
   openGraph: {
