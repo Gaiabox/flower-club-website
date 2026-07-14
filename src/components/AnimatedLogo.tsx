@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * AnimatedLogo — THE FL[O]WER CLUB wordmark where the flower mark cycles
+ * AnimatedLogo, THE FL[O]WER CLUB wordmark where the flower mark cycles
  * through three treatments (filled → outlined → inverted) on a loop,
  * with a subtle petal rotation between frames.
  *
@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
  */
 
 const FRAMES = [
-  // filled — the original mark
+  // filled, the original mark
   {
     petalFill: "#FFD700",
     petalStroke: "#1B2A4A",
@@ -23,7 +23,7 @@ const FRAMES = [
     dotFill: "#FFD700",
     rotate: 0,
   },
-  // outlined — hollow, blueprint sketch (currentColor adapts to nav color)
+  // outlined, hollow, blueprint sketch (currentColor adapts to nav color)
   {
     petalFill: "transparent",
     petalStroke: "currentColor",
@@ -34,7 +34,7 @@ const FRAMES = [
     dotFill: "currentColor",
     rotate: 22.5,
   },
-  // inverted — navy petals, gold linework
+  // inverted, navy petals, gold linework
   {
     petalFill: "#1B2A4A",
     petalStroke: "#FFD700",

@@ -67,7 +67,7 @@ export default function ServicesPage() {
         <svg width="148" height="52" viewBox="0 0 148 52" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Drop shadow */}
           <rect x="4" y="12" width="140" height="38" rx="4" fill="rgba(0,0,0,0.12)" style={{filter:"blur(4px)"}}/>
-          {/* Main body — worn pink */}
+          {/* Main body, worn pink */}
           <rect x="0" y="6" width="140" height="40" rx="4" fill="#dba8b4"/>
           {/* Top face highlight */}
           <rect x="0" y="6" width="140" height="9" rx="4" fill="#e8bcc6"/>
@@ -80,7 +80,7 @@ export default function ServicesPage() {
           {/* Brand stamp */}
           <text x="46" y="27" fontFamily="'Arial Narrow', Arial, sans-serif" fontSize="8" fontWeight="bold" fill="rgba(100,40,50,0.6)" letterSpacing="2.5">PINK PEARL</text>
           <text x="60" y="38" fontFamily="Arial, sans-serif" fontSize="5.5" fill="rgba(100,40,50,0.38)" letterSpacing="2">ERASER</text>
-          {/* Worn / used right end — creamy green */}
+          {/* Worn / used right end, creamy green */}
           <rect x="112" y="6" width="28" height="40" rx="2" fill="#c8d8a0"/>
           <rect x="113" y="7" width="26" height="8" rx="1" fill="#d4e0ae"/>
           {/* Worn edge shavings / scuff marks */}
@@ -97,7 +97,7 @@ export default function ServicesPage() {
         <div style={{ position:"absolute", bottom:"-4px", left:"12px", width:"128px", height:"6px", background:"radial-gradient(ellipse, rgba(0,0,0,0.14) 0%, transparent 75%)", borderRadius:"50%" }}/>
       </div>
 
-      {/* Eraser residue trails — graphite smudge */}
+      {/* Eraser residue trails, graphite smudge */}
       <svg
         className="pointer-events-none select-none fixed z-10"
         style={{ bottom:"62px", right:"48px", transform:"rotate(-11deg)", opacity:0.22 }}
@@ -119,14 +119,14 @@ export default function ServicesPage() {
           </h1>
           <p className="text-navy/60 text-xl max-w-xl mb-6">
             We diagnose before we prescribe. The Audit finds where your
-            business bleeds money — then we build exactly what it needs:
+            business bleeds money, then we build exactly what it needs:
             AI systems, brand, website, content.
           </p>
           <Link
             href="/services/audit"
             className="inline-flex items-center gap-2 text-navy font-semibold text-sm uppercase tracking-wider hover:text-red transition-colors group"
           >
-            Start with the Audit — from $2,500
+            Start with the Audit, from $2,500
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
@@ -182,7 +182,7 @@ export default function ServicesPage() {
             Not sure where to start? That&apos;s the point of the Audit.
           </h2>
           <p className="text-cream/60 mb-8 max-w-md mx-auto">
-            Two to three weeks, from $2,500 — and you&apos;ll know exactly what
+            Two to three weeks, from $2,500, and you&apos;ll know exactly what
             to build first and what it&apos;s worth per year.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

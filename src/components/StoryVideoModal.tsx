@@ -38,7 +38,7 @@ export default function StoryVideoModal({
 
   return (
     <>
-      {/* ─── TRIGGER — integrated into hero as a film-reel pill ─── */}
+      {/* ─── TRIGGER, integrated into hero as a film-reel pill ─── */}
       <button
         onClick={() => setOpen(true)}
         className="group flex items-center gap-3 cursor-pointer"
@@ -98,7 +98,7 @@ export default function StoryVideoModal({
 
             {/* Label */}
             <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-cream/30 mb-4">
-              Courvoisier — Her Story
+              Courvoisier, Her Story
             </p>
 
             {/* Video container */}
@@ -110,7 +110,7 @@ export default function StoryVideoModal({
                 preload="metadata"
                 className="w-full h-full object-cover"
                 playsInline
-                // NO autoplay — user hits play
+                // NO autoplay, user hits play
               >
                 Your browser does not support HTML5 video.
               </video>

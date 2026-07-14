@@ -2,7 +2,7 @@ import NextScript from "next/script";
 import { SITE, SERVICES_SEO, CITIES } from "@/lib/seo";
 
 /**
- * JsonLd — Invisible structured data for search engines + LLMs.
+ * JsonLd, Invisible structured data for search engines + LLMs.
  * Uses next/script for safe hydration-compatible rendering.
  */
 
@@ -17,7 +17,7 @@ function Script({ id, data }: { id: string; data: object }) {
   );
 }
 
-/** Global org schema — in layout, every page */
+/** Global org schema, in layout, every page */
 export function OrgSchema() {
   return (
     <Script
@@ -52,7 +52,7 @@ export function OrgSchema() {
         })),
         serviceArea: {
           "@type": "GeoCircle",
-          description: "Nationwide — primary markets: Charlotte NC, Miami FL, New York NY, Los Angeles CA",
+          description: "Nationwide, primary markets: Charlotte NC, Miami FL, New York NY, Los Angeles CA",
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -91,7 +91,7 @@ export function OrgSchema() {
   );
 }
 
-/** Website search action — helps Google understand the site */
+/** Website search action, helps Google understand the site */
 export function WebsiteSchema() {
   return (
     <Script
@@ -110,7 +110,7 @@ export function WebsiteSchema() {
   );
 }
 
-/** Services page — individual Service schemas + FAQ */
+/** Services page, individual Service schemas + FAQ */
 export function ServicesSchema() {
   const faqItems = [
     {
@@ -119,23 +119,23 @@ export function ServicesSchema() {
     },
     {
       q: "What types of brands does The Flower Club work with?",
-      a: "We work across the full range — Fortune 500 companies like Maker's Mark, Red Bull, Bacardi, Rémy Martin, Courvoisier, Popeyes, and Febreze, as well as independent artists, startups, and cultural organizations.",
+      a: "We work across the full range, Fortune 500 companies like Maker's Mark, Red Bull, Bacardi, Rémy Martin, Courvoisier, Popeyes, and Febreze, as well as independent artists, startups, and cultural organizations.",
     },
     {
       q: "Does The Flower Club do brand activations and experiential events?",
-      a: "Yes — brand activations and experiential event creative is one of our core specialties. We've produced 150+ events across culture, music, food & beverage, and consumer goods industries.",
+      a: "Yes, brand activations and experiential event creative is one of our core specialties. We've produced 1000+ events across culture, music, food & beverage, and consumer goods industries.",
     },
     {
       q: "Does The Flower Club offer AI animation services?",
-      a: "Yes. We create cinematic AI animation and motion design for brands — content that would take traditional studios weeks, delivered faster and at scale.",
+      a: "Yes. We create cinematic AI animation and motion design for brands, content that would take traditional studios weeks, delivered faster and at scale.",
     },
     {
       q: "Can The Flower Club build a custom website for my brand?",
-      a: "Yes. We design and build fully custom websites — no templates, no shortcuts. Custom code, conversion-focused, built to perform.",
+      a: "Yes. We design and build fully custom websites, no templates, no shortcuts. Custom code, conversion-focused, built to perform.",
     },
     {
       q: "What makes The Flower Club different from other creative agencies?",
-      a: "We operate at the intersection of culture and commerce — Fortune 500 strategy with independent artist energy. We've built brands across music, CPG, cannabis, hospitality, and entertainment. The range is the proof.",
+      a: "We operate at the intersection of culture and commerce, Fortune 500 strategy with independent artist energy. We've built brands across music, CPG, cannabis, hospitality, and entertainment. The range is the proof.",
     },
   ];
 
@@ -191,7 +191,7 @@ export function WorkSchema() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "@id": `${SITE.url}/work#portfolio`,
-        name: "The Flower Club — Portfolio",
+        name: "The Flower Club, Portfolio",
         description:
           "Brand activations, video production, AI animation, and design work for Fortune 500 brands and cultural icons.",
         itemListElement: SITE.clients.map((client, i) => ({

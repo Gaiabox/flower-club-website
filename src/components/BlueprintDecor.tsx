@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * BlueprintDecor — technical schematic overlays for the Digital Employees page.
+ * BlueprintDecor, technical schematic overlays for the Digital Employees page.
  * All elements are aria-hidden, pointer-events-none, absolutely positioned.
  * Strokes use cool navy tones at low opacity to feel like engineering blueprints.
  */
@@ -20,7 +20,7 @@ export default function BlueprintDecor() {
       style={{ zIndex: 2 }}
     >
       {/* ══════════════════════════════════════════
-          TOP-RIGHT — Circuit / processor node
+          TOP-RIGHT, Circuit / processor node
       ══════════════════════════════════════════ */}
       <svg
         style={{ position: "absolute", top: "6%", right: "4%" }}
@@ -31,19 +31,19 @@ export default function BlueprintDecor() {
         {/* Central processor */}
         <rect x="70" y="70" width="60" height="60" rx="4" {...s} strokeWidth="1.2" opacity="0.12" />
         <rect x="82" y="82" width="36" height="36" rx="2" {...s} strokeWidth="1" opacity="0.10" />
-        {/* Pin connections — top */}
+        {/* Pin connections, top */}
         {[80, 100, 120].map((x) => (
           <line key={`t${x}`} x1={x} y1="70" x2={x} y2="48" {...s} strokeWidth="0.8" opacity="0.10" />
         ))}
-        {/* Pin connections — bottom */}
+        {/* Pin connections, bottom */}
         {[80, 100, 120].map((x) => (
           <line key={`b${x}`} x1={x} y1="130" x2={x} y2="152" {...s} strokeWidth="0.8" opacity="0.10" />
         ))}
-        {/* Pin connections — left */}
+        {/* Pin connections, left */}
         {[80, 100, 120].map((y) => (
           <line key={`l${y}`} x1="70" y1={y} x2="48" y2={y} {...s} strokeWidth="0.8" opacity="0.10" />
         ))}
-        {/* Pin connections — right */}
+        {/* Pin connections, right */}
         {[80, 100, 120].map((y) => (
           <line key={`r${y}`} x1="130" y1={y} x2="152" y2={y} {...s} strokeWidth="0.8" opacity="0.10" />
         ))}
@@ -62,7 +62,7 @@ export default function BlueprintDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          TOP-LEFT — Data flow diagram
+          TOP-LEFT, Data flow diagram
       ══════════════════════════════════════════ */}
       <svg
         style={{ position: "absolute", top: "8%", left: "2%" }}
@@ -95,7 +95,7 @@ export default function BlueprintDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          MID-LEFT — Waveform / signal diagram
+          MID-LEFT, Waveform / signal diagram
       ══════════════════════════════════════════ */}
       <svg
         style={{ position: "absolute", top: "32%", left: "1.5%" }}
@@ -117,7 +117,7 @@ export default function BlueprintDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          MID-RIGHT — Network topology
+          MID-RIGHT, Network topology
       ══════════════════════════════════════════ */}
       <svg
         style={{ position: "absolute", top: "44%", right: "2.5%" }}
@@ -151,7 +151,7 @@ export default function BlueprintDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          LOWER-LEFT — Dimension / measurement callout
+          LOWER-LEFT, Dimension / measurement callout
       ══════════════════════════════════════════ */}
       <svg
         style={{ position: "absolute", top: "62%", left: "1%" }}
@@ -175,7 +175,7 @@ export default function BlueprintDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          LOWER-RIGHT — State machine diagram
+          LOWER-RIGHT, State machine diagram
       ══════════════════════════════════════════ */}
       <svg
         style={{ position: "absolute", top: "72%", right: "3%" }}
@@ -201,7 +201,7 @@ export default function BlueprintDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          SCATTERED — Cross-hair alignment marks
+          SCATTERED, Cross-hair alignment marks
       ══════════════════════════════════════════ */}
       <svg style={{ position: "absolute", top: "25%", left: "55%" }} width="30" height="30" viewBox="0 0 30 30">
         <line x1="15" y1="5" x2="15" y2="25" {...s} strokeWidth="0.6" opacity="0.08" />
@@ -218,13 +218,13 @@ export default function BlueprintDecor() {
       {/* Reference labels */}
       <svg style={{ position: "absolute", top: "88%", left: "3%" }} width="120" height="20" viewBox="0 0 120 20">
         <text x="4" y="14" fontFamily="'JetBrains Mono', monospace" fontSize="6.5" fill="#1B2A4A" opacity="0.12" letterSpacing="1">
-          REF: 00.00.00 — R1
+          REF: 00.00.00, R1
         </text>
       </svg>
 
       <svg style={{ position: "absolute", top: "92%", right: "3%" }} width="100" height="20" viewBox="0 0 100 20">
         <text x="4" y="14" fontFamily="'JetBrains Mono', monospace" fontSize="6" fill="#1B2A4A" opacity="0.11" letterSpacing="1">
-          REV 01 — DRAFT
+          REV 01, DRAFT
         </text>
       </svg>
     </div>

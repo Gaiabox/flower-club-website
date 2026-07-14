@@ -20,9 +20,9 @@ const projectTypes = [
 
 const budgetRanges = [
   "Under $2,500",
-  "$2,500 — $5,000",
-  "$5,000 — $15,000",
-  "$15,000 — $30,000",
+  "$2,500–$5,000",
+  "$5,000–$15,000",
+  "$15,000–$30,000",
   "$30,000+",
   "Let's Discuss",
 ];
@@ -71,7 +71,7 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus("sending");
 
-    // Best-effort ping to the automation webhook — never blocks the visitor.
+    // Best-effort ping to the automation webhook, never blocks the visitor.
     fetch("https://raucously-pluglike-julene.ngrok-free.dev/webhook/flower-club-contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -79,7 +79,7 @@ export default function ContactPage() {
     }).catch(() => {});
 
     try {
-      // Netlify Forms — the static form lives in public/__forms.html
+      // Netlify Forms, the static form lives in public/__forms.html
       const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -103,7 +103,7 @@ export default function ContactPage() {
     <div className="sketchbook-bg relative min-h-screen pt-32 pb-24">
       <div className="section-padding max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-          {/* Left — Header + Info */}
+          {/* Left, Header + Info */}
           <div className="lg:col-span-5">
             <div className="contact-header mb-12">
               <p className="label mb-4">Contact</p>
@@ -129,7 +129,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right — Form */}
+          {/* Right, Form */}
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
@@ -227,10 +227,10 @@ export default function ContactPage() {
               {/* Submit */}
               <div className="pt-4">
                 {status === "sent" ? (
-                  <p className="text-navy font-semibold text-lg">✓ Message sent — we&apos;ll be in touch within 24 hours.</p>
+                  <p className="text-navy font-semibold text-lg">✓ Message sent, we&apos;ll be in touch within 24 hours.</p>
                 ) : status === "error" ? (
                   <div>
-                    <p className="text-red font-semibold mb-3">Something went wrong — please try again.</p>
+                    <p className="text-red font-semibold mb-3">Something went wrong, please try again.</p>
                     <button type="submit" className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto">Try Again</button>
                   </div>
                 ) : (

@@ -14,7 +14,7 @@ const milestones = [
     year: "Corporate",
     title: "Fortune 500 Foundation",
     description:
-      "US Commercial Marketing & Sales Manager at Maker's Mark (Beam Suntory). Brand marketing, consumer engagement, and market positioning at the highest level — Maker's Mark, Courvoisier, Effen.",
+      "US Commercial Marketing & Sales Manager at Maker's Mark (Beam Suntory). Brand marketing, consumer engagement, and market positioning at the highest level, Maker's Mark, Courvoisier, Effen.",
   },
   {
     year: "Culture",
@@ -32,7 +32,7 @@ const milestones = [
     year: "Now",
     title: "Brand × AI Systems",
     description:
-      "The next chapter: paid AI audits that find where owner-run businesses bleed money, systems and digital employees that fix it, and a concierge seat — the Club — for owners who want an AI advisor on call. Look like the market leader. Run like one.",
+      "The next chapter: paid AI audits that find where owner-run businesses bleed money, systems and digital employees that fix it, and a concierge seat, the Club, for owners who want an AI advisor on call. Look like the market leader. Run like one.",
   },
 ];
 
@@ -55,7 +55,7 @@ const values = [
   {
     title: "Launch and grow.",
     description:
-      "Built on years of corporate America and creative execution — not on pitch decks and promises. The work speaks.",
+      "Built on years of corporate America and creative execution, not on pitch decks and promises. The work speaks.",
   },
 ];
 
@@ -137,15 +137,16 @@ export default function AboutPage() {
             <p className="text-cream/80 text-xl md:text-2xl leading-relaxed">
               The Flower Club is a brand and AI systems firm built on real
               experience. Before the agency, our founder spent years building
-              some of the biggest spirits brands in the country — Maker&apos;s Mark,
-              Courvoisier, Effen — executing activations with J. Cole, at
+              some of the biggest spirits brands in the country, Maker&apos;s Mark,
+              Courvoisier, Effen, executing activations with J. Cole, at
               CultureCon, with Buzzfeed.
             </p>
             <p className="text-cream/60 text-lg md:text-xl leading-relaxed mt-6">
               Now we bring Fortune 500 brand craft and AI-forward operations to
-              owners who built something real — med spas, law firms,
-              manufacturers, practices — and to the artists and culture brands
-              we&apos;ve always served.
+              owners who built something real. Med spas, law firms,
+              manufacturers, practices, and the artists and culture brands
+              we&apos;ve always served. If you built it and you want it to grow,
+              you&apos;re who this is for.
             </p>
           </div>
         </div>

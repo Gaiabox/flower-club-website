@@ -11,7 +11,7 @@ const services = [
   {
     title: "Brand Identity",
     description:
-      "From logo to full visual system — we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
+      "From logo to full visual system, we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
   },
   {
     title: "Web Design + Development",
@@ -21,17 +21,17 @@ const services = [
   {
     title: "AI-Powered Digital Employees",
     description:
-      "Custom AI support systems for follow-up, scheduling, intake, reporting, and admin — built around how your business actually runs.",
+      "Custom AI support systems for follow-up, scheduling, intake, reporting, and admin, built around how your business actually runs.",
   },
   {
     title: "Content Creation",
     description:
-      "Photo, video, graphics — content with purpose. Every asset built to work within a larger brand strategy.",
+      "Photo, video, graphics, content with purpose. Every asset built to work within a larger brand strategy.",
   },
   {
     title: "Graphic Design",
     description:
-      "Marketing materials, social assets, packaging, print — crafted with the same attention whether it's a billboard or a business card.",
+      "Marketing materials, social assets, packaging, print, crafted with the same attention whether it's a billboard or a business card.",
   },
   {
     title: "SEO + Social Media",
@@ -53,7 +53,7 @@ export default function NewYorkPage() {
           Metro New York&apos;s Brand Agency.
         </h1>
         <p className="text-[#FAF7F2]/60 text-xl leading-relaxed max-w-2xl mb-10">
-          NYC is the most competitive market in the world — and most brands here are still
+          NYC is the most competitive market in the world, and most brands here are still
           forgettable despite the city&apos;s energy. The noise is deafening, and blending in is the
           default. The Flower Club is a{" "}
           <strong className="text-[#FAF7F2]/90">branding agency in New York NY</strong> that builds
@@ -96,7 +96,7 @@ export default function NewYorkPage() {
           Clients
         </p>
         <p className="text-[#FAF7F2]/60 text-lg max-w-2xl mb-10 leading-relaxed">
-          We&apos;ve done this at the Fortune 500 level — global brands, cultural platforms, and
+          We&apos;ve done this at the Fortune 500 level, global brands, cultural platforms, and
           artists that move culture. That same craft is now available to{" "}
           <strong className="text-[#FAF7F2]/90">New York businesses</strong> ready to compete.
         </p>
@@ -120,7 +120,7 @@ export default function NewYorkPage() {
             Ready to stand out in New York?
           </h2>
           <p className="text-[#FAF7F2]/50 mb-10 max-w-md mx-auto">
-            Brand identity, web design, AI support systems, content — whatever your business needs
+            Brand identity, web design, AI support systems, content, whatever your business needs
             to compete. We build it right.
           </p>
           <Link

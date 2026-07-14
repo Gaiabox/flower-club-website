@@ -23,9 +23,9 @@ export default function WorkPage() {
     const video = videoMap[slug];
     const image = imageMap[slug];
     if (video) {
-      setLightbox({ src: video, alt: `${name} — brand activation video by The Flower Club creative agency`, isVideo: true });
+      setLightbox({ src: video, alt: `${name}, brand activation video by The Flower Club creative agency`, isVideo: true });
     } else if (image) {
-      setLightbox({ src: image, alt: `${name} — creative work by The Flower Club agency`, isVideo: false });
+      setLightbox({ src: image, alt: `${name}, creative work by The Flower Club agency`, isVideo: false });
     }
   }, []);
 
@@ -44,7 +44,7 @@ export default function WorkPage() {
         });
       });
 
-      // Cards stagger up on scroll — each grid triggered independently
+      // Cards stagger up on scroll, each grid triggered independently
       gsap.utils.toArray<HTMLElement>(".work-grid-section").forEach((section) => {
         const items = section.querySelectorAll(".work-item");
         gsap.from(items, {
@@ -87,7 +87,7 @@ export default function WorkPage() {
           aspect={aspect}
           className="group-hover:scale-[1.03] transition-transform duration-700"
         />
-        {/* Hover overlay — description */}
+        {/* Hover overlay, description */}
         <div className="absolute inset-0 bg-navy-dark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
           <div>
             <p className="text-cream/70 text-xs leading-relaxed max-w-xs">
@@ -140,7 +140,7 @@ export default function WorkPage() {
             <div className="work-grid-section">
               <p className="section-label label-light mb-8">Fortune 500 + Cultural Icons</p>
 
-              {/* Video showcase row — landscape + vertical side by side */}
+              {/* Video showcase row, landscape + vertical side by side */}
               {(() => {
                 const videoProjects = tier1.filter((p) => p.video);
                 const imageProjects = tier1.filter((p) => !p.video);

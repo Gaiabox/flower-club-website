@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 /**
- * CustomCursor — circular "VIEW" badge that follows the mouse over
+ * CustomCursor, circular "VIEW" badge that follows the mouse over
  * portfolio/work cards. Native cursor is hidden over those elements
  * (see globals.css). Desktop pointer devices only.
  */

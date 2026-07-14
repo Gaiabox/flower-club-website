@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 
 /**
- * BeforeAfter — draggable comparison slider showing what we do to
+ * BeforeAfter, draggable comparison slider showing what we do to
  * websites. Both sides are illustrative mockups built in-component
  * (no client assets needed): a dated, cluttered "before" and a clean,
  * branded "after". Pointer events so it works with mouse and touch.
@@ -14,7 +14,7 @@ function BeforeMock() {
     <div className="absolute inset-0 bg-[#e8e4d8] overflow-hidden" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
       {/* dated header */}
       <div className="bg-[#2e5c8a] px-4 py-2 flex items-center justify-between">
-        <span className="text-white text-[11px] md:text-sm font-bold italic">★ Smith &amp; Co LLC — Home Page ★</span>
+        <span className="text-white text-[11px] md:text-sm font-bold italic">★ Smith &amp; Co LLC, Home Page ★</span>
         <span className="hidden md:block text-[#ffe97a] text-[9px] underline">click here!! | about us | links</span>
       </div>
       {/* banner */}
@@ -75,7 +75,7 @@ function AfterMock() {
         <span className="bg-red text-cream text-[7px] md:text-[9px] font-bold uppercase tracking-wider px-2 md:px-3 py-1 rounded-sm">Start a Project</span>
       </div>
 
-      {/* oversized display type — the agency look */}
+      {/* oversized display type, the agency look */}
       <div className="relative px-4 md:px-6 pt-3 md:pt-6">
         <p className="text-cream font-bold uppercase leading-[0.92] tracking-tight text-[26px] md:text-[52px]">
           Work that
@@ -88,7 +88,7 @@ function AfterMock() {
         </p>
       </div>
 
-      {/* running marquee band — actual motion inside the after panel */}
+      {/* running marquee band, actual motion inside the after panel */}
       <div className="absolute left-0 right-0 bottom-9 md:bottom-12 border-y border-cream/10 bg-navy py-1 md:py-1.5 overflow-hidden">
         <div
           className="flex gap-3 md:gap-5 whitespace-nowrap"
@@ -112,10 +112,10 @@ function AfterMock() {
         <span className="text-cream/70 text-[7px] md:text-[10px]">AI follow-up built in</span>
       </div>
 
-      {/* mini Bud — AI employee included */}
+      {/* mini Bud, AI employee included */}
       <div className="absolute bottom-12 md:bottom-16 right-3 md:right-4 flex items-center gap-1.5">
         <span className="hidden md:inline-block bg-navy border border-cream/20 text-cream/80 text-[8px] rounded-md px-2 py-1">
-          Hey — need a quote?
+          Hey, need a quote?
         </span>
         <span className="relative flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-navy border border-cream/25">
           <svg viewBox="0 0 36 36" className="w-3 md:w-4" aria-hidden="true">

@@ -74,7 +74,7 @@ export default function Footer() {
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
             <p className="text-cream/40 text-sm mt-6 leading-relaxed">
-              Charlotte, NC — serving Miami, New York, Los Angeles, and
+              Charlotte, NC, serving Miami, New York, Los Angeles, and
               everywhere in between.
             </p>
             <div className="flex gap-6 mt-6">

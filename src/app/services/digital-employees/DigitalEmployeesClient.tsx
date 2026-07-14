@@ -114,7 +114,7 @@ export default function DigitalEmployeesPage() {
           <p className="text-navy/65 text-xl max-w-3xl leading-relaxed mb-6">
             We build custom digital employees around your business to handle
             follow-up, scheduling, intake, reporting, admin, and content
-            support — so your team can focus on the work that matters.
+            support, so your team can focus on the work that matters.
           </p>
           <p className="text-navy/55 text-lg max-w-3xl leading-relaxed">
             Built for real businesses. Deployed locally, in the cloud, or in a
@@ -165,7 +165,7 @@ export default function DigitalEmployeesPage() {
           <div className="lg:col-span-7">
             <p className="text-navy/65 text-lg leading-relaxed mb-8 de-section-title">
               We study where time gets lost, follow-up breaks down, and
-              communication gets inconsistent — then build the right support
+              communication gets inconsistent, then build the right support
               layer around that.
             </p>
             <div className="de-grid grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -207,7 +207,7 @@ export default function DigitalEmployeesPage() {
           <div className="lg:col-span-5">
             <p className="label de-section-title mb-4">Start with the right layer</p>
             <h2 className="text-display-sm text-navy font-bold de-section-title">
-              AI-ready or foundation first — we&apos;ll tell you which.
+              AI-ready or foundation first, we&apos;ll tell you which.
             </h2>
           </div>
           <div className="lg:col-span-7">
@@ -248,7 +248,7 @@ export default function DigitalEmployeesPage() {
             Let&apos;s find where AI fits in your business.
           </h2>
           <p className="text-cream/65 max-w-2xl mx-auto mb-8 leading-relaxed">
-            We&apos;ll look at your website, customer flow, and friction points —
+            We&apos;ll look at your website, customer flow, and friction points -
             then show you what kind of support system makes sense and why.
           </p>
           <Link href="/contact" className="btn-primary">

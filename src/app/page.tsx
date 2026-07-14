@@ -26,7 +26,7 @@ const clients = [
 ];
 
 const serviceTiles = [
-  { title: "The Audit — AI Consulting", icon: "❖", href: "/services/audit" },
+  { title: "The Audit, AI Consulting", icon: "❖", href: "/services/audit" },
   { title: "AI Systems + Digital Employees", icon: "◎", href: "/services/digital-employees" },
   { title: "Web Design + Development", icon: "▣", href: "/services" },
   { title: "Brand Identity + Design", icon: "◈", href: "/services" },
@@ -189,12 +189,12 @@ export default function Home() {
         ref={heroRef}
         className="grain-overlay relative min-h-screen flex items-center justify-center bg-navy-dark overflow-hidden"
       >
-        {/* Hero background image (always present — poster on mobile, fallback under video on desktop) */}
+        {/* Hero background image (always present, poster on mobile, fallback under video on desktop) */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/assets/images/hero-bg.jpg')" }}
         />
-        {/* Hero background video — desktop only, mobile keeps the still */}
+        {/* Hero background video, desktop only, mobile keeps the still */}
         <video
           className="absolute inset-0 w-full h-full object-cover hidden md:block"
           src="/assets/videos/makers-mark-rev-run-teaser.mp4"
@@ -204,13 +204,13 @@ export default function Home() {
           playsInline
           poster="/assets/images/hero-bg.jpg"
         />
-        {/* Dark overlay — keeps text legible */}
+        {/* Dark overlay, keeps text legible */}
         <div className="absolute inset-0 bg-navy-dark/75" />
         {/* Subtle gradient fade at bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-navy-dark to-transparent" />
 
         <div className="relative z-10 text-center section-padding max-w-5xl mx-auto">
-          <p className="label-light mb-6">Brand × AI Systems — For Owners Who Built Something Real</p>
+          <p className="label-light mb-6">Brand × AI Systems for Owners Who Built Something Real</p>
           <h1
             ref={headlineRef}
             className="text-display-xl text-cream font-bold mb-6"
@@ -218,9 +218,8 @@ export default function Home() {
             Turn Website Visitors Into Customers.
           </h1>
           <p className="hero-sub text-cream/70 text-lg md:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed w-full px-2">
-            We make your business impossible to ignore — and impossible to
-            out-operate. Brand on the outside, AI systems on the inside, every
-            fix priced in dollars per year.
+            We make your business impossible to ignore, and impossible to
+            out-operate. Brand on the outside, AI systems on the inside.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn-primary">
@@ -234,12 +233,12 @@ export default function Home() {
 
         </div>
 
-        {/* Work credit — what you're looking at IS the work */}
+        {/* Work credit, what you're looking at IS the work */}
         <div className="absolute bottom-8 left-6 md:left-12 z-10 flex items-center gap-2.5">
           <span className="h-2 w-2 rounded-full bg-red animate-pulse flex-shrink-0" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-cream/70 leading-relaxed">
-            <span className="md:hidden">Our work — Pusha T listening party, produced by The Flower Club</span>
-            <span className="hidden md:inline">Our work — Maker&apos;s Mark × Rev Run activation, produced by The Flower Club</span>
+            <span className="md:hidden">Our work: Pusha T listening party, produced by The Flower Club</span>
+            <span className="hidden md:inline">Our work: Maker&apos;s Mark × Rev Run activation, produced by The Flower Club</span>
           </span>
         </div>
 
@@ -257,9 +256,9 @@ export default function Home() {
         <div className="section-padding max-w-7xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-16">
             {[
-              { stat: <CountUp end={150} suffix="+" />, key: "events", label: "Events Produced" },
+              { stat: <CountUp end={1000} suffix="+" />, key: "events", label: "Events Produced" },
               { stat: <CountUp end={50} suffix="+" />, key: "brands", label: "Brands Worked With" },
-              { stat: "Fortune 500", key: "f500", label: "to Independent Artists" },
+              { stat: "Fortune 500", key: "f500", label: <>to <b className="text-cream font-bold">Independent Artists</b></> },
             ].map(({ stat, key, label }) => (
               <div key={key} className="flex items-center gap-3">
                 <span className="text-cream font-bold text-xl md:text-2xl uppercase tracking-tight">{stat}</span>
@@ -299,14 +298,15 @@ export default function Home() {
               Each one earns the next.
             </h2>
             <p className="text-cream/55 text-lg mt-5 max-w-2xl">
-              For owners who built something real — med spas, law firms,
-              manufacturers, practices. We diagnose before we prescribe, and
-              every finding is priced in dollars per year.
+              For owners who built something real. Med spas, law firms,
+              manufacturers, practices, artists, and everyone in between. We
+              diagnose before we prescribe, and every finding is priced in
+              dollars per year.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-            {/* 01 — The Audit */}
+            {/* 01, The Audit */}
             <Link
               href="/services/audit"
               className="system-card group flex flex-col border border-cream/15 bg-navy-dark/60 p-8 rounded-sm hover:border-red/60 transition-colors duration-500"
@@ -327,7 +327,7 @@ export default function Home() {
               </span>
             </Link>
 
-            {/* 02 — The Build */}
+            {/* 02, The Build */}
             <Link
               href="/services"
               className="system-card group flex flex-col border border-cream/15 bg-navy-dark/60 p-8 rounded-sm hover:border-red/60 transition-colors duration-500"
@@ -338,7 +338,7 @@ export default function Home() {
                 from $4.5K · project
               </p>
               <p className="text-cream/60 text-sm leading-relaxed mb-6 flex-1">
-                Whatever the audit prescribes — AI systems for intake,
+                Whatever the audit prescribes: AI systems for intake,
                 follow-up, and scheduling, plus the brand and website. Looking
                 small is an operational problem too.
               </p>
@@ -348,7 +348,7 @@ export default function Home() {
               </span>
             </Link>
 
-            {/* 03 — AI Employees */}
+            {/* 03, AI Employees */}
             <Link
               href="/services/digital-employees"
               className="system-card group flex flex-col border border-cream/15 bg-navy-dark/60 p-8 rounded-sm hover:border-red/60 transition-colors duration-500"
@@ -360,7 +360,7 @@ export default function Home() {
               </p>
               <p className="text-cream/60 text-sm leading-relaxed mb-6 flex-1">
                 The systems, staffed. Machines on payroll that answer in
-                seconds, follow up every lead, and never call in sick —
+                seconds, follow up every lead, and never call in sick -
                 monitored and improved monthly.
               </p>
               <span className="inline-flex items-center gap-2 text-cream font-semibold text-xs uppercase tracking-wider group-hover:text-red transition-colors">
@@ -369,7 +369,7 @@ export default function Home() {
               </span>
             </Link>
 
-            {/* 04 — The Club */}
+            {/* 04, The Club */}
             <Link
               href="/contact"
               className="system-card group flex flex-col border border-gold/40 bg-navy-dark/60 p-8 rounded-sm hover:border-gold transition-colors duration-500"
@@ -381,7 +381,7 @@ export default function Home() {
                 retainers from $2.5K / month
               </p>
               <p className="text-cream/60 text-sm leading-relaxed mb-6 flex-1">
-                Membership. Your AI concierge — the call you make before any
+                Membership. Your AI concierge, the call you make before any
                 tech decision. Monthly counsel, vendor vetting, quarterly
                 re-audits, first look at what&apos;s new.
               </p>
@@ -470,7 +470,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right column — featured video */}
+            {/* Right column, featured video */}
             <div className="block w-full lg:w-[420px] flex-shrink-0">
               <div className="relative group rounded-sm overflow-hidden bg-navy-dark sticky top-32">
                 {/* Thumbnail label badge */}
@@ -545,6 +545,7 @@ export default function Home() {
                   category={project.category}
                   aspect="portrait"
                   teaserSrc={project.teaserSrc}
+                  ambient={project.slug === "ai-animation-hero" || project.slug === "3d-animation-card"}
                 />
                 <div className="mt-4">
                   <h3 className="text-cream font-bold text-lg group-hover:text-red transition-colors duration-300">
@@ -558,7 +559,7 @@ export default function Home() {
 
           {/* Extra video row above View All Work */}
           <div className="mt-8 flex flex-col md:flex-row gap-4">
-            {/* Horizontal video — flex 3 */}
+            {/* Horizontal video, flex 3 */}
             <div className="group relative overflow-hidden rounded-sm md:flex-[3] cursor-pointer">
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "56.25%"}}>
                 <video
@@ -585,7 +586,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            {/* Vertical video — flex 1, hidden on mobile to avoid 1700px height */}
+            {/* Vertical video, flex 1, hidden on mobile to avoid 1700px height */}
             <div className="hidden md:block group relative overflow-hidden rounded-sm md:flex-[1] cursor-pointer">
               <div className="relative overflow-hidden rounded-sm" style={{paddingTop: "177.78%"}}>
                 <video
@@ -680,7 +681,7 @@ export default function Home() {
           </h2>
           <p className="text-cream/60 text-lg mb-10 max-w-xl mx-auto">
             The concierge seat: monthly counsel, vendor vetting, quarterly
-            re-audits, and first look at every new AI capability — the call you
+            re-audits, and first look at every new AI capability, the call you
             make before any tech decision. Retainers from $2.5K/month.
             Members get their calls answered first.
           </p>

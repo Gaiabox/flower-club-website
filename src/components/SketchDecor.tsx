@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * SketchDecor — hand-drawn pencil overlays for the Services page.
+ * SketchDecor, hand-drawn pencil overlays for the Services page.
  * All elements are aria-hidden, pointer-events-none, absolutely positioned.
  * Strokes use warm graphite tones at low opacity to feel like a working sketchbook.
  */
@@ -12,7 +12,7 @@ export default function SketchDecor() {
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true" style={{ zIndex: 2 }}>
 
       {/* ══════════════════════════════════════════
-          TOP — Rough Flower Club logo study + "branding starts here" note
+          TOP, Rough Flower Club logo study + "branding starts here" note
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"6%", right:"5%" }} width="180" height="180" viewBox="0 0 180 180">
         {/* rough circle for logo containment */}
@@ -33,7 +33,7 @@ export default function SketchDecor() {
         <text x="148" y="30" fontFamily="'Caveat', cursive, sans-serif" fontSize="10" fill="#4a3a28" opacity="0.28" transform="rotate(-6,148,30)">logo mark?</text>
       </svg>
 
-      {/* "The range is the proof" — scrawled note top-left margin */}
+      {/* "The range is the proof", scrawled note top-left margin */}
       <svg style={{ position:"absolute", top:"8%", left:"2%" }} width="120" height="60" viewBox="0 0 120 60">
         <text x="8" y="18" fontFamily="'Caveat', cursive, sans-serif" fontSize="11" fill="#4a3a28" opacity="0.22" transform="rotate(-4,8,18)">range =</text>
         <text x="6" y="32" fontFamily="'Caveat', cursive, sans-serif" fontSize="11" fill="#4a3a28" opacity="0.22" transform="rotate(-4,6,32)">proof</text>
@@ -42,16 +42,16 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          BRAND IDENTITY — logo mark studies, color swatches
+          BRAND IDENTITY, logo mark studies, color swatches
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"18%", right:"3%" }} width="160" height="130" viewBox="0 0 160 130">
-        {/* rough hexagon — logo prototype */}
+        {/* rough hexagon, logo prototype */}
         <path d="M80 10 L118 32 L118 78 L80 100 L42 78 L42 32 Z" {...s} strokeWidth="1.2" opacity="0.16"/>
         {/* inner mark */}
         <path d="M80 30 L100 55 L80 80 L60 55 Z" {...s} strokeWidth="1" opacity="0.14"/>
         {/* "MARK" label */}
         <text x="64" y="118" fontFamily="'Caveat', cursive, sans-serif" fontSize="10" fill="#4a3a28" opacity="0.24">identity mark</text>
-        {/* rough tick — approved */}
+        {/* rough tick, approved */}
         <path d="M138 16 L144 24 L154 10" {...s} strokeWidth="1.8" opacity="0.22"/>
         {/* color swatch row */}
         <rect x="14" y="108" width="12" height="12" rx="1" stroke="#4a3a28" fill="none" strokeWidth="1" opacity="0.2"/>
@@ -61,7 +61,7 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          WEB DESIGN — rough wireframe layout sketch
+          WEB DESIGN, rough wireframe layout sketch
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"30%", left:"1.5%" }} width="140" height="120" viewBox="0 0 140 120">
         {/* browser chrome */}
@@ -83,7 +83,7 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          CONTENT CREATION — camera lens + phone
+          CONTENT CREATION, camera lens + phone
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"42%", right:"2.5%" }} width="150" height="140" viewBox="0 0 150 140">
         {/* camera body */}
@@ -110,7 +110,7 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          AI ANIMATION — keyframe timeline + motion lines
+          AI ANIMATION, keyframe timeline + motion lines
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"55%", left:"1%" }} width="160" height="100" viewBox="0 0 160 100">
         {/* timeline bar */}
@@ -128,7 +128,7 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          GRAPHIC DESIGN — letterform studies
+          GRAPHIC DESIGN, letterform studies
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"66%", right:"2%" }} width="170" height="130" viewBox="0 0 170 130">
         {/* rough oversized F letterform */}
@@ -147,7 +147,7 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          EVENT CREATIVE — stage / spotlight sketch
+          EVENT CREATIVE, stage / spotlight sketch
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"78%", left:"1.5%" }} width="160" height="130" viewBox="0 0 160 130">
         {/* stage floor */}
@@ -169,23 +169,23 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          ERASER MARKS — scattered smudge zones
+          ERASER MARKS, scattered smudge zones
       ══════════════════════════════════════════ */}
-      {/* smudge 1 — near brand identity */}
+      {/* smudge 1, near brand identity */}
       <svg style={{ position:"absolute", top:"22%", left:"60%" }} width="100" height="24" viewBox="0 0 100 24">
         {[2,6,10,14,18].map(y => (
           <line key={y} x1="4" y1={y} x2={80+Math.sin(y)*6} y2={y+1}
             stroke="#8a7a60" strokeWidth={1.1} strokeLinecap="round" opacity="0.15"/>
         ))}
       </svg>
-      {/* smudge 2 — near web design */}
+      {/* smudge 2, near web design */}
       <svg style={{ position:"absolute", top:"35%", right:"20%" }} width="80" height="20" viewBox="0 0 80 20">
         {[3,7,11,15].map(y => (
           <line key={y} x1="2" y1={y} x2={66+Math.cos(y)*4} y2={y+1}
             stroke="#8a7a60" strokeWidth="1" strokeLinecap="round" opacity="0.13"/>
         ))}
       </svg>
-      {/* smudge 3 — near graphic design */}
+      {/* smudge 3, near graphic design */}
       <svg style={{ position:"absolute", top:"68%", left:"55%" }} width="110" height="22" viewBox="0 0 110 22">
         {[2,6,10,14,18].map(y => (
           <line key={y} x1="3" y1={y} x2={88+Math.sin(y)*5} y2={y+2}
@@ -194,7 +194,7 @@ export default function SketchDecor() {
       </svg>
 
       {/* ══════════════════════════════════════════
-          MARGIN NOTES — scattered throughout
+          MARGIN NOTES, scattered throughout
       ══════════════════════════════════════════ */}
       <svg style={{ position:"absolute", top:"48%", right:"1%" }} width="90" height="40" viewBox="0 0 90 40">
         <text x="4" y="14" fontFamily="'Caveat', cursive, sans-serif" fontSize="10" fill="#4a3a28" opacity="0.22" transform="rotate(5,4,14)">Fortune 500</text>

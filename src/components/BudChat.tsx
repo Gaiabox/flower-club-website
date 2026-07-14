@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 /**
- * Bud — The Flower Club's on-site digital employee.
+ * Bud, The Flower Club's on-site digital employee.
  * A fully scripted, client-side conversation (zero API cost) that
- * qualifies a lead — name → service → budget → details — and submits
+ * qualifies a lead, name → service → budget → details, and submits
  * to the same Netlify form as the contact page. Doubles as a live
  * demo of the AI-employees service.
  */
@@ -23,7 +23,7 @@ const SERVICES = [
   "Not sure yet",
 ];
 
-const BUDGETS = ["Under $2,500", "$2,500 — $5,000", "$5,000 — $15,000", "$15,000+", "Let's discuss"];
+const BUDGETS = ["Under $2,500", "$2,500–$5,000", "$5,000–$15,000", "$15,000+", "Let's discuss"];
 
 const SERVICE_MAP: Record<string, string> = {
   "The Audit": "The Audit (AI Consulting)",
@@ -35,12 +35,12 @@ const SERVICE_MAP: Record<string, string> = {
 };
 
 const SERVICE_REPLIES: Record<string, string> = {
-  "The Audit": "Best place to start — we find where the business bleeds money and price every fix in dollars per year. Audits start at $2.5K, scoped by complexity. Rough budget range?",
+  "The Audit": "Best place to start, we find where the business bleeds money and price every fix in dollars per year. Audits start at $2.5K, scoped by complexity. Rough budget range?",
   "AI Employees": "Smart. You're literally talking to one right now. Rough budget range?",
-  Website: "Good call — that's the front door of everything. Rough budget range?",
+  Website: "Good call, that's the front door of everything. Rough budget range?",
   "Branding / Design": "The foundation. Rough budget range?",
   "Video / Animation": "Motion moves people. Rough budget range?",
-  "Not sure yet": "No problem — that's literally what our Audit is for. Rough budget range?",
+  "Not sure yet": "No problem, that's literally what our Audit is for. Rough budget range?",
 };
 
 function FlowerIcon({ size = 22 }: { size?: number }) {
@@ -80,8 +80,8 @@ export default function BudChat() {
   useEffect(() => {
     if (open && !started.current) {
       started.current = true;
-      say("Hey — I'm Bud, The Flower Club's digital employee. I can scope your project and have the team send a real quote within 24 hours.", 1000).then(() =>
-        say("First up — what should I call you?", 800)
+      say("Hey, I'm Bud, The Flower Club's digital employee. I can scope your project and have the team send a real quote within 24 hours.", 1000).then(() =>
+        say("First up, what should I call you?", 800)
       );
     }
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -111,7 +111,7 @@ export default function BudChat() {
     userSays(b);
     data.current.budget = b;
     setStep("details");
-    await say("Last one — tell me about the project. Timeline, goals, anything that helps the team scope it.");
+    await say("Last one, tell me about the project. Timeline, goals, anything that helps the team scope it.");
   };
 
   const handleDetails = async () => {
@@ -120,7 +120,7 @@ export default function BudChat() {
     setInput("");
     userSays(v);
     setStep("sending");
-    await say("On it — passing this to the team…", 700);
+    await say("On it, passing this to the team…", 700);
     try {
       const res = await fetch("/__forms.html", {
         method: "POST",
@@ -131,16 +131,16 @@ export default function BudChat() {
           company: "",
           projectType: data.current.service,
           budget: data.current.budget,
-          message: `${v}\n\n— captured by Bud, the site's digital employee`,
+          message: `${v}\n\n- captured by Bud, the site's digital employee`,
         }).toString(),
       });
       if (!res.ok) throw new Error("submit failed");
       setStep("done");
-      await say(`Done ✓ The team has everything — you'll hear back within 24 hours, ${data.current.name}.`);
+      await say(`Done ✓ The team has everything, you'll hear back within 24 hours, ${data.current.name}.`);
       await say("This is the kind of employee we build for businesses, by the way. Yours could be qualifying leads right now.", 1100);
     } catch {
       setStep("details");
-      await say("Hmm — that didn't go through. Mind using the contact page instead? Everything still lands with the team.");
+      await say("Hmm, that didn't go through. Mind using the contact page instead? Everything still lands with the team.");
     }
   };
 
@@ -148,7 +148,7 @@ export default function BudChat() {
 
   return (
     <>
-      {/* Floating launcher — bottom left, opposite the scroll-to-top */}
+      {/* Floating launcher, bottom left, opposite the scroll-to-top */}
       <button
         onClick={() => setOpen(!open)}
         aria-label={open ? "Close chat" : "Chat with Bud"}

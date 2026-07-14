@@ -11,7 +11,7 @@ const services = [
   {
     title: "Brand Identity",
     description:
-      "From logo to full visual system — we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
+      "From logo to full visual system, we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
   },
   {
     title: "Web Design + Development",
@@ -21,17 +21,17 @@ const services = [
   {
     title: "AI-Powered Digital Employees",
     description:
-      "Custom AI support systems for follow-up, scheduling, intake, reporting, and admin — built around how your business actually runs.",
+      "Custom AI support systems for follow-up, scheduling, intake, reporting, and admin, built around how your business actually runs.",
   },
   {
     title: "Content Creation",
     description:
-      "Photo, video, graphics — content with purpose. Every asset built to work within a larger brand strategy.",
+      "Photo, video, graphics, content with purpose. Every asset built to work within a larger brand strategy.",
   },
   {
     title: "Graphic Design",
     description:
-      "Marketing materials, social assets, packaging, print — crafted with the same attention whether it's a billboard or a business card.",
+      "Marketing materials, social assets, packaging, print, crafted with the same attention whether it's a billboard or a business card.",
   },
   {
     title: "SEO + Social Media",
@@ -53,7 +53,7 @@ export default function SouthFloridaPage() {
           South Florida&apos;s Brand Agency.
         </h1>
         <p className="text-[#FAF7F2]/60 text-xl leading-relaxed max-w-2xl mb-10">
-          Miami, Fort Lauderdale, Palm Beach — South Florida moves fast and the competition is
+          Miami, Fort Lauderdale, Palm Beach, South Florida moves fast and the competition is
           real. Everyone is selling something, but most brands down here look the same. The Flower
           Club is a{" "}
           <strong className="text-[#FAF7F2]/90">branding agency in South Florida</strong> for
@@ -121,7 +121,7 @@ export default function SouthFloridaPage() {
             Ready to stand out in South Florida?
           </h2>
           <p className="text-[#FAF7F2]/50 mb-10 max-w-md mx-auto">
-            Brand identity, web design, AI support systems, content — whatever your business needs
+            Brand identity, web design, AI support systems, content, whatever your business needs
             to compete. We build it right.
           </p>
           <Link

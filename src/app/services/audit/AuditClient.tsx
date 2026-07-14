@@ -12,12 +12,12 @@ const steps = [
   {
     n: "01",
     title: "Define outcomes",
-    body: "“We want AI” is a wish, not an outcome. We pin down current state, target state, and a measurable delta — every outcome ends with “worth $X per year.”",
+    body: "“We want AI” is a wish, not an outcome. We pin down current state, target state, and a measurable delta, every outcome ends with “worth $X per year.”",
   },
   {
     n: "02",
     title: "Map the business",
-    body: "Executives know the destination; operators know the road. We interview the people doing the work — “walk me through yesterday morning” — not just the owner.",
+    body: "Executives know the destination; operators know the road. We interview the people doing the work, “walk me through yesterday morning”, not just the owner.",
   },
   {
     n: "03",
@@ -27,17 +27,17 @@ const steps = [
   {
     n: "04",
     title: "Find the AI fits",
-    body: "Four questions per task: structured input? predictable output? rule-based decisions? repeated often? Yes to all four — prime candidate. AI takes the predictable 80%, humans keep the judgment.",
+    body: "Four questions per task: structured input? predictable output? rule-based decisions? repeated often? Yes to all four, prime candidate. AI takes the predictable 80%, humans keep the judgment.",
   },
   {
     n: "05",
     title: "Prioritize",
-    body: "Business value vs. implementation difficulty. Quick wins first — the one that pays for the engagement — then the big swings once the wins prove the model.",
+    body: "Business value vs. implementation difficulty. Quick wins first, the one that pays for the engagement, then the big swings once the wins prove the model.",
   },
   {
     n: "06",
     title: "Price the ROI",
-    body: "Time wasted × people × days per year × loaded hourly cost = annual waste. That number is what makes the decision easy — for you, not for us.",
+    body: "Time wasted × people × days per year × loaded hourly cost = annual waste. That number is what makes the decision easy, for you, not for us.",
   },
 ];
 
@@ -45,7 +45,7 @@ const verticals = [
   {
     name: "Med Spas",
     bleeds: [
-      "Inquiries answered hours later — booked elsewhere",
+      "Inquiries answered hours later, booked elsewhere",
       "No-shows without automated confirmation flows",
       "Front desk buried in rescheduling and intake forms",
     ],
@@ -70,18 +70,18 @@ const verticals = [
     name: "Dental & Medical",
     bleeds: [
       "Unfilled chair time from slow recall follow-up",
-      "After-hours calls going to voicemail — then to a competitor",
+      "After-hours calls going to voicemail, then to a competitor",
       "Insurance verification done one phone call at a time",
     ],
   },
 ];
 
 const deliverables = [
-  "A map of how your business actually runs — not how the org chart says it runs",
+  "A map of how your business actually runs, not how the org chart says it runs",
   "~20 scored opportunities, each priced in dollars per year",
   "A prioritized roadmap: quick wins first, big swings second",
   "The one quick win that pays for the audit before lunch",
-  "No tools pitched. No jargon. A document you could hand to any builder — including us",
+  "No tools pitched. No jargon. A document you could hand to any builder, including us",
 ];
 
 export default function AuditClient() {
@@ -128,18 +128,19 @@ export default function AuditClient() {
 
         {/* Hero */}
         <section className="audit-hero max-w-4xl mb-20 md:mb-24">
-          <p className="label mb-4">The Audit — AI Consulting</p>
+          <p className="label mb-4">The Audit, AI Consulting</p>
           <h1 className="text-display-xl text-navy font-bold mb-6">
             Find out where your business bleeds money.
           </h1>
           <p className="text-navy/65 text-xl max-w-3xl leading-relaxed mb-6">
-            A paid diagnosis for owner-run businesses — med spas, law firms,
-            manufacturers, practices. We map how the work actually happens,
+            A paid diagnosis for owner-run businesses of every kind, from med
+            spas, law firms, manufacturers, and practices to artists and
+            brands. We map how the work actually happens,
             find where time and revenue leak, and hand you a roadmap where
             every fix is priced in dollars per year.
           </p>
           <p className="text-navy font-semibold text-lg mb-8">
-            From $2,500 — scoped by complexity and task count. Two to three weeks.
+            From $2,500, scoped by complexity and task count. Two to three weeks.
           </p>
           <Link href="/contact" className="btn-primary !bg-navy hover:!bg-navy-dark">
             Book the Audit
@@ -162,7 +163,7 @@ export default function AuditClient() {
               whatever gets built next is what the business actually needs.
             </p>
             <p className="text-navy/55 leading-relaxed">
-              Executives don&apos;t buy AI — they buy outcomes. A team wasting 2
+              Executives don&apos;t buy AI, they buy outcomes. A team wasting 2
               hours a day across 8 people at $40/hour loaded cost is bleeding
               <strong className="text-navy"> $166,400 a year</strong>. Numbers
               like that make the next decision obvious.
@@ -195,7 +196,7 @@ export default function AuditClient() {
           </h2>
           <p className="text-navy/60 max-w-2xl mb-10">
             Every industry bleeds differently. These are the patterns we see
-            most — if yours isn&apos;t listed, the method still applies.
+            most, if yours isn&apos;t listed, the method still applies.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {verticals.map((v) => (
@@ -241,7 +242,7 @@ export default function AuditClient() {
           </h2>
           <p className="text-cream/65 max-w-2xl mx-auto mb-8 leading-relaxed">
             Tell us about the business. We&apos;ll scope the audit on a short
-            call — complexity and task count set the price, and you&apos;ll know
+            call, complexity and task count set the price, and you&apos;ll know
             it before we start.
           </p>
           <Link href="/contact" className="btn-primary">
