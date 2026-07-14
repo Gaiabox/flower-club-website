@@ -291,17 +291,25 @@ export default function Home() {
         <FlowerWatermark className="w-[560px] md:w-[760px] -right-36 md:-right-48 -top-40 text-cream opacity-[0.04]" />
         <div className="section-padding max-w-7xl mx-auto relative z-10">
           <div className="mb-16">
-            <p className="label-light mb-4">How It Works</p>
+            <p className="label-light mb-4">The Growth System, Our Flagship Engagement</p>
             <h2 className="text-display-md text-cream font-bold">
               Four rungs.
               <br />
               Each one earns the next.
             </h2>
             <p className="text-cream/55 text-lg mt-5 max-w-2xl">
-              For owners who built something real. Med spas, law firms,
-              manufacturers, practices, artists, and everyone in between. We
-              diagnose before we prescribe, and every finding is priced in
-              dollars per year.
+              Our premium path for owners who want the whole machine. Med spas,
+              law firms, manufacturers, practices, artists, and everyone in
+              between. We diagnose before we prescribe, and every finding is
+              priced in dollars per year.
+            </p>
+            <p className="text-cream/45 text-base mt-4 max-w-2xl">
+              Just need one thing done well, a website, a logo, a video, an
+              activation? We do that too, no ladder required.{" "}
+              <Link href="/services" className="text-cream underline decoration-red/60 underline-offset-4 hover:text-red transition-colors">
+                See all services
+              </Link>
+              .
             </p>
           </div>
 
@@ -393,7 +401,7 @@ export default function Home() {
           </div>
 
           <p className="text-cream/40 font-mono text-xs uppercase tracking-widest mt-10 text-center">
-            One audit becomes years of momentum. Diagnose → Build → Staff → Belong.
+            The full system: Diagnose → Build → Staff → Belong. Single projects always welcome.
           </p>
         </div>
       </section>
