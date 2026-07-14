@@ -10,7 +10,7 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // TIER 1 — Fortune 500 + Cultural Icons
+  // TIER 1, Fortune 500 + Cultural Icons
   {
     slug: "makers-mark-culturecon",
     client: "Maker's Mark",
@@ -25,7 +25,7 @@ export const projects: Project[] = [
   {
     slug: "remy-martin",
     client: "Rémy Martin × Meta",
-    title: "Rémy Martin — Art Basel Miami",
+    title: "Rémy Martin, Art Basel Miami",
     category: "Experiential",
     tier: 1,
     description:
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     category: "Brand Creative",
     tier: 1,
     description:
-      "Brand creative work for Popeyes — bringing bold flavor energy to visual identity and campaign assets that resonate with the culture.",
+      "Brand creative work for Popeyes, bringing bold flavor energy to visual identity and campaign assets that resonate with the culture.",
     tags: ["Brand Creative", "Campaign"],
   },
 
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     tags: ["Brand Activation", "Experiential", "P&G"],
   },
 
-  // TIER 2 — Creative/Design Range
+  // TIER 2, Creative/Design Range
   {
     slug: "jase-candy-land",
     client: "Bean Locks",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     category: "Brand Identity",
     tier: 2,
     description:
-      "Brand identity and logo design for Bean Locks. Athletic energy meets clean, bold visual architecture — a mark built to move.",
+      "Brand identity and logo design for Bean Locks. Athletic energy meets clean, bold visual architecture, a mark built to move.",
     tags: ["Logo Design", "Brand Identity", "Sports"],
   },
   {
@@ -99,7 +99,7 @@ export const projects: Project[] = [
   {
     slug: "db4d",
     client: "Db4D",
-    title: 'Db4D — "Death B4 Dishonor"',
+    title: 'Db4D, "Death B4 Dishonor"',
     category: "3D Typography",
     tier: 2,
     description:
@@ -113,10 +113,10 @@ export const projects: Project[] = [
     category: "Brand Identity",
     tier: 2,
     description:
-      "Full brand identity for KannaGruv — a retro lifestyle brand. From logo to visual system, every element channels nostalgia with modern execution.",
+      "Full brand identity for KannaGruv, a retro lifestyle brand. From logo to visual system, every element channels nostalgia with modern execution.",
     tags: ["Brand Identity", "Retro", "Lifestyle"],
   },
-  // TIER 3 — Industry Range
+  // TIER 3, Industry Range
   {
     slug: "courvoisier-herstory",
     client: "Courvoisier",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     category: "Brand Activation",
     tier: 3,
     description:
-      "Video production for Skillosophy presented by Effen Vodka. Premium spirits brand meets cultural programming — clean execution, authentic storytelling.",
+      "Video production for Skillosophy presented by Effen Vodka. Premium spirits brand meets cultural programming, clean execution, authentic storytelling.",
     tags: ["Video Production", "Brand Activation", "Spirits"],
   },
 
@@ -142,11 +142,11 @@ export const projects: Project[] = [
   {
     slug: "makers-mark-handcrafted",
     client: "Maker's Mark",
-    title: "Maker's Mark — Handcrafted",
+    title: "Maker's Mark, Handcrafted",
     category: "Video Production",
     tier: 3,
     description:
-      "A hand-crafted video for Maker's Mark that captures the brand's heritage and artisan spirit. Intimate storytelling, premium execution — the craft in the bottle reflected in every frame.",
+      "A hand-crafted video for Maker's Mark that captures the brand's heritage and artisan spirit. Intimate storytelling, premium execution, the craft in the bottle reflected in every frame.",
     tags: ["Video Production", "Brand Storytelling", "Spirits"],
   },
 ];
@@ -157,55 +157,55 @@ export const services = [
     headline: "Find out where the business bleeds money. From $2,500.",
     description:
       "Paid diagnosis for owner-run businesses. We map how the work actually happens, find where time and revenue leak, and deliver a roadmap where every fix is priced in dollars per year. Scoped by complexity and task count.",
-    example: "Med spas, law firms, manufacturers, practices",
+    example: "Med spas, law firms, manufacturers + any owner-run business",
   },
   {
     title: "AI-Powered Digital Employees",
     headline: "Custom support systems for the tasks that slow businesses down.",
     description:
-      "We build AI-powered digital employees around real business needs — follow-up, scheduling, intake, reporting, admin, and customer communication. System builds from $4,500; monthly retainers from $2,500.",
+      "We build AI-powered digital employees around real business needs, follow-up, scheduling, intake, reporting, admin, and customer communication. System builds from $4,500; monthly retainers from $2,500.",
     example: "Custom support layers for smoother operations",
   },
   {
     title: "Brand Identity",
     headline: "Your brand is your first impression. Make it count.",
     description:
-      "From logo design to full visual systems — we build identities that carry weight. Strategy-driven, design-forward, built to last longer than a trend cycle.",
-    example: "Cash Junkies — pen-and-ink logo with raw intention",
+      "From logo design to full visual systems, we build identities that carry weight. Strategy-driven, design-forward, built to last longer than a trend cycle.",
+    example: "Cash Junkies, pen-and-ink logo with raw intention",
   },
   {
     title: "Web Design + Development",
     headline: "Sites that perform as good as they look.",
     description:
-      "Modern, responsive, fast. We design and build websites that convert visitors into clients. No templates, no shortcuts — custom code, every time.",
+      "Modern, responsive, fast. We design and build websites that convert visitors into clients. No templates, no shortcuts, custom code, every time.",
     example: "Custom builds for brands across industries",
   },
   {
     title: "Content Creation",
     headline: "Content that earns attention, not just fills feeds.",
     description:
-      "Photo, video, graphics — whatever the medium, we create content with purpose. Every asset is built to work within a larger brand strategy.",
-    example: "Red Bull × Daysnatchers — multi-platform content capture",
+      "Photo, video, graphics, whatever the medium, we create content with purpose. Every asset is built to work within a larger brand strategy.",
+    example: "Red Bull × Daysnatchers, multi-platform content capture",
   },
   {
     title: "AI Animation + Video",
     headline: "Next-gen visuals. Today.",
     description:
       "We use AI tools to create cinematic animations and video content that would take traditional studios weeks. Faster, bolder, more experimental.",
-    example: "JASE \"Candy Land\" — 3D cinematic art + AI animation",
+    example: "JASE \"Candy Land\", 3D cinematic art + AI animation",
   },
   {
     title: "Graphic Design",
     headline: "Design that communicates, not just decorates.",
     description:
-      "Marketing materials, packaging, social assets, print — every piece is crafted with the same attention whether it's a billboard or a business card.",
-    example: "Smiths Law — professional design that builds trust",
+      "Marketing materials, packaging, social assets, print, every piece is crafted with the same attention whether it's a billboard or a business card.",
+    example: "Smiths Law, professional design that builds trust",
   },
   {
     title: "Event Creative",
     headline: "Experiences people remember.",
     description:
-      "From concept to execution — immersive brand activations, event design, and on-site creative direction. We've done it at scale for the biggest brands in the world.",
+      "From concept to execution, immersive brand activations, event design, and on-site creative direction. We've done it at scale for the biggest brands in the world.",
     example: "Maker's Mark × J. Cole at Brooklyn Mirage",
   },
   {

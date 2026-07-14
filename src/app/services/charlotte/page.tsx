@@ -11,7 +11,7 @@ const services = [
   {
     title: "Brand Identity",
     description:
-      "From logo to full visual system — we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
+      "From logo to full visual system, we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
   },
   {
     title: "Web Design + Development",
@@ -21,7 +21,7 @@ const services = [
   {
     title: "Content Creation",
     description:
-      "Photo, video, graphics — content with purpose. Every asset built to work within a larger brand strategy.",
+      "Photo, video, graphics, content with purpose. Every asset built to work within a larger brand strategy.",
   },
   {
     title: "AI Animation + Video",
@@ -31,7 +31,7 @@ const services = [
   {
     title: "Graphic Design",
     description:
-      "Marketing materials, social assets, packaging, print — crafted with the same attention whether it's a billboard or a business card.",
+      "Marketing materials, social assets, packaging, print, crafted with the same attention whether it's a billboard or a business card.",
   },
   {
     title: "Event Creative",
@@ -55,7 +55,7 @@ export default function CharlottePage() {
           Charlotte&apos;s Brand Agency.
         </h1>
         <p className="text-[#FAF7F2]/60 text-xl leading-relaxed max-w-2xl mb-10">
-          Charlotte is building. New money, new culture, new ambitions — and most brands here still
+          Charlotte is building. New money, new culture, new ambitions, and most brands here still
           look like they were designed in 2014. We fix that. The Flower Club is a{" "}
           <strong className="text-[#FAF7F2]/90">branding agency in Charlotte NC</strong> built for
           businesses that are serious about how they show up.
@@ -101,7 +101,7 @@ export default function CharlottePage() {
           Clients
         </p>
         <p className="text-[#FAF7F2]/60 text-lg max-w-2xl mb-10 leading-relaxed">
-          We&apos;ve done this at the highest level — Fortune 500 brands, cultural platforms, and
+          We&apos;ve done this at the highest level, Fortune 500 brands, cultural platforms, and
           artists that actually move culture. That same craft is now available to{" "}
           <strong className="text-[#FAF7F2]/90">Charlotte businesses</strong> ready to compete.
         </p>
@@ -127,7 +127,7 @@ export default function CharlottePage() {
             Ready to stand out in Charlotte?
           </h2>
           <p className="text-[#FAF7F2]/50 mb-10 max-w-md mx-auto">
-            Whether you need a full rebrand, a new website, or content that actually works —
+            Whether you need a full rebrand, a new website, or content that actually works -
             let&apos;s build it.
           </p>
           <Link

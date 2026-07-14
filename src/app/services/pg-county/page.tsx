@@ -11,7 +11,7 @@ const services = [
   {
     title: "Brand Identity",
     description:
-      "From logo to full visual system — we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
+      "From logo to full visual system, we build identities that carry weight. Strategy-driven, built to outlast the trend cycle.",
   },
   {
     title: "Web Design + Development",
@@ -21,7 +21,7 @@ const services = [
   {
     title: "Content Creation",
     description:
-      "Photo, video, graphics — content with purpose. Every asset built to work within a larger brand strategy.",
+      "Photo, video, graphics, content with purpose. Every asset built to work within a larger brand strategy.",
   },
   {
     title: "AI Animation + Video",
@@ -31,7 +31,7 @@ const services = [
   {
     title: "Graphic Design",
     description:
-      "Marketing materials, social assets, packaging, print — crafted with the same attention whether it's a billboard or a business card.",
+      "Marketing materials, social assets, packaging, print, crafted with the same attention whether it's a billboard or a business card.",
   },
   {
     title: "Event Creative",
@@ -56,7 +56,7 @@ export default function PGCountyPage() {
         </h1>
         <p className="text-[#FAF7F2]/60 text-xl leading-relaxed max-w-2xl mb-10">
           Prince George&apos;s County has one of the most affluent Black communities in the country.
-          The talent and the money are here — the brands haven&apos;t caught up. The Flower Club is a{" "}
+          The talent and the money are here, the brands haven&apos;t caught up. The Flower Club is a{" "}
           <strong className="text-[#FAF7F2]/90">branding agency serving PG County MD</strong>{" "}
           and Upper Marlboro, built for businesses that are done being overlooked.
         </p>
@@ -101,7 +101,7 @@ export default function PGCountyPage() {
           Clients
         </p>
         <p className="text-[#FAF7F2]/60 text-lg max-w-2xl mb-10 leading-relaxed">
-          We&apos;ve worked at the Fortune 500 level — global brands, cultural platforms, artists
+          We&apos;ve worked at the Fortune 500 level, global brands, cultural platforms, artists
           with real reach. That same standard of work is now available to{" "}
           <strong className="text-[#FAF7F2]/90">businesses in Upper Marlboro and across
           Prince George&apos;s County</strong> that are ready to be taken seriously.
@@ -128,7 +128,7 @@ export default function PGCountyPage() {
             Ready to be seen in Maryland?
           </h2>
           <p className="text-[#FAF7F2]/50 mb-10 max-w-md mx-auto">
-            Brand identity, web design, content, video — whatever your business needs to compete.
+            Brand identity, web design, content, video, whatever your business needs to compete.
             We build it right.
           </p>
           <Link

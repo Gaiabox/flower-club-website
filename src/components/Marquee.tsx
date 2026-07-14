@@ -1,5 +1,5 @@
 /**
- * Marquee — full-width band of oversized text gliding sideways.
+ * Marquee, full-width band of oversized text gliding sideways.
  * Words alternate solid / outlined; separators in red.
  * Pure CSS animation (reuses the existing `marquee` keyframes).
  */

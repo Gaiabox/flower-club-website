@@ -65,7 +65,7 @@ const altTextMap: Record<string, string> = {
   "hbcu-homecoming":           "Popeyes and Febreze HBCU Homecoming multi-brand activation by The Flower Club",
   "courvoisier":               "Courvoisier brand activation and event creative by The Flower Club",
   // Videos
-  "makers-mark-culturecon":    "Maker's Mark CultureCon brand activation video — experiential marketing by The Flower Club",
+  "makers-mark-culturecon":    "Maker's Mark CultureCon brand activation video, experiential marketing by The Flower Club",
   "remy-martin":               "Rémy Martin × Meta Art Basel brand activation video produced by The Flower Club",
   "makers-mark-handcrafted":   "Maker's Mark Handcrafted campaign video by The Flower Club creative agency",
   "skillosophy-effen-vodka":   "Effen Vodka × Skillosophy brand activation video produced by The Flower Club",
@@ -95,6 +95,8 @@ interface PortfolioAssetProps {
   teaserSrc?: string;
   onVideoClick?: () => void;
   className?: string;
+  /** Autoplays muted and loops the first 5 seconds. No click action, no play badge, no sound. */
+  ambient?: boolean;
 }
 
 export default function PortfolioAsset({
@@ -105,6 +107,7 @@ export default function PortfolioAsset({
   className = "",
   teaserSrc,
   onVideoClick,
+  ambient = false,
 }: PortfolioAssetProps) {
   const imageSrc = imageMap[slug];
   const videoSrc = videoMap[slug];
@@ -114,6 +117,31 @@ export default function PortfolioAsset({
     square: "aspect-square",
     portrait: "aspect-[3/4]",
   }[aspect];
+
+  // Ambient video: always-on 5-second loop, muted, non-interactive
+  if (videoSrc && ambient) {
+    const poster = posterMap[slug];
+    return (
+      <div className={`relative ${aspectClass} rounded-sm overflow-hidden bg-navy-dark ${className}`}>
+        <video
+          src={teaserSrc || videoSrc}
+          poster={poster}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          autoPlay
+          muted
+          loop
+          playsInline
+          disablePictureInPicture
+          controls={false}
+          onTimeUpdate={(e) => {
+            const v = e.currentTarget as HTMLVideoElement;
+            if (v.currentTime >= 5) v.currentTime = 0;
+          }}
+        />
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+      </div>
+    );
+  }
 
   // Has real video
   if (videoSrc) {
@@ -138,7 +166,7 @@ export default function PortfolioAsset({
             v.currentTime = 0;
           }}
         />
-        {/* Play indicator — visible at rest, fades on hover */}
+        {/* Play indicator, visible at rest, fades on hover */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
           <div className="flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
             <svg width="12" height="14" viewBox="0 0 12 14" fill="none" className="text-cream">
@@ -158,7 +186,7 @@ export default function PortfolioAsset({
       <div className={`relative ${aspectClass} rounded-sm overflow-hidden bg-navy-dark ${className}`}>
         <Image
           src={imageSrc}
-          alt={altTextMap[slug] || `${name} — brand work by The Flower Club creative agency`}
+          alt={altTextMap[slug] || `${name}, brand work by The Flower Club creative agency`}
           fill
           className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -168,7 +196,7 @@ export default function PortfolioAsset({
     );
   }
 
-  // Fallback placeholder (Fortune 500 work — awaiting assets)
+  // Fallback placeholder (Fortune 500 work, awaiting assets)
   return (
     <div className={`placeholder-asset ${aspectClass} group rounded-sm ${className}`}>
       <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-dark to-navy opacity-90" />

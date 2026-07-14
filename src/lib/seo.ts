@@ -1,5 +1,5 @@
 /**
- * SEO Configuration — The Flower Club
+ * SEO Configuration, The Flower Club
  * Centralized keyword + metadata config. Nothing here touches visible copy.
  * Cities: Charlotte NC · Miami FL · New York NY · Los Angeles CA
  */
@@ -9,7 +9,7 @@ export const SITE = {
   url: "https://theflowerclub.design",
   tagline: "Web Design & AI Employees for Business | Charlotte NC Creative Agency",
   description:
-    "The Flower Club builds conversion-focused websites and AI-powered digital employees for growing businesses — plus brand activations, video production, and AI animation for Fortune 500 brands and independent artists. Charlotte NC · Miami · New York · Los Angeles.",
+    "The Flower Club builds conversion-focused websites and AI-powered digital employees for growing businesses, plus brand activations, video production, and AI animation for Fortune 500 brands and independent artists. Charlotte NC · Miami · New York · Los Angeles.",
   location: {
     city: "Charlotte",
     state: "NC",
@@ -42,7 +42,7 @@ export const CITIES = [
 export const SERVICES_SEO = [
   {
     slug: "ai-audit",
-    name: "The Audit — AI Consulting",
+    name: "The Audit, AI Consulting",
     keywords: [
       "AI audit for med spas",
       "AI audit for law firms",
@@ -54,7 +54,7 @@ export const SERVICES_SEO = [
       "AI ROI assessment",
     ],
     description:
-      "Paid AI consulting audit for owner-run businesses — we map how your business runs, find where it bleeds money, and deliver a roadmap priced in dollars per year. From $2,500.",
+      "Paid AI consulting audit for owner-run businesses, we map how your business runs, find where it bleeds money, and deliver a roadmap priced in dollars per year. From $2,500.",
   },
   {
     slug: "web-design",
@@ -84,7 +84,7 @@ export const SERVICES_SEO = [
       "AI appointment scheduling automation",
     ],
     description:
-      "Custom AI-powered digital employees that handle lead follow-up, intake, scheduling, reporting, and admin — built around how your business already works.",
+      "Custom AI-powered digital employees that handle lead follow-up, intake, scheduling, reporting, and admin, built around how your business already works.",
   },
   {
     slug: "brand-identity",
@@ -98,7 +98,7 @@ export const SERVICES_SEO = [
       "corporate identity design",
     ],
     description:
-      "Strategic brand identity and logo design for artists, startups, and Fortune 500 companies. We build visual systems that last — not trend-chasing.",
+      "Strategic brand identity and logo design for artists, startups, and Fortune 500 companies. We build visual systems that last, not trend-chasing.",
   },
   {
     slug: "content-creation",
@@ -112,7 +112,7 @@ export const SERVICES_SEO = [
       "branded content studio",
     ],
     description:
-      "Photo, video, and graphic content built around brand strategy — not just filling a content calendar.",
+      "Photo, video, and graphic content built around brand strategy, not just filling a content calendar.",
   },
   {
     slug: "ai-animation",
@@ -140,7 +140,7 @@ export const SERVICES_SEO = [
       "visual design studio",
     ],
     description:
-      "Graphic design for campaigns, packaging, marketing materials, and everything in between — every piece crafted with intent.",
+      "Graphic design for campaigns, packaging, marketing materials, and everything in between, every piece crafted with intent.",
   },
   {
     slug: "brand-activations",
@@ -155,7 +155,7 @@ export const SERVICES_SEO = [
       "experiential brand agency",
     ],
     description:
-      "Culture-forward brand activations and experiential events for Fortune 500 brands and cultural moments. 150+ events produced.",
+      "Culture-forward brand activations and experiential events for Fortune 500 brands and cultural moments. 1000+ events produced.",
   },
   {
     slug: "social-media",
@@ -169,7 +169,7 @@ export const SERVICES_SEO = [
       "digital marketing creative agency",
     ],
     description:
-      "Full-service social media management — strategy, content, community, analytics. We build audiences, not just follower counts.",
+      "Full-service social media management, strategy, content, community, analytics. We build audiences, not just follower counts.",
   },
 ];
 

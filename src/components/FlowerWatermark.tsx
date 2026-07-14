@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * FlowerWatermark — the brand's flower mark, oversized and outlined,
+ * FlowerWatermark, the brand's flower mark, oversized and outlined,
  * sitting faintly behind section content. Rotates slowly as the user
  * scrolls past. Parent section must be `relative overflow-hidden`.
  *

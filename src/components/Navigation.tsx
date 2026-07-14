@@ -20,7 +20,7 @@ export default function Navigation() {
     setMobileOpen(false);
   }, [pathname]);
 
-  // Pages with light (cream) background — nav text must be dark when unscrolled
+  // Pages with light (cream) background, nav text must be dark when unscrolled
   const lightBgPages = ["/services", "/services/digital-employees", "/services/audit", "/contact", "/about"];
   const isLightPage = lightBgPages.includes(pathname);
 
@@ -96,7 +96,7 @@ export default function Navigation() {
       </div>
     </nav>
 
-    {/* Mobile Menu — sibling of <nav>, NOT inside it: the nav's
+    {/* Mobile Menu, sibling of <nav>, NOT inside it: the nav's
         backdrop-blur creates a containing block that would trap this
         fixed overlay inside the bar and squash it. */}
     <div

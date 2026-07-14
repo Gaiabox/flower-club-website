@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * ScrollToTop — circle-outline button, bottom right.
+ * ScrollToTop, circle-outline button, bottom right.
  * Two chevrons march upward on a loop ("looking up").
  * Appears after 300px of scroll. Slightly larger tap target on mobile.
  */

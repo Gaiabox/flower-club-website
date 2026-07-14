@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 /**
- * Preloader — pixel-art flower growing out of dirt while the site loads.
+ * Preloader, pixel-art flower growing out of dirt while the site loads.
  * Old-school handheld energy: chunky pixels, hard edges, mono % counter.
  * The live site sits blurred behind the overlay and fades in at 100%.
- * Desktop only — touch devices skip straight to the page.
+ * Desktop only, touch devices skip straight to the page.
  */
 
 const PX = {
@@ -18,12 +18,12 @@ const PX = {
   navy: "#1B2A4A",
 };
 
-// [row, colStart, colEnd, color] — one horizontal run of pixels
+// [row, colStart, colEnd, color], one horizontal run of pixels
 type Run = [number, number, number, string];
 
 const span = (row: number, c0: number, c1: number, color: string): Run => [row, c0, c1, color];
 
-// Dirt mound — always visible
+// Dirt mound, always visible
 const DIRT: Run[] = [
   span(17, 5, 11, PX.dirt),
   span(18, 3, 13, PX.dirt),
@@ -37,7 +37,7 @@ const DIRT: Run[] = [
   span(19, 12, 12, PX.dirtDark),
 ];
 
-// Stage 1 — sprout breaks the surface (20%+)
+// Stage 1, sprout breaks the surface (20%+)
 const SPROUT: Run[] = [
   span(16, 8, 8, PX.stem),
   span(15, 8, 8, PX.stem),
@@ -45,7 +45,7 @@ const SPROUT: Run[] = [
   span(15, 9, 9, PX.stem),
 ];
 
-// Stage 2 — stem climbs, first leaf (40%+)
+// Stage 2, stem climbs, first leaf (40%+)
 const STEM_MID: Run[] = [
   span(14, 8, 8, PX.stem),
   span(13, 8, 8, PX.stem),
@@ -54,7 +54,7 @@ const STEM_MID: Run[] = [
   span(12, 5, 6, PX.stem),
 ];
 
-// Stage 3 — full stem, second leaf, bud forming (60%+)
+// Stage 3, full stem, second leaf, bud forming (60%+)
 const STEM_FULL: Run[] = [
   span(11, 8, 8, PX.stem),
   span(10, 8, 8, PX.stem),
@@ -70,7 +70,7 @@ const BUD: Run[] = [
   span(7, 8, 8, PX.core),
 ];
 
-// Stage 4 — full bloom (80%+)
+// Stage 4, full bloom (80%+)
 const BLOOM: Run[] = [
   // top petals
   span(2, 7, 9, PX.petal),
@@ -125,7 +125,7 @@ export default function Preloader() {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
-    // Tunables — kept small so the loader never overstays its welcome.
+    // Tunables, kept small so the loader never overstays its welcome.
     // Mobile gets a tighter window: connections vary more, patience is shorter.
     const mobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
     const MIN_MS = mobile ? 900 : 1100; // show the bloom long enough to read as intentional
@@ -142,7 +142,7 @@ export default function Preloader() {
     };
     window.addEventListener("load", onLoad);
 
-    // One owner of completion. Safe to call multiple times — it no-ops
+    // One owner of completion. Safe to call multiple times, it no-ops
     // after the first run, so nothing can leave the overlay stuck up.
     const finish = () => {
       if (finishing) return;
@@ -172,7 +172,7 @@ export default function Preloader() {
     };
     raf = requestAnimationFrame(frame);
 
-    // Absolute safety net — independent of rAF (which pauses when the tab
+    // Absolute safety net, independent of rAF (which pauses when the tab
     // is backgrounded). Guarantees the site is never permanently blocked.
     const failsafe = window.setTimeout(finish, MAX_MS + 200);
 

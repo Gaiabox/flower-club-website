@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * CountUp — number counts from 0 to `end` the first time it scrolls
+ * CountUp, number counts from 0 to `end` the first time it scrolls
  * into view. GSAP ScrollTrigger drives it (fires immediately if the
  * element is already in view), writing textContent directly.
  */
