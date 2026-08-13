@@ -38,6 +38,14 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
+  // Arrivals from audit CTAs get the form pre-selected (?type=audit)
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get("type");
+    if (type === "audit") {
+      setFormData((f) => ({ ...f, projectType: "The Audit (AI Consulting)" }));
+    }
+  }, []);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".contact-header", {

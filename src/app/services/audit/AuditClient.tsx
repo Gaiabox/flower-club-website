@@ -145,7 +145,7 @@ export default function AuditClient() {
             From $2,500, scoped by complexity and task count. Two to three weeks.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/contact" className="btn-primary !bg-navy hover:!bg-navy-dark">
+            <Link href="/contact?type=audit" className="btn-primary !bg-navy hover:!bg-navy-dark">
               Book the Audit
             </Link>
             <Link
@@ -276,7 +276,7 @@ export default function AuditClient() {
             call, complexity and task count set the price, and you&apos;ll know
             it before we start.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link href="/contact?type=audit" className="btn-primary">
             Book the Audit
           </Link>
         </section>
