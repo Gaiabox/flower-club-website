@@ -68,10 +68,10 @@ export default function Footer() {
           <div className="col-span-2">
             <p className="label-light mb-5">Start a Conversation</p>
             <Link
-              href="/contact"
+              href="/services/audit"
               className="inline-flex items-center gap-3 text-cream text-lg md:text-2xl font-bold hover:text-red transition-colors group"
             >
-              Start a Project
+              Book the Audit
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
             <p className="text-cream/40 text-sm mt-6 leading-relaxed">

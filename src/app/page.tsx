@@ -222,7 +222,7 @@ export default function Home() {
             out-operate. Brand on the outside, AI systems on the inside.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="btn-primary">
+            <Link href="/services/audit" className="btn-primary">
               Book the Audit
             </Link>
             <Link href="/work" className="btn-outline">
@@ -421,10 +421,10 @@ export default function Home() {
           <BeforeAfter />
           <div className="mt-10">
             <Link
-              href="/contact"
+              href="/services/audit"
               className="inline-flex items-center gap-2 text-cream font-semibold text-sm uppercase tracking-wider hover:text-red transition-colors group"
             >
-              Your site is the before. Let&apos;s fix that
+              Your site is the before. Book the Audit
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
@@ -693,9 +693,21 @@ export default function Home() {
             make before any tech decision. Retainers from $2.5K/month.
             Members get their calls answered first.
           </p>
-          <Link href="/contact" className="btn-primary">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-cream/30 text-cream font-semibold text-sm uppercase tracking-wider hover:bg-cream/10 transition-all duration-300 rounded-sm"
+          >
             Apply for Membership
           </Link>
+
+          <div className="mt-14 pt-10 border-t border-cream/10">
+            <p className="text-cream/50 text-sm mb-5 font-mono uppercase tracking-widest">
+              Every membership starts the same way
+            </p>
+            <Link href="/services/audit" className="btn-primary">
+              Book the Audit
+            </Link>
+          </div>
         </div>
       </section>
 
