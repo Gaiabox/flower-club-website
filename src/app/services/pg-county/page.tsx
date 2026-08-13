@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CityAudit from "@/components/CityAudit";
 
 export const metadata: Metadata = {
-  title: "Branding Agency PG County MD | The Flower Club",
+  title: "AI Automation & Branding Agency PG County MD | The Flower Club",
   description:
-    "Creative agency serving Prince George's County and Upper Marlboro MD. Brand identity, web design, and content for businesses ready to be seen.",
+    "Creative agency serving Prince George's County and Upper Marlboro MD. Brand identity, web design, and content for businesses ready to be seen. Plus paid AI audits from $2,500 that find where local businesses bleed money.",
 };
 
 const services = [
@@ -67,6 +68,8 @@ export default function PGCountyPage() {
           Start a Project
         </Link>
       </section>
+
+      <CityAudit city="PG County" industries="practices, service businesses, and DC-area firms" />
 
       {/* Divider */}
       <div className="border-t border-[#FAF7F2]/8 mx-6 md:mx-12 lg:mx-20" />

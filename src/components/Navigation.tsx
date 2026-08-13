@@ -70,8 +70,8 @@ export default function Navigation() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className={`!py-3 !px-6 !text-xs ${!scrolled && isLightPage ? "border border-navy text-navy font-bold uppercase tracking-widest text-xs px-6 py-3 hover:bg-navy hover:text-cream transition-colors" : "btn-primary"}`}>
-            Let&apos;s Grow
+          <Link href="/services/audit" className={`!py-3 !px-6 !text-xs ${!scrolled && isLightPage ? "border border-navy text-navy font-bold uppercase tracking-widest text-xs px-6 py-3 hover:bg-navy hover:text-cream transition-colors" : "btn-primary"}`}>
+            Book the Audit
           </Link>
         </div>
 
@@ -115,8 +115,8 @@ export default function Navigation() {
           {link.label}
         </Link>
       ))}
-      <Link href="/contact" className="btn-primary mt-4">
-        Let&apos;s Grow
+      <Link href="/services/audit" className="btn-primary mt-4">
+        Book the Audit
       </Link>
     </div>
     </>

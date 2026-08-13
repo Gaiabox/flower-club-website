@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CityAudit from "@/components/CityAudit";
 
 export const metadata: Metadata = {
-  title: "Branding Agency Atlanta GA | The Flower Club",
+  title: "AI Automation & Branding Agency Atlanta GA | The Flower Club",
   description:
-    "Atlanta's culture-forward creative agency. Brand identity, web design, AI-powered digital employees, and content for businesses ready to stand out.",
+    "Atlanta's culture-forward creative agency. Brand identity, web design, AI-powered digital employees, and content for businesses ready to stand out. Plus paid AI audits from $2,500 that find where local businesses bleed money.",
 };
 
 const services = [
@@ -66,6 +67,8 @@ export default function AtlantaPage() {
           Start a Project
         </Link>
       </section>
+
+      <CityAudit city="Atlanta" industries="med spas, law firms, and growing franchises" />
 
       <div className="border-t border-[#FAF7F2]/8 mx-6 md:mx-12 lg:mx-20" />
 

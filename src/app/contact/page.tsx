@@ -30,6 +30,7 @@ const budgetRanges = [
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     company: "",
     budget: "",
     projectType: "",
@@ -90,7 +91,7 @@ export default function ContactPage() {
       });
       if (res.ok) {
         setStatus("sent");
-        setFormData({ name: "", company: "", budget: "", projectType: "", message: "" });
+        setFormData({ name: "", email: "", company: "", budget: "", projectType: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -147,6 +148,21 @@ export default function ContactPage() {
                   }
                   className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/30"
                   placeholder="Your name"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="label mb-2 block">Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/30"
+                  placeholder="you@business.com"
                 />
               </div>
 

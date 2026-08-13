@@ -12,7 +12,7 @@ import Link from "next/link";
  */
 
 type Msg = { from: "bud" | "user"; text: string };
-type Step = "name" | "service" | "budget" | "details" | "sending" | "done";
+type Step = "name" | "email" | "service" | "budget" | "details" | "sending" | "done";
 
 const SERVICES = [
   "The Audit",
@@ -61,7 +61,7 @@ export default function BudChat() {
   const [typing, setTyping] = useState(false);
   const [step, setStep] = useState<Step>("name");
   const [input, setInput] = useState("");
-  const data = useRef({ name: "", service: "", budget: "" });
+  const data = useRef({ name: "", email: "", service: "", budget: "" });
   const bodyRef = useRef<HTMLDivElement>(null);
   const started = useRef(false);
 
@@ -96,8 +96,22 @@ export default function BudChat() {
     setInput("");
     userSays(v);
     data.current.name = v;
+    setStep("email");
+    await say(`Good to meet you, ${v}. Best email for the quote?`);
+  };
+
+  const handleEmail = async () => {
+    const v = input.trim();
+    if (!v) return;
+    setInput("");
+    userSays(v);
+    if (!/.+@.+\..+/.test(v)) {
+      await say("Hmm, that doesn't look like an email. Mind trying again?");
+      return;
+    }
+    data.current.email = v;
     setStep("service");
-    await say(`Good to meet you, ${v}. What are you looking to build?`);
+    await say("Got it. What are you looking to build?");
   };
 
   const handleService = async (s: string) => {
@@ -128,6 +142,7 @@ export default function BudChat() {
         body: new URLSearchParams({
           "form-name": "contact",
           name: data.current.name,
+          email: data.current.email,
           company: "",
           projectType: data.current.service,
           budget: data.current.budget,
@@ -144,7 +159,7 @@ export default function BudChat() {
     }
   };
 
-  const showInput = step === "name" || step === "details";
+  const showInput = step === "name" || step === "email" || step === "details";
 
   return (
     <>
@@ -247,13 +262,20 @@ export default function BudChat() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") (step === "name" ? handleName : handleDetails)();
+                if (e.key === "Enter")
+                  (step === "name" ? handleName : step === "email" ? handleEmail : handleDetails)();
               }}
-              placeholder={step === "name" ? "Your name…" : "Tell Bud about the project…"}
+              placeholder={
+                step === "name"
+                  ? "Your name…"
+                  : step === "email"
+                  ? "you@business.com"
+                  : "Tell Bud about the project…"
+              }
               className="flex-1 bg-navy border border-cream/15 rounded-md px-3 py-2.5 text-sm text-cream placeholder:text-cream/30 outline-none focus:border-cream/40"
             />
             <button
-              onClick={step === "name" ? handleName : handleDetails}
+              onClick={step === "name" ? handleName : step === "email" ? handleEmail : handleDetails}
               aria-label="Send"
               className="h-10 w-10 flex items-center justify-center rounded-md bg-red text-cream hover:bg-red-hover transition-colors"
             >

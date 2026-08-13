@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FlowerLogo from "@/components/FlowerLogo";
+import NewsletterForm from "@/components/NewsletterForm";
 import { SITE } from "@/lib/seo";
 
 const pages = [
@@ -77,6 +78,14 @@ export default function Footer() {
               Charlotte, NC, serving Miami, New York, Los Angeles, and
               everywhere in between.
             </p>
+            <div className="mt-8">
+              <p className="label-light mb-3">Owner&apos;s Notes</p>
+              <p className="text-cream/50 text-sm mb-3 leading-relaxed">
+                Short, occasional notes on brand and AI moves that make
+                owner-run businesses money. No spam, unsubscribe anytime.
+              </p>
+              <NewsletterForm />
+            </div>
             <div className="flex gap-6 mt-6">
               <a
                 href={SITE.social.instagram}
