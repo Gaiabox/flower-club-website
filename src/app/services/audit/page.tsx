@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AuditClient from "./AuditClient";
+import { auditFaq } from "./faq";
 import { buildMeta } from "@/lib/seo";
 
 export const metadata: Metadata = buildMeta({
@@ -10,5 +11,23 @@ export const metadata: Metadata = buildMeta({
 });
 
 export default function AuditPage() {
-  return <AuditClient />;
+  return (
+    <>
+      <AuditClient />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: auditFaq.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
+    </>
+  );
 }

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CityAudit from "@/components/CityAudit";
 
 export const metadata: Metadata = {
-  title: "Branding Agency New Jersey | The Flower Club",
+  title: "AI Automation & Branding Agency New Jersey | The Flower Club",
   description:
-    "New Jersey's culture-forward creative agency. Brand identity, web design, AI-powered digital employees, and content for businesses ready to stand out.",
+    "New Jersey's culture-forward creative agency. Brand identity, web design, AI-powered digital employees, and content for businesses ready to stand out. Plus paid AI audits from $2,500 that find where local businesses bleed money.",
 };
 
 const services = [
@@ -66,6 +67,8 @@ export default function NewJerseyPage() {
           Start a Project
         </Link>
       </section>
+
+      <CityAudit city="New Jersey" industries="manufacturers, practices, and service businesses" />
 
       <div className="border-t border-[#FAF7F2]/8 mx-6 md:mx-12 lg:mx-20" />
 

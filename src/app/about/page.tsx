@@ -196,6 +196,35 @@ export default function AboutPage() {
 
       <Marquee items={["Strategy", "Craft", "Culture", "Results"]} />
 
+      {/* Founder */}
+      <section className="bg-navy-dark py-20 md:py-28 relative overflow-hidden">
+        <div className="section-padding max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start gap-10">
+            {/* Avatar — swap for a photo at /assets/images/founder.jpg when ready */}
+            <div className="flex-shrink-0 w-28 h-28 md:w-36 md:h-36 rounded-full bg-navy border-2 border-[#F4A300] flex items-center justify-center">
+              <span className="text-cream font-bold text-4xl md:text-5xl tracking-tight">JH</span>
+            </div>
+            <div>
+              <p className="label-light mb-3">The Founder</p>
+              <h2 className="text-display-sm text-cream font-bold mb-4">
+                James Highsmith
+              </h2>
+              <p className="text-cream/70 text-lg leading-relaxed max-w-2xl mb-4">
+                Former US Commercial Marketing &amp; Sales Manager at Maker&apos;s
+                Mark (Beam Suntory). Built campaigns and activations for some of
+                the biggest brands in the country, then built The Flower Club to
+                bring that level of craft to owners who don&apos;t have a Fortune
+                500 budget, just Fortune 500 ambition.
+              </p>
+              <p className="text-cream/50 leading-relaxed max-w-2xl">
+                Every audit and every build gets his eyes on it. When you book,
+                you&apos;re not handed to an account manager.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
       <section className="bg-navy py-24 md:py-32 relative overflow-hidden">
         <FlowerWatermark className="w-[520px] md:w-[700px] -left-36 md:-left-48 -bottom-36 text-cream opacity-[0.04]" />
@@ -232,8 +261,8 @@ export default function AboutPage() {
           <p className="text-navy/60 text-lg mb-10">
             We work with brands that take their creative seriously.
           </p>
-          <Link href="/contact" className="btn-primary !bg-navy hover:!bg-navy-dark">
-            Start a Project
+          <Link href="/services/audit" className="btn-primary !bg-navy hover:!bg-navy-dark">
+            Book the Audit
           </Link>
         </div>
       </section>

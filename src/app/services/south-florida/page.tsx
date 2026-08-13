@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CityAudit from "@/components/CityAudit";
 
 export const metadata: Metadata = {
-  title: "Branding Agency South Florida | Miami, Fort Lauderdale | The Flower Club",
+  title: "AI Automation & Branding Agency South Florida | Miami, Fort Lauderdale | The Flower Club",
   description:
-    "South Florida's culture-forward creative agency. Brand identity, web design, AI-powered digital employees, and content for Miami, Fort Lauderdale, and Palm Beach businesses.",
+    "South Florida's culture-forward creative agency. Brand identity, web design, AI-powered digital employees, and content for Miami, Fort Lauderdale, and Palm Beach businesses. Plus paid AI audits from $2,500 that find where local businesses bleed money.",
 };
 
 const services = [
@@ -66,6 +67,8 @@ export default function SouthFloridaPage() {
           Start a Project
         </Link>
       </section>
+
+      <CityAudit city="South Florida" industries="med spas, law firms, and hospitality businesses" />
 
       <div className="border-t border-[#FAF7F2]/8 mx-6 md:mx-12 lg:mx-20" />
 

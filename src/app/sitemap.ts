@@ -3,15 +3,18 @@ import { SITE } from "@/lib/seo";
 
 const CITY_PAGES = [
   "atlanta",
+  "austin",
   "charlotte",
   "chicago",
   "dallas",
   "detroit",
   "houston",
   "los-angeles",
+  "nashville",
   "new-jersey",
   "new-york",
   "pg-county",
+  "phoenix-scottsdale",
   "south-florida",
 ];
 

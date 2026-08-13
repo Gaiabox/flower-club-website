@@ -5,6 +5,8 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import BlueprintDecor from "@/components/BlueprintDecor";
+import { BOOKING_URL } from "@/lib/site";
+import { auditFaq } from "./faq";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -142,9 +144,22 @@ export default function AuditClient() {
           <p className="text-navy font-semibold text-lg mb-8">
             From $2,500, scoped by complexity and task count. Two to three weeks.
           </p>
-          <Link href="/contact" className="btn-primary !bg-navy hover:!bg-navy-dark">
-            Book the Audit
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link href="/contact" className="btn-primary !bg-navy hover:!bg-navy-dark">
+              Book the Audit
+            </Link>
+            <Link
+              href={BOOKING_URL}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-navy/40 text-navy font-semibold text-sm uppercase tracking-wider hover:bg-navy hover:text-cream transition-all duration-300 rounded-sm"
+            >
+              Book a 15-Min Scoping Call
+            </Link>
+          </div>
+          <p className="text-navy/50 text-sm mt-6 max-w-2xl leading-relaxed">
+            <strong className="text-navy">Our guarantee:</strong> if the audit
+            doesn&apos;t surface more recoverable annual value than you paid for
+            it, we keep digging at no charge until it does.
+          </p>
         </section>
 
         {/* Why diagnose first */}
@@ -231,6 +246,22 @@ export default function AuditClient() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="mb-20 md:mb-24 max-w-4xl">
+          <p className="label mb-4">Questions owners ask</p>
+          <h2 className="text-display-sm text-navy font-bold mb-8">
+            Before you book.
+          </h2>
+          <div>
+            {auditFaq.map((f) => (
+              <div key={f.q} className="border-t border-navy/15 py-6">
+                <h3 className="text-navy font-bold text-lg mb-2">{f.q}</h3>
+                <p className="text-navy/60 leading-relaxed">{f.a}</p>
+              </div>
+            ))}
           </div>
         </section>
 
