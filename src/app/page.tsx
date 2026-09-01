@@ -11,6 +11,7 @@ import CountUp from "@/components/CountUp";
 import BeforeAfter from "@/components/BeforeAfter";
 import SiteShowcase from "@/components/SiteShowcase";
 import BrandFilm from "@/components/BrandFilm";
+import HeroVideo from "@/components/HeroVideo";
 import { websites } from "@/lib/portfolio";
 
 
@@ -225,14 +226,9 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/assets/images/hero-bg.jpg')" }}
         />
-        {/* Hero background video, desktop only, mobile keeps the still */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover hidden md:block"
+        {/* Hero background video, mounted on desktop only so phones never fetch it */}
+        <HeroVideo
           src="/assets/videos/makers-mark-rev-run-teaser.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
           poster="/assets/images/hero-bg.jpg"
         />
         {/* Dark overlay, keeps text legible */}
