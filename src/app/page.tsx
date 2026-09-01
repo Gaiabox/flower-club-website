@@ -9,6 +9,9 @@ import FlowerWatermark from "@/components/FlowerWatermark";
 import Marquee from "@/components/Marquee";
 import CountUp from "@/components/CountUp";
 import BeforeAfter from "@/components/BeforeAfter";
+import SiteShowcase from "@/components/SiteShowcase";
+import BrandFilm from "@/components/BrandFilm";
+import { websites } from "@/lib/portfolio";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -162,6 +165,34 @@ export default function Home() {
         scrollTrigger: {
           trigger: ".ba-section",
           start: "top 75%",
+        },
+      });
+
+      // Live client sites
+      gsap.from(".site-card", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: ".sites-section",
+          start: "top 78%",
+        },
+      });
+
+      // In-house brand films
+      gsap.from(".brand-film-card", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power3.out",
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: ".films-section",
+          start: "top 82%",
         },
       });
 
@@ -431,6 +462,41 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* ─── LIVE CLIENT SITES ─── */}
+      <section id="websites" className="sites-section bg-navy py-24 md:py-32 relative overflow-hidden">
+        <FlowerWatermark className="w-[520px] md:w-[700px] -left-36 md:-left-44 -bottom-40 text-cream opacity-[0.04]" />
+        <div className="section-padding max-w-7xl mx-auto relative z-10">
+          <div className="mb-14">
+            <p className="label-light mb-4">Live Client Sites</p>
+            <h2 className="text-display-md text-cream font-bold">
+              Built to sell,
+              <br />
+              not just to look good.
+            </h2>
+            <p className="text-cream/55 text-lg mt-5 max-w-2xl">
+              Designed and coded from scratch, with the sales conversation built
+              into the page. Go click around in them yourself.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
+            {websites.map((site) => (
+              <SiteShowcase
+                key={site.slug}
+                href={site.url}
+                image={site.image}
+                alt={site.alt}
+                client={site.client}
+                title={site.title}
+                description={site.description}
+                tags={site.tags}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ─── SERVICES BRIEF ─── */}
       <section className="no-breathe bg-cream py-24 md:py-32">
         <div className="section-padding max-w-7xl mx-auto">
@@ -633,6 +699,45 @@ export default function Home() {
                 →
               </span>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── IN-HOUSE BRAND FILMS ─── */}
+      <section id="films" className="films-section bg-navy-dark pb-24 md:pb-32">
+        <div className="section-padding max-w-7xl mx-auto">
+          <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+            <div>
+              <p className="label-light mb-4">Made In-House</p>
+              <h2 className="text-display-md text-cream font-bold">
+                We test it on ourselves first.
+              </h2>
+            </div>
+            <p className="text-cream/50 text-sm max-w-sm leading-relaxed">
+              AI animation, character design, and motion, built for our own
+              brand. The same pipeline we point at yours.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl">
+            <div className="brand-film-card">
+              <BrandFilm
+                src="/assets/videos/fc-bloomfire.mp4"
+                poster="/assets/images/fc-bloomfire-thumb.jpg"
+                title="Operation Bloomfire"
+                meta="AI Animation · Character Design"
+                aspect="3/4"
+              />
+            </div>
+            <div className="brand-film-card">
+              <BrandFilm
+                src="/assets/videos/fc-hoops.mp4"
+                poster="/assets/images/fc-hoops-thumb.jpg"
+                title="Club Ball"
+                meta="AI Animation · Brand Film"
+                aspect="3/4"
+              />
+            </div>
           </div>
         </div>
       </section>

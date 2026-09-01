@@ -3,7 +3,8 @@
 import { useEffect, useState, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { projects } from "@/lib/portfolio";
+import { projects, websites } from "@/lib/portfolio";
+import SiteShowcase from "@/components/SiteShowcase";
 import PortfolioAsset from "@/components/PortfolioAsset";
 import Lightbox from "@/components/Lightbox";
 import { imageMap, videoMap, posterMap } from "@/components/PortfolioAsset";
@@ -46,7 +47,7 @@ export default function WorkPage() {
 
       // Cards stagger up on scroll, each grid triggered independently
       gsap.utils.toArray<HTMLElement>(".work-grid-section").forEach((section) => {
-        const items = section.querySelectorAll(".work-item");
+        const items = section.querySelectorAll(".work-item, .site-card");
         gsap.from(items, {
           opacity: 0, y: 40, duration: 0.65, stagger: 0.06, ease: "power3.out",
           scrollTrigger: { trigger: section, start: "top 82%", toggleActions: "play none none none" },
@@ -204,6 +205,25 @@ export default function WorkPage() {
                   </>
                 );
               })()}
+            </div>
+
+            {/* Websites */}
+            <div className="work-grid-section">
+              <p className="section-label label-light mb-8">WEBSITES</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
+                {websites.map((site) => (
+                  <SiteShowcase
+                    key={site.slug}
+                    href={site.url}
+                    image={site.image}
+                    alt={site.alt}
+                    client={site.client}
+                    title={site.title}
+                    description={site.description}
+                    tags={site.tags}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Tier 2 */}
