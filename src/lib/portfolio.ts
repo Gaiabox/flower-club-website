@@ -178,7 +178,7 @@ export const services = [
     headline: "Sites that perform as good as they look.",
     description:
       "Modern, responsive, fast. We design and build websites that convert visitors into clients. No templates, no shortcuts, custom code, every time.",
-    example: "Custom builds for brands across industries",
+    example: "Fire & Ash Events + Fire & Ash Cigar Carts",
   },
   {
     title: "Content Creation",
@@ -221,5 +221,42 @@ export const services = [
     description:
       "Technical SEO, content strategy, and on-page optimization that drives organic growth. We build visibility that compounds over time.",
     example: "Integrated SEO across all web builds",
+  },
+];
+
+export interface WebsiteProject {
+  slug: string;
+  client: string;
+  title: string;
+  description: string;
+  tags: string[];
+  url: string;
+  image: string;
+  alt: string;
+}
+
+/** Live client sites, the proof behind the web design service. */
+export const websites: WebsiteProject[] = [
+  {
+    slug: "fire-and-ash-cigar-carts",
+    client: "Fire & Ash Cigar Carts",
+    title: "A seven-hole configurator that qualifies the lead",
+    description:
+      "An eight-page Next.js build for the manufacturing side of Fire & Ash, where clubs and operators spec a custom cigar humidor cart through a golf scorecard configurator that hands over a qualified lead. Golf structure runs through the whole site, from numbered holes to a scroll-scrubbed film of a ball in flight.",
+    tags: ["Next.js", "Product configurator", "Lead qualification", "HubSpot", "Scroll-scrubbed video"],
+    url: "https://fireandashcigarcarts.com",
+    image: "/assets/images/fire-ash-cigar-carts.jpg",
+    alt: "Fire and Ash Cigar Carts website showing a custom cigar humidor golf cart at dusk on a Florida golf course with the headline A new era of the back nine",
+  },
+  {
+    slug: "fire-and-ash-events",
+    client: "Fire & Ash Events",
+    title: "A match survey that replaced the contact form",
+    description:
+      "A five-page site for a Florida luxury mobile cigar lounge, with pricing published up front and every inquiry routed through a five-step match survey instead of a generic contact form. Hand coded with no framework: the scroll rails, the turf wipe set piece, and a 136 photo scrapbook lightbox all ship in under 7KB of JavaScript.",
+    tags: ["Hand coded", "No framework", "Custom inquiry flow", "Local SEO", "Schema markup"],
+    url: "https://fireandashevents.com",
+    image: "/assets/images/fire-ash-events.jpg",
+    alt: "Fire and Ash Events website home page showing a dark cinematic hero of a mobile cigar lounge with the headline The night slows down when the torch lights",
   },
 ];
