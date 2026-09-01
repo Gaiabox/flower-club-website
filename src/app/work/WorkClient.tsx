@@ -17,6 +17,69 @@ interface LightboxState {
   isVideo: boolean;
 }
 
+/**
+ * Defined at module scope on purpose: declaring it inside WorkPage gave it a
+ * new identity every render, so opening or closing the lightbox remounted the
+ * whole grid, resetting videos and orphaning the scroll-reveal targets.
+ */
+function ProjectCard({
+  project,
+  aspect,
+  hideLabel = false,
+  onOpen,
+}: {
+  project: (typeof projects)[0];
+  aspect: "video" | "square" | "portrait";
+  hideLabel?: boolean;
+  onOpen: (slug: string, client: string) => void;
+}) {
+  return (
+    <div
+      className="work-item group cursor-pointer"
+      onClick={() => onOpen(project.slug, project.client)}
+    >
+      <div className="relative overflow-hidden rounded-sm">
+        <PortfolioAsset
+          slug={project.slug}
+          name={project.client}
+          category={project.category}
+          aspect={aspect}
+          className="group-hover:scale-[1.03] transition-transform duration-700"
+        />
+        {/* Hover overlay, description */}
+        <div className="absolute inset-0 bg-navy-dark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+          <div>
+            <p className="text-cream/70 text-xs leading-relaxed max-w-xs">
+              {project.description}
+            </p>
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[9px] font-mono text-red/80 border border-red/20 px-2 py-0.5 rounded-sm uppercase tracking-wider"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p className="font-mono text-[9px] text-cream/30 mt-3 uppercase tracking-widest">
+              Click to expand
+            </p>
+          </div>
+        </div>
+      </div>
+      {!hideLabel && (
+        <div className="mt-3">
+          <h3 className="text-cream font-bold text-lg uppercase tracking-wide group-hover:text-red transition-colors duration-300">
+            {project.client}
+          </h3>
+          <p className="label-light mt-0.5 text-[10px]">{project.category}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function WorkPage() {
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
 
@@ -66,60 +129,6 @@ export default function WorkPage() {
   const tier1 = projects.filter((p) => p.tier === 1);
   const tier2 = projects.filter((p) => p.tier === 2);
   const tier3 = projects.filter((p) => p.tier === 3);
-
-  const ProjectCard = ({
-    project,
-    aspect,
-    hideLabel = false,
-  }: {
-    project: (typeof projects)[0];
-    aspect: "video" | "square" | "portrait";
-    hideLabel?: boolean;
-  }) => (
-    <div
-      className="work-item group cursor-pointer"
-      onClick={() => openLightbox(project.slug, project.client)}
-    >
-      <div className="relative overflow-hidden rounded-sm">
-        <PortfolioAsset
-          slug={project.slug}
-          name={project.client}
-          category={project.category}
-          aspect={aspect}
-          className="group-hover:scale-[1.03] transition-transform duration-700"
-        />
-        {/* Hover overlay, description */}
-        <div className="absolute inset-0 bg-navy-dark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
-          <div>
-            <p className="text-cream/70 text-xs leading-relaxed max-w-xs">
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[9px] font-mono text-red/80 border border-red/20 px-2 py-0.5 rounded-sm uppercase tracking-wider"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <p className="font-mono text-[9px] text-cream/30 mt-3 uppercase tracking-widest">
-              Click to expand
-            </p>
-          </div>
-        </div>
-      </div>
-      {!hideLabel && (
-        <div className="mt-3">
-          <h3 className="text-cream font-bold text-lg uppercase tracking-wide group-hover:text-red transition-colors duration-300">
-            {project.client}
-          </h3>
-          <p className="label-light mt-0.5 text-[10px]">{project.category}</p>
-        </div>
-      )}
-    </div>
-  );
 
   return (
     <>
@@ -200,7 +209,7 @@ export default function WorkPage() {
 
                     {/* Image brand cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {imageProjects.map((p) => <ProjectCard key={p.slug} project={p} aspect="video" />)}
+                      {imageProjects.map((p) => <ProjectCard key={p.slug} onOpen={openLightbox} project={p} aspect="video" />)}
                     </div>
                   </>
                 );
@@ -230,7 +239,7 @@ export default function WorkPage() {
             <div className="work-grid-section">
               <p className="section-label label-light mb-8">LOGOS</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {tier2.map((p) => <ProjectCard key={p.slug} project={p} aspect="square" hideLabel />)}
+                {tier2.map((p) => <ProjectCard key={p.slug} onOpen={openLightbox} project={p} aspect="square" hideLabel />)}
               </div>
             </div>
 
@@ -238,7 +247,7 @@ export default function WorkPage() {
             <div className="work-grid-section">
               <p className="section-label label-light mb-8">PRODUCTIONS</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tier3.map((p) => <ProjectCard key={p.slug} project={p} aspect="video" hideLabel />)}
+                {tier3.map((p) => <ProjectCard key={p.slug} onOpen={openLightbox} project={p} aspect="video" hideLabel />)}
               </div>
             </div>
 
