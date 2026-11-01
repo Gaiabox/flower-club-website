@@ -1,37 +1,46 @@
 import Link from "next/link";
-import Image from "next/image";
-import FlowerWatermark from "@/components/FlowerWatermark";
-import SiteShowcase from "@/components/SiteShowcase";
-import BrandFilm from "@/components/BrandFilm";
-import { websites, services, projectSteps } from "@/lib/portfolio";
-
+import HeroVideo from "@/components/HeroVideo";
+import SelectedWork from "@/components/SelectedWork";
+import { projectSteps } from "@/lib/portfolio";
 export default function Home() {
   return (
     <>
-      <section className="bg-navy-dark relative overflow-hidden pt-40 pb-20 md:pt-48 md:pb-28">
-        <FlowerWatermark className="w-[600px] -right-48 -top-32 text-cream opacity-[0.04]" />
-        <div className="section-padding max-w-7xl mx-auto relative z-10">
-          <p className="label-light mb-6">
-            The Flower Club · Independent Creative Studio
+      <section className="relative min-h-[90svh] flex items-center bg-navy-dark pt-36 pb-24 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/assets/images/hero-bg.jpg')" }}
+        />
+        <HeroVideo
+          src="/assets/videos/makers-mark-rev-run-teaser.mp4"
+          poster="/assets/images/hero-bg.jpg"
+        />
+        <div className="absolute inset-0 bg-navy-dark/75" />
+        <div className="section-padding max-w-7xl mx-auto w-full relative z-10">
+          <p className="label-light mb-5">
+            The Flower Club · Brand &amp; Digital Design
           </p>
-          <h1 className="text-display-xl text-cream font-bold max-w-5xl mb-8">
-            Brand identities and websites that move you forward.
+          <h1 className="text-display-xl text-cream font-bold max-w-5xl mb-7">
+            Make your brand the one they choose.
           </h1>
-          <p className="text-cream/75 text-xl md:text-2xl leading-relaxed max-w-2xl mb-10">
-            You have something worth building. We help you give it a clear
-            identity, a considered website, and the content to bring it to life.
+          <p className="text-cream/85 text-xl md:text-2xl max-w-2xl leading-relaxed mb-8">
+            We design brands, build websites, and connect the systems behind
+            them. Give customers a reason to choose you and a clear way to take
+            the next step.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-start">
+          <div className="flex flex-col sm:flex-row items-start gap-4">
             <Link href="/contact" className="btn-primary">
-              Start a Project
+              Tell Us About Your Project
             </Link>
-            <Link href="/work" className="btn-outline">
-              View Our Work
+            <Link href="#selected-work" className="btn-outline">
+              See What We’ve Made
             </Link>
           </div>
-          <p className="text-cream/60 mt-10 text-sm">
-            Based in Charlotte, NC. Working with businesses, founders, and
-            creative brands nationwide.
+          <p className="text-cream/75 mt-8 max-w-xl text-sm">
+            Strategy, design, development, and creative production. Based in
+            Charlotte. Working nationwide.
+          </p>
+          <p className="text-cream/65 mt-10 text-xs">
+            Featured footage: Maker’s Mark × Rev Run brand activation
           </p>
         </div>
       </section>
@@ -39,134 +48,111 @@ export default function Home() {
         <div className="section-padding max-w-7xl mx-auto">
           <p className="label-light mb-4">Selected Work</p>
           <h2 className="text-display-md text-cream font-bold mb-6">
-            See what we build.
+            A few things we’ve made.
           </h2>
-          <p className="text-cream/70 text-lg max-w-2xl mb-12">
-            Custom websites and visual identities, with the details that make
-            each business its own.
+          <p className="text-cream/75 text-lg max-w-2xl mb-10">
+            Websites, identities, event content, and our own creative
+            experiments. Different formats, with a clear idea behind each.
           </p>
-          <div className="grid md:grid-cols-2 gap-12 mb-14">
-            {websites.map((site) => (
-              <SiteShowcase
-                key={site.slug}
-                {...site}
-                href={site.url}
-                caseStudyHref={`/work/${site.slug}`}
-              />
-            ))}
-          </div>
-          <div className="grid md:grid-cols-2 gap-10">
-            {[
-              { name: "Bean Locks", image: "bean-locks.png" },
-              {
-                name: "Ken’s Computer Solutions",
-                image: "kens-computer-solutions.jpg",
-              },
-            ].map((project) => (
-              <Link
-                href="/work#brand-identity"
-                key={project.name}
-                className="group"
-              >
-                <div className="aspect-[4/3] relative bg-cream overflow-hidden">
-                  <Image
-                    src={`/assets/images/${project.image}`}
-                    alt={`${project.name} brand identity`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-contain"
-                  />
-                </div>
-                <h3 className="text-cream text-xl font-bold mt-5 group-hover:text-red">
-                  {project.name}
-                </h3>
-                <p className="text-cream/65 mt-2">
-                  Logo design &amp; brand identity
-                </p>
-              </Link>
-            ))}
-          </div>
+          <SelectedWork />
           <Link
             href="/work"
-            className="inline-block text-cream underline underline-offset-8 mt-12"
+            className="inline-block text-cream underline underline-offset-8 mt-10"
           >
-            View all work →
+            Explore all work →
           </Link>
         </div>
       </section>
       <section className="bg-cream py-20 md:py-28">
         <div className="section-padding max-w-7xl mx-auto">
-          <p className="label mb-4">What We Do</p>
-          <h2 className="text-display-md text-navy font-bold mb-6">
-            Start with what your business needs.
+          <p className="label mb-4">What Do You Need To Move Forward?</p>
+          <h2 className="text-display-md text-navy font-bold mb-12">
+            Find the right starting point.
           </h2>
-          <p className="text-navy/70 text-lg max-w-2xl mb-12">
-            A new identity, a better website, or a creative partner for the next
-            chapter. We scope the work around your goals.
-          </p>
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
-            {services.map((service) => (
-              <div key={service.id} className="border-t border-navy/20 pt-7">
-                <h3 className="text-navy text-2xl font-bold mb-3">
-                  <Link href={`/services#${service.id}`}>
-                    {service.title} →
-                  </Link>
+          <div className="grid md:grid-cols-2 gap-12">
+            {[
+              {
+                title: "A website that helps people choose you.",
+                body: "Visitors should understand your offer, see why it matters, and know how to inquire. We write, design, and build that journey, including the forms and connections behind it.",
+                href: "/services/web-design",
+                label: "Explore Web Design",
+              },
+              {
+                title: "A stronger brand from the first impression.",
+                body: "Bring your positioning, logo, typography, and marketing into one recognizable identity. We build the visual system and the assets you need to put it to work.",
+                href: "/services#brand-identity",
+                label: "Explore Brand Design",
+              },
+              {
+                title: "Less chasing. Clearer follow-up.",
+                body: "If inquiries sit unanswered or your team copies the same information between tools, we can build intake, follow-up, scheduling, and reporting workflows around that work.",
+                href: "/services/digital-employees",
+                label: "Explore AI & Automation",
+              },
+              {
+                title: "Content people can experience.",
+                body: "Launch the idea through video, graphics, motion, and live activations. Our in-house design and AI-assisted production support the work from creative direction to finished assets.",
+                href: "/services#content-experiences",
+                label: "Explore Content & Experiences",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t border-navy/20 pt-7">
+                <h3 className="text-navy font-bold text-2xl mb-4">
+                  {item.title}
                 </h3>
-                <p className="text-navy/70 leading-relaxed">
-                  {service.headline}
+                <p className="text-navy/75 leading-relaxed text-lg mb-5">
+                  {item.body}
                 </p>
+                <Link
+                  href={item.href}
+                  className="text-navy font-semibold underline underline-offset-4"
+                >
+                  {item.label} →
+                </Link>
               </div>
             ))}
           </div>
-          <Link
-            href="/services"
-            className="inline-block text-navy underline underline-offset-8 mt-12"
-          >
-            Explore our services →
-          </Link>
         </div>
       </section>
       <section className="bg-navy-dark py-20 md:py-28">
         <div className="section-padding max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-          <div>
-            <p className="label-light mb-4">The Studio</p>
-            <h2 className="text-display-md text-cream font-bold">
-              Creative direction stays close to the work.
-            </h2>
-          </div>
-          <div className="text-cream/75 text-lg leading-relaxed">
+          <h2 className="text-display-md text-cream font-bold">
+            One partner from the idea to the finished work.
+          </h2>
+          <div className="text-cream/80 text-lg leading-relaxed">
             <p>
-              The Flower Club brings together brand strategy, design, web
-              development, and production. Founder James Highsmith stays
-              involved from the first conversation through the finished work.
+              You should not have to explain your business again every time a
+              project moves from strategy to design to development. We connect
+              those stages, so the identity, website, and supporting content
+              work together.
             </p>
             <p className="mt-5">
-              Our practice includes in-house motion and AI-assisted creative
-              production, alongside automation for everyday business tasks. Each
-              serves a different purpose, with a clear scope of its own.
+              Founder James Highsmith brings experience in brand marketing at
+              Maker’s Mark and stays involved in creative direction and review.
+              You work with the team making the work.
             </p>
             <Link
-              href="/about"
-              className="inline-block text-cream underline underline-offset-8 mt-8"
+              href="/services"
+              className="inline-block text-cream underline underline-offset-4 mt-6"
             >
-              Meet the studio →
+              See how we can help →
             </Link>
           </div>
         </div>
       </section>
       <section className="bg-cream py-20 md:py-28">
         <div className="section-padding max-w-7xl mx-auto">
-          <p className="label mb-4">How Projects Work</p>
-          <h2 className="text-display-md text-navy font-bold mb-12">
-            A clear path from idea to launch.
+          <p className="label mb-4">From First Conversation To Launch</p>
+          <h2 className="text-display-md text-navy font-bold mb-10">
+            Know what happens next.
           </h2>
           <div className="grid md:grid-cols-3 gap-10">
             {projectSteps.map((step) => (
-              <div key={step.title} className="border-t border-navy/20 pt-6">
+              <div key={step.title}>
                 <h3 className="text-navy text-xl font-bold mb-4">
                   {step.title}
                 </h3>
-                <p className="text-navy/70 leading-relaxed">
+                <p className="text-navy/75 leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -174,47 +160,23 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-navy-dark py-20 md:py-28" id="films">
-        <div className="section-padding max-w-7xl mx-auto">
-          <p className="label-light mb-4">Studio Experiments</p>
-          <h2 className="text-display-md text-cream font-bold mb-6">
-            Made for The Flower Club.
-          </h2>
-          <p className="text-cream/70 text-lg max-w-2xl mb-10">
-            Our own brand is a place to explore character design, motion, and
-            AI-assisted animation. These are in-house creative studies, separate
-            from client projects.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
-            <BrandFilm
-              src="/assets/videos/fc-bloomfire.mp4"
-              poster="/assets/images/fc-bloomfire-thumb.jpg"
-              title="Operation Bloomfire"
-              meta="Studio study · AI-assisted animation"
-              aspect="3/4"
-            />
-            <BrandFilm
-              src="/assets/videos/fc-hoops.mp4"
-              poster="/assets/images/fc-hoops-thumb.jpg"
-              title="Club Ball"
-              meta="Studio study · Character and motion design"
-              aspect="3/4"
-            />
-          </div>
-        </div>
-      </section>
       <section className="bg-navy py-20 md:py-28">
-        <div className="section-padding max-w-4xl mx-auto text-center">
+        <div className="section-padding max-w-4xl mx-auto">
           <h2 className="text-display-md text-cream font-bold mb-6">
-            What are you ready to build?
+            Let’s make the next step clear.
           </h2>
-          <p className="text-cream/75 text-lg mb-8">
-            Tell us what you have in mind. We will help define the scope and the
-            next step.
+          <p className="text-cream/80 text-lg max-w-2xl mb-8">
+            Tell us what your business does, what needs to change, and when you
+            need it. We’ll discuss the project, recommend a scope, and explain
+            the budget before work begins.
           </p>
           <Link href="/contact" className="btn-primary">
-            Start a Project
+            Tell Us About Your Project
           </Link>
+          <p className="text-cream/65 text-sm mt-5">
+            An inquiry starts a conversation. It does not commit you to a paid
+            engagement.
+          </p>
         </div>
       </section>
     </>

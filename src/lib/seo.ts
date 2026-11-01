@@ -8,9 +8,9 @@ import { services } from "@/lib/portfolio";
 export const SITE = {
   name: "The Flower Club",
   url: "https://theflowerclub.design",
-  tagline: "Brand Identities & Custom Websites | Charlotte NC Creative Studio",
+  tagline: "Brand & Digital Design, Websites & AI Systems | Charlotte NC",
   description:
-    "The Flower Club is an independent creative studio building brand identities, custom websites, content, and business automation. Based in Charlotte, NC, working nationwide.",
+    "The Flower Club is an independent creative studio building brand identities, custom websites, content, and AI automation systems. Based in Charlotte, NC, working nationwide.",
   location: {
     city: "Charlotte",
     state: "NC",

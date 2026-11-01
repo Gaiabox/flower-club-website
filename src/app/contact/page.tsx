@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
+import { track } from "@/lib/analytics";
 import gsap from "gsap";
 
 const projectTypes = [
@@ -30,6 +32,7 @@ const budgetRanges = [
 ];
 
 export default function ContactPage() {
+  const started = useRef(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -84,16 +87,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-
-    // Best-effort ping to the automation webhook, never blocks the visitor.
-    fetch(
-      "https://raucously-pluglike-julene.ngrok-free.dev/webhook/flower-club-contact",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      },
-    ).catch(() => {});
+    track("project_inquiry_submit", { source: "contact" });
 
     try {
       // Netlify Forms, the static form lives in public/__forms.html
@@ -107,6 +101,7 @@ export default function ContactPage() {
       });
       if (res.ok) {
         setStatus("sent");
+        track("project_inquiry_success", { source: "contact" });
         setFormData({
           name: "",
           email: "",
@@ -117,6 +112,7 @@ export default function ContactPage() {
         });
       } else {
         setStatus("error");
+        track("project_inquiry_error", { source: "contact" });
       }
     } catch {
       setStatus("error");
@@ -158,7 +154,16 @@ export default function ContactPage() {
 
           {/* Right, Form */}
           <div className="lg:col-span-7">
-            <form onSubmit={handleSubmit} className="contact-form space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="contact-form space-y-6"
+              onFocusCapture={() => {
+                if (!started.current) {
+                  started.current = true;
+                  track("project_inquiry_start", { source: "contact" });
+                }
+              }}
+            >
               {/* Name */}
               <div>
                 <label htmlFor="name" className="label mb-2 block">
@@ -285,6 +290,20 @@ export default function ContactPage() {
                 />
               </div>
 
+              <p className="text-navy/75 text-sm leading-relaxed">
+                We use these details to respond to your inquiry. Please do not
+                include passwords, patient information, financial account
+                details, or other sensitive information. Read our{" "}
+                <Link href="/legal/privacy" className="underline">
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link href="/legal/terms" className="underline">
+                  Website Terms
+                </Link>
+                . Sending an inquiry does not create a service agreement or
+                subscribe you to marketing.
+              </p>
               {/* Submit */}
               <div className="pt-4" aria-live="polite">
                 {status === "sent" ? (

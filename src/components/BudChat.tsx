@@ -237,6 +237,13 @@ export default function BudChat() {
           </span>
         </div>
 
+        <p className="px-4 pt-3 text-cream/75 text-xs leading-relaxed">
+          Details go to our team through Netlify Forms. Avoid sensitive
+          information.{" "}
+          <Link href="/legal/privacy" className="underline">
+            Privacy Policy
+          </Link>
+        </p>
         {/* Messages */}
         <div
           ref={bodyRef}

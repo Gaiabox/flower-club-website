@@ -32,7 +32,6 @@ export default function WorkClient() {
             ["websites", "Websites"],
             ["brand-identity", "Brand Identity"],
             ["content-experiences", "Content & Experiences"],
-            ["studio-studies", "Studio Studies"],
           ].map(([id, title]) => (
             <a
               key={id}
@@ -74,7 +73,13 @@ export default function WorkClient() {
             <h2 className="text-display-sm text-cream font-bold mb-8">
               {group.title}
             </h2>
-            <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
+            <div
+              className={
+                group.id === "brand-identity"
+                  ? "grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                  : "grid md:grid-cols-2 gap-x-8 gap-y-12"
+              }
+            >
               {group.items.map((project) => {
                 const video = videoMap[project.slug];
                 const image = posterMap[project.slug] || imageMap[project.slug];
@@ -99,7 +104,7 @@ export default function WorkClient() {
                         sizes="(max-width: 768px) 100vw, 50vw"
                         className={
                           group.id === "brand-identity"
-                            ? "object-contain"
+                            ? "object-contain p-8"
                             : "object-cover"
                         }
                       />
@@ -118,34 +123,43 @@ export default function WorkClient() {
                 );
               })}
             </div>
+            {group.id === "content-experiences" && (
+              <>
+                <div id="studio-studies" className="scroll-mt-28 mt-14">
+                  <h2 className="text-2xl text-cream font-bold mb-5">
+                    Studio Studies
+                  </h2>
+                  <p className="text-cream/75 text-lg max-w-2xl mb-10">
+                    In-house explorations in character design, motion, and
+                    AI-assisted animation. Made for The Flower Club, separate
+                    from commissioned client work.
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
+                    <BrandFilm
+                      src="/assets/videos/fc-bloomfire.mp4"
+                      poster="/assets/images/fc-bloomfire-thumb.jpg"
+                      title="Operation Bloomfire"
+                      meta="Studio study · AI-assisted animation"
+                      aspect="4/3"
+                    />
+                    <BrandFilm
+                      src="/assets/videos/fc-hoops.mp4"
+                      poster="/assets/images/fc-hoops-thumb.jpg"
+                      title="Club Ball"
+                      meta="Studio study · Character and motion design"
+                      aspect="4/3"
+                    />
+                  </div>
+                </div>
+              </>
+            )}
           </section>
         ))}
-        <section id="studio-studies" className="scroll-mt-28 mb-24">
-          <h2 className="text-display-sm text-cream font-bold mb-5">
-            Studio Studies
-          </h2>
-          <p className="text-cream/75 text-lg max-w-2xl mb-10">
-            In-house explorations in character design, motion, and AI-assisted
-            animation. Made for The Flower Club, separate from commissioned
-            client work.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
-            <BrandFilm
-              src="/assets/videos/fc-bloomfire.mp4"
-              poster="/assets/images/fc-bloomfire-thumb.jpg"
-              title="Operation Bloomfire"
-              meta="Studio study · AI-assisted animation"
-              aspect="3/4"
-            />
-            <BrandFilm
-              src="/assets/videos/fc-hoops.mp4"
-              poster="/assets/images/fc-hoops-thumb.jpg"
-              title="Club Ball"
-              meta="Studio study · Character and motion design"
-              aspect="3/4"
-            />
-          </div>
-        </section>
+        <p className="text-cream/65 text-sm leading-relaxed mb-10">
+          Client names and marks belong to their respective owners. Project
+          descriptions identify the scope shown. In-house studies are labeled
+          separately.
+        </p>
         <section className="border-t border-cream/20 pt-12">
           <h2 className="text-display-sm text-cream font-bold mb-5">
             Have a project in mind?

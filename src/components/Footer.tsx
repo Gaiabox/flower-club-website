@@ -1,19 +1,18 @@
 import Link from "next/link";
 import FlowerLogo from "@/components/FlowerLogo";
-import NewsletterForm from "@/components/NewsletterForm";
+import { AnalyticsPreferencesButton } from "@/components/PrivacyControls";
 import { SITE } from "@/lib/seo";
 
 const pages = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
-  { href: "/about", label: "Studio" },
   { href: "/contact", label: "Start a Project" },
 ];
 
 const services = [
   { href: "/services#brand-identity", label: "Brand Identity" },
-  { href: "/services#websites", label: "Websites" },
+  { href: "/services/web-design", label: "Websites" },
   { href: "/services#content-experiences", label: "Content & Experiences" },
   { href: "/services/digital-employees", label: "Business Automation" },
 ];
@@ -81,14 +80,6 @@ export default function Footer() {
               Charlotte, NC, serving Miami, New York, Los Angeles, and
               everywhere in between.
             </p>
-            <div className="mt-8">
-              <p className="label-light mb-3">Owner&apos;s Notes</p>
-              <p className="text-cream/50 text-sm mb-3 leading-relaxed">
-                Occasional notes on brand design, websites, and the creative
-                work happening in our studio. No spam, unsubscribe anytime.
-              </p>
-              <NewsletterForm />
-            </div>
             <div className="flex gap-6 mt-6">
               <a
                 href={SITE.social.instagram}
@@ -110,6 +101,27 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="flex flex-wrap gap-x-6 gap-y-3 mt-10 text-sm">
+          <Link
+            href="/legal/privacy"
+            className="text-cream/70 underline underline-offset-4"
+          >
+            Privacy &amp; Cookies
+          </Link>
+          <Link
+            href="/legal/terms"
+            className="text-cream/70 underline underline-offset-4"
+          >
+            Website Terms
+          </Link>
+          <Link
+            href="/legal/accessibility"
+            className="text-cream/70 underline underline-offset-4"
+          >
+            Accessibility
+          </Link>
+          <AnalyticsPreferencesButton />
+        </div>
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-16 pt-6 border-t border-cream/10">
           <p className="text-cream/40 text-[11px] font-mono uppercase tracking-wider">

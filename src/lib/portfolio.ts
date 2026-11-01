@@ -170,7 +170,7 @@ export const services = [
   {
     id: "websites",
     title: "Websites",
-    headline: "Help people understand your business and take the next step.",
+    headline: "Turn interest in your business into a clear next step.",
     description:
       "We plan, write, design, and build custom websites around what your customers need to know. Clear service pages, thoughtful inquiry flows, and responsive design make it easier to explore your offer and get in touch.",
     deliverables: [
@@ -202,7 +202,7 @@ export const services = [
   {
     id: "business-automation",
     title: "Business Automation",
-    headline: "Give repetitive work a clear process.",
+    headline: "Keep inquiries moving and give your team time back.",
     description:
       "We map tasks such as intake, lead follow-up, scheduling, and reporting, then build connected workflows with AI where it helps. Each project defines what runs automatically, what needs review, and when a person takes over.",
     deliverables: [
@@ -248,6 +248,21 @@ export interface WebsiteProject {
 
 /** Live client sites, the proof behind the web design service. */
 export const websites: WebsiteProject[] = [
+  {
+    slug: "jade-lilly",
+    client: "Jade Lilly",
+    title: "A digital world for an experiential artist",
+    description:
+      "We designed and built a website that brings Jade Lilly’s photography, textile installations, and experiences into one world. Visitors can explore the work, discover Strings Attached, and start a project with the artist.",
+    tags: [
+      "Website design & development",
+      "Creative direction",
+      "Artist portfolio",
+    ],
+    url: "https://jadelillystudio.com/",
+    image: "/assets/images/jade-lilly-website.jpg",
+    alt: "Hero artwork from the Jade Lilly website, showing an island of yarn-built creative spaces",
+  },
   {
     slug: "fire-and-ash-cigar-carts",
     client: "Fire & Ash Cigar Carts",

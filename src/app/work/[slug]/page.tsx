@@ -8,6 +8,18 @@ const details: Record<
   string,
   { context: string; approach: string; delivery: string[] }
 > = {
+  "jade-lilly": {
+    context:
+      "Jade Lilly works across photography, textile installations, and immersive experiences. The website brings those practices together so a visitor can explore her world and find the right way to work with her.",
+    approach:
+      "We designed and built the digital experience around her creative world: a yarn-island introduction, image-rich project galleries, service pathways, and a direct project inquiry. Strings Attached has its own place within the wider site.",
+    delivery: [
+      "Website design and development",
+      "Creative direction and motion",
+      "Project and experience galleries",
+      "Service pathways and project inquiry",
+    ],
+  },
   "fire-and-ash-cigar-carts": {
     context:
       "A custom cigar humidor cart involves choices that are hard to capture in a generic contact form. The website lets clubs and operators explore the product before sharing the configuration they have in mind.",

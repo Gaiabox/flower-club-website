@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 /**
  * HeroVideo, the looping clip behind the hero.
@@ -20,6 +20,8 @@ export default function HeroVideo({
   src: string;
   poster: string;
 }) {
+  const video = useRef<HTMLVideoElement>(null);
+  const [paused, setPaused] = useState(false);
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -38,15 +40,34 @@ export default function HeroVideo({
   if (!show) return null;
 
   return (
-    <video
-      className="absolute inset-0 w-full h-full object-cover"
-      src={src}
-      poster={poster}
-      autoPlay
-      muted
-      loop
-      playsInline
-      aria-hidden="true"
-    />
+    <>
+      <video
+        ref={video}
+        onPlay={() => setPaused(false)}
+        onPause={() => setPaused(true)}
+        className="absolute inset-0 w-full h-full object-cover"
+        src={src}
+        poster={poster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      />
+      <button
+        type="button"
+        className="absolute bottom-5 right-5 z-20 text-cream border border-cream/60 bg-navy-dark/80 px-4 py-3 text-sm"
+        onClick={() => {
+          if (video.current?.paused) {
+            video.current.play().catch(() => {});
+          } else {
+            video.current?.pause();
+          }
+        }}
+        aria-label={paused ? "Play header video" : "Pause header video"}
+      >
+        {paused ? "Play Video" : "Pause Video"}
+      </button>
+    </>
   );
 }

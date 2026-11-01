@@ -35,6 +35,40 @@ export default function DigitalEmployeesClient() {
             Discuss Automation
           </Link>
         </header>
+        <section className="grid md:grid-cols-2 gap-10 mb-20 border-t border-navy/20 pt-10">
+          <div>
+            <h2 className="text-display-sm text-navy font-bold mb-5">
+              A new inquiry should start the next step.
+            </h2>
+            <p className="text-navy/75 text-lg leading-relaxed">
+              When a customer reaches out, the details need to reach the right
+              person. We connect the form, customer record, notifications, and
+              follow-up process so your team can respond with context.
+            </p>
+            <p className="text-navy/75 mt-5">
+              If you are copying the same information between tools or losing
+              track of who needs a response, start with that workflow.
+            </p>
+          </div>
+          <div className="bg-navy p-8">
+            <p className="label-light mb-4">Related Work · Website + CRM</p>
+            <h3 className="text-cream font-bold text-2xl mb-4">
+              Fire &amp; Ash Cigar Carts
+            </h3>
+            <p className="text-cream/80 leading-relaxed mb-6">
+              We built a product configurator that sends a visitor’s choices
+              into HubSpot with their inquiry. It gives the sales conversation a
+              starting point. This is a connected website workflow, not a claim
+              of an AI deployment or measured time savings.
+            </p>
+            <Link
+              href="/work/fire-and-ash-cigar-carts"
+              className="text-cream underline underline-offset-4"
+            >
+              See what we built →
+            </Link>
+          </div>
+        </section>
         <section className="mb-20">
           <h2 className="text-display-sm text-navy font-bold mb-6">
             Start with a task your team knows well.
@@ -106,6 +140,36 @@ export default function DigitalEmployeesClient() {
             </Link>
             . That is a different service from automating business workflows.
           </p>
+        </section>
+        <section className="mb-16">
+          <h2 className="text-navy text-3xl font-bold mb-6">
+            Questions before you automate.
+          </h2>
+          {[
+            [
+              "Do we need to replace all our tools?",
+              "We start with the tools you already use and assess their integration options. The proposal identifies any new services, subscriptions, or access required.",
+            ],
+            [
+              "Will AI send messages or make decisions without review?",
+              "We agree on the permissions, approval steps, and handoffs before building. The level of automation depends on the task and the consequences of an error.",
+            ],
+            [
+              "Can you promise a specific amount of savings?",
+              "No. We define a baseline and measures of success for the workflow. Estimates depend on actual task volume, tool costs, and adoption.",
+            ],
+            [
+              "Do I need the paid audit first?",
+              "Only if discovery is needed to choose or define the workflow. If the task and requirements are clear, we can scope a build directly.",
+            ],
+          ].map(([question, answer]) => (
+            <details className="border-t border-navy/20 py-5" key={question}>
+              <summary className="font-bold text-navy text-lg cursor-pointer">
+                {question}
+              </summary>
+              <p className="text-navy/75 leading-relaxed mt-4">{answer}</p>
+            </details>
+          ))}
         </section>
         <section className="border-t border-navy/20 pt-12">
           <h2 className="text-display-sm text-navy font-bold mb-6">

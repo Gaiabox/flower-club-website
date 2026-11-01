@@ -53,12 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${SITE.url}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
       url: `${SITE.url}/contact`,
       lastModified: now,
       changeFrequency: "monthly",
@@ -69,6 +63,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    ...[
+      "/services/web-design",
+      "/legal/privacy",
+      "/legal/terms",
+      "/legal/accessibility",
+    ].map((path) => ({
+      url: `${SITE.url}${path}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
     })),
     ...CITY_PAGES.map((city) => ({
       url: `${SITE.url}/services/${city}`,

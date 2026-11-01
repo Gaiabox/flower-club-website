@@ -27,12 +27,16 @@ export default function Navigation() {
     "/services/audit",
     "/contact",
   ];
-  const isLightPage = lightBgPages.includes(pathname);
+  const isLightPage =
+    lightBgPages.includes(pathname) ||
+    pathname.startsWith("/legal") ||
+    pathname === "/services/web-design";
 
   const links = [
     { href: "/work", label: "Work" },
     { href: "/services", label: "Services" },
-    { href: "/about", label: "Studio" },
+    { href: "/services/web-design", label: "Web Design" },
+    { href: "/services/digital-employees", label: "AI Systems" },
   ];
 
   return (
@@ -118,7 +122,7 @@ export default function Navigation() {
           <Link
             key={link.href}
             href={link.href}
-            className="text-cream text-display-sm font-bold uppercase tracking-wider hover:text-red transition-colors"
+            className="text-cream text-2xl font-bold uppercase tracking-wider hover:text-red transition-colors"
           >
             {link.label}
           </Link>
