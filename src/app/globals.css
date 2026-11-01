@@ -257,3 +257,11 @@
 .cta-strip-content {
   opacity: 1;
 }
+
+.client-ticker { animation: ticker 32s linear infinite; }
+.client-bar:hover .client-ticker { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .client-ticker { animation: none; }
+  .client-bar { overflow-x: auto; }
+  .client-ticker > [aria-hidden="true"] { display: none; }
+}

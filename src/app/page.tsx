@@ -1,5 +1,8 @@
 import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
+import FlowerWatermark from "@/components/FlowerWatermark";
+import HomeStatement from "@/components/HomeStatement";
+import ClientTicker from "@/components/ClientTicker";
 import SelectedWork from "@/components/SelectedWork";
 import { projectSteps } from "@/lib/portfolio";
 export default function Home() {
@@ -15,7 +18,7 @@ export default function Home() {
           poster="/assets/images/hero-bg.jpg"
         />
         <div className="absolute inset-0 bg-navy-dark/75" />
-        <div className="section-padding max-w-7xl mx-auto w-full relative z-10">
+        <div className="relative z-10 section-padding max-w-7xl mx-auto w-full relative z-10">
           <p className="label-light mb-5">
             The Flower Club · Brand &amp; Digital Design
           </p>
@@ -44,8 +47,10 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section className="bg-navy py-20 md:py-28" id="selected-work">
-        <div className="section-padding max-w-7xl mx-auto">
+      <ClientTicker />
+      <section className="bg-navy py-20 md:py-28 relative overflow-hidden" id="selected-work">
+        <FlowerWatermark className="w-[560px] md:w-[760px] -right-36 md:-right-48 -top-40 text-cream opacity-[0.04]" />
+        <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <p className="label-light mb-4">Selected Work</p>
           <h2 className="text-display-md text-cream font-bold mb-6">
             A few things we’ve made.
@@ -64,7 +69,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-cream py-20 md:py-28">
-        <div className="section-padding max-w-7xl mx-auto">
+        <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <p className="label mb-4">What Do You Need To Move Forward?</p>
           <h2 className="text-display-md text-navy font-bold mb-12">
             Find the right starting point.
@@ -114,8 +119,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-navy-dark py-20 md:py-28">
-        <div className="section-padding max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      <section className="bg-navy py-20 md:py-28 relative overflow-hidden">
+        <FlowerWatermark className="w-[520px] md:w-[700px] -left-36 md:-left-44 -bottom-40 text-cream opacity-[0.04]" />
+        <div className="relative z-10 section-padding max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
           <h2 className="text-display-md text-cream font-bold">
             One partner from the idea to the finished work.
           </h2>
@@ -141,7 +147,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-cream py-20 md:py-28">
-        <div className="section-padding max-w-7xl mx-auto">
+        <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <p className="label mb-4">From First Conversation To Launch</p>
           <h2 className="text-display-md text-navy font-bold mb-10">
             Know what happens next.
@@ -160,8 +166,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-navy py-20 md:py-28">
-        <div className="section-padding max-w-4xl mx-auto">
+      <HomeStatement />
+      <section className="bg-navy py-20 md:py-28 relative overflow-hidden">
+        <FlowerWatermark className="w-[480px] md:w-[640px] left-1/2 -translate-x-1/2 -bottom-56 text-cream opacity-[0.05]" />
+        <div className="relative z-10 section-padding max-w-4xl mx-auto">
           <h2 className="text-display-md text-cream font-bold mb-6">
             Let’s make the next step clear.
           </h2>
