@@ -1,23 +1,26 @@
-// Shared between the client page (rendering) and server page (FAQ schema).
 export const auditFaq = [
   {
-    q: "How much of my time does the audit take?",
-    a: "About three hours total, spread over two to three weeks: a kickoff call, short interviews we schedule around your team, and a findings walkthrough at the end.",
+    q: "Do I need an audit before a brand or website project?",
+    a: "No. Brand, website, and content projects start with a conversation about your goals and scope. This audit is a separate service for businesses deciding what to automate.",
   },
   {
-    q: "Do I need to be technical?",
-    a: "No. We interview in plain English and deliver in plain English. Nothing in the audit requires you to touch software.",
+    q: "What does the audit cost?",
+    a: "Audits start at $2,500. We agree on the workflows, deliverables, and fee before work begins. The final scope depends on the complexity of the business and the tasks involved.",
   },
   {
-    q: "What if I already have a marketing agency or an IT person?",
-    a: "Keep them. The audit maps how your operation runs, not your marketing. The roadmap is written so anyone can build from it, including the people you already trust.",
+    q: "How long does it take?",
+    a: "The typical engagement runs two to three weeks. We confirm the schedule and the time needed from your team when we define the scope.",
   },
   {
-    q: "What do you need from us?",
-    a: "A kickoff conversation, access to the people doing the work for short interviews, and honesty about where things feel slow.",
+    q: "What will you need from our team?",
+    a: "A kickoff conversation, short interviews with the people doing the work, and examples of the workflows we are reviewing. We agree on any access needed before the audit starts.",
   },
   {
-    q: "What happens after the audit?",
-    a: "You keep the roadmap either way. Most clients have us build the top quick win first; some take the roadmap and run with their own team. Both count as wins.",
+    q: "Are the savings guaranteed?",
+    a: "No. We estimate potential value using the information available and explain the assumptions. Actual results depend on what is implemented, how it is used, and the ongoing costs.",
+  },
+  {
+    q: "Do we have to hire you to implement the roadmap?",
+    a: "No. You can use the roadmap with your own team or ask us to scope the implementation separately.",
   },
 ];

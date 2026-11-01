@@ -3,53 +3,73 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-/**
- * Bud, The Flower Club's on-site digital employee.
- * A fully scripted, client-side conversation (zero API cost) that
- * qualifies a lead, name → service → budget → details, and submits
- * to the same Netlify form as the contact page. Doubles as a live
- * demo of the AI-employees service.
- */
+/** Scripted project intake assistant. Uses the same Netlify form as Contact. */
 
 type Msg = { from: "bud" | "user"; text: string };
-type Step = "name" | "email" | "service" | "budget" | "details" | "sending" | "done";
+type Step =
+  "name" | "email" | "service" | "budget" | "details" | "sending" | "done";
 
 const SERVICES = [
-  "The Audit",
-  "AI Employees",
+  "Brand Identity",
   "Website",
-  "Branding / Design",
-  "Video / Animation",
+  "Content & Experiences",
+  "Business Automation",
+  "Automation Audit",
   "Not sure yet",
 ];
-
-const BUDGETS = ["Under $2,500", "$2,500–$5,000", "$5,000–$15,000", "$15,000+", "Let's discuss"];
-
+const BUDGETS = [
+  "Under $2,500",
+  "$2,500–$5,000",
+  "$5,000–$15,000",
+  "$15,000+",
+  "Let's discuss",
+];
 const SERVICE_MAP: Record<string, string> = {
-  "The Audit": "The Audit (AI Consulting)",
-  "AI Employees": "AI-Powered Digital Employees",
-  Website: "Web Design + Development",
-  "Branding / Design": "Brand Identity",
-  "Video / Animation": "AI Animation + Video",
+  "Brand Identity": "Brand Identity",
+  Website: "Website",
+  "Content & Experiences": "Content & Experiences",
+  "Business Automation": "Business Automation",
+  "Automation Audit": "Automation Audit",
   "Not sure yet": "Not Sure Yet",
 };
-
 const SERVICE_REPLIES: Record<string, string> = {
-  "The Audit": "Best place to start, we find where the business bleeds money and price every fix in dollars per year. Audits start at $2.5K, scoped by complexity. Rough budget range?",
-  "AI Employees": "Smart. You're literally talking to one right now. Rough budget range?",
-  Website: "Good call, that's the front door of everything. Rough budget range?",
-  "Branding / Design": "The foundation. Rough budget range?",
-  "Video / Animation": "Motion moves people. Rough budget range?",
-  "Not sure yet": "No problem, that's literally what our Audit is for. Rough budget range?",
+  "Brand Identity":
+    "Thanks. What budget range do you have in mind for the identity work?",
+  Website: "Thanks. What budget range do you have in mind for the website?",
+  "Content & Experiences":
+    "Got it. What budget range do you have in mind for the creative work?",
+  "Business Automation":
+    "Thanks. The team will discuss the workflow and what it needs. What budget range do you have in mind?",
+  "Automation Audit":
+    "Audits start at $2,500, with the scope agreed before work begins. What budget range do you have in mind?",
+  "Not sure yet":
+    "That is fine. The team can help define the scope. Do you have a budget range in mind?",
 };
 
 function FlowerIcon({ size = 22 }: { size?: number }) {
   return (
     <svg viewBox="0 0 36 36" width={size} height={size} aria-hidden="true">
       {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
-        <ellipse key={a} cx="18" cy="9" rx="4.5" ry="7.5" fill="#FFD700" stroke="#121D33" strokeWidth="2" transform={`rotate(${a} 18 18)`} />
+        <ellipse
+          key={a}
+          cx="18"
+          cy="9"
+          rx="4.5"
+          ry="7.5"
+          fill="#FFD700"
+          stroke="#121D33"
+          strokeWidth="2"
+          transform={`rotate(${a} 18 18)`}
+        />
       ))}
-      <circle cx="18" cy="18" r="8.5" fill="#F4A300" stroke="#121D33" strokeWidth="2.2" />
+      <circle
+        cx="18"
+        cy="18"
+        r="8.5"
+        fill="#F4A300"
+        stroke="#121D33"
+        strokeWidth="2.2"
+      />
       <circle cx="18" cy="18" r="4.5" fill="#121D33" />
     </svg>
   );
@@ -75,14 +95,16 @@ export default function BudChat() {
       }, delay);
     });
 
-  const userSays = (text: string) => setMsgs((m) => [...m, { from: "user", text }]);
+  const userSays = (text: string) =>
+    setMsgs((m) => [...m, { from: "user", text }]);
 
   useEffect(() => {
     if (open && !started.current) {
       started.current = true;
-      say("Hey, I'm Bud, The Flower Club's digital employee. I can scope your project and have the team send a real quote within 24 hours.", 1000).then(() =>
-        say("First up, what should I call you?", 800)
-      );
+      say(
+        "Hi, I'm Bud, The Flower Club's automated project assistant. I'll collect a few details for the team to review. This is a guided form, not a live conversation.",
+        1000,
+      ).then(() => say("First up, what should I call you?", 800));
     }
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -97,7 +119,9 @@ export default function BudChat() {
     userSays(v);
     data.current.name = v;
     setStep("email");
-    await say(`Good to meet you, ${v}. Best email for the quote?`);
+    await say(
+      `Good to meet you, ${v}. What email should the team use to follow up?`,
+    );
   };
 
   const handleEmail = async () => {
@@ -125,7 +149,9 @@ export default function BudChat() {
     userSays(b);
     data.current.budget = b;
     setStep("details");
-    await say("Last one, tell me about the project. Timeline, goals, anything that helps the team scope it.");
+    await say(
+      "Last one, tell me about the project. Timeline, goals, anything that helps the team scope it.",
+    );
   };
 
   const handleDetails = async () => {
@@ -146,16 +172,23 @@ export default function BudChat() {
           company: "",
           projectType: data.current.service,
           budget: data.current.budget,
-          message: `${v}\n\n- captured by Bud, the site's digital employee`,
+          message: `${v}\n\n- collected by Bud, the automated project assistant`,
         }).toString(),
       });
       if (!res.ok) throw new Error("submit failed");
       setStep("done");
-      await say(`Done ✓ The team has everything, you'll hear back within 24 hours, ${data.current.name}.`);
-      await say("This is the kind of employee we build for businesses, by the way. Yours could be qualifying leads right now.", 1100);
+      await say(
+        `Thanks, ${data.current.name}. Your inquiry has been submitted. The team will follow up by email to discuss the project.`,
+      );
+      await say(
+        "You can explore our work while the team reviews your inquiry.",
+        1100,
+      );
     } catch {
       setStep("details");
-      await say("Hmm, that didn't go through. Mind using the contact page instead? Everything still lands with the team.");
+      await say(
+        "Hmm, that didn't go through. Mind using the contact page instead? Everything still lands with the team.",
+      );
     }
   };
 
@@ -182,7 +215,9 @@ export default function BudChat() {
       {/* Chat panel */}
       <div
         className={`fixed z-40 left-3 right-3 bottom-24 md:left-6 md:right-auto md:w-[380px] rounded-lg overflow-hidden border border-cream/15 bg-navy-dark shadow-2xl transition-all duration-300 origin-bottom-left ${
-          open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-95 pointer-events-none"
+          open
+            ? "opacity-100 scale-100 pointer-events-auto"
+            : "invisible opacity-0 scale-95 pointer-events-none"
         }`}
       >
         {/* Header */}
@@ -192,21 +227,31 @@ export default function BudChat() {
           </div>
           <div className="flex-1">
             <p className="text-cream font-bold text-sm leading-tight">Bud</p>
-            <p className="text-cream/50 font-mono text-[10px] uppercase tracking-widest">Digital Employee</p>
+            <p className="text-cream/50 font-mono text-[10px] uppercase tracking-widest">
+              Project Assistant
+            </p>
           </div>
           <span className="flex items-center gap-1.5 text-green-400 font-mono text-[10px] uppercase tracking-widest">
             <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-            Online
+            Guided Form
           </span>
         </div>
 
         {/* Messages */}
-        <div ref={bodyRef} className="h-[320px] md:h-[360px] overflow-y-auto px-4 py-4 space-y-3">
+        <div
+          ref={bodyRef}
+          className="h-[320px] md:h-[360px] overflow-y-auto px-4 py-4 space-y-3"
+        >
           {msgs.map((m, i) => (
-            <div key={i} className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}>
+            <div
+              key={i}
+              className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}
+            >
               <div
                 className={`max-w-[85%] rounded-lg px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
-                  m.from === "user" ? "bg-red text-cream" : "bg-navy text-cream/90 border border-cream/10"
+                  m.from === "user"
+                    ? "bg-red text-cream"
+                    : "bg-navy text-cream/90 border border-cream/10"
                 }`}
               >
                 {m.text}
@@ -218,8 +263,14 @@ export default function BudChat() {
             <div className="flex justify-start">
               <div className="bg-navy border border-cream/10 rounded-lg px-4 py-3 flex gap-1.5">
                 <span className="bud-dot h-1.5 w-1.5 rounded-full bg-cream/60" />
-                <span className="bud-dot h-1.5 w-1.5 rounded-full bg-cream/60" style={{ animationDelay: "0.15s" }} />
-                <span className="bud-dot h-1.5 w-1.5 rounded-full bg-cream/60" style={{ animationDelay: "0.3s" }} />
+                <span
+                  className="bud-dot h-1.5 w-1.5 rounded-full bg-cream/60"
+                  style={{ animationDelay: "0.15s" }}
+                />
+                <span
+                  className="bud-dot h-1.5 w-1.5 rounded-full bg-cream/60"
+                  style={{ animationDelay: "0.3s" }}
+                />
               </div>
             </div>
           )}
@@ -228,7 +279,11 @@ export default function BudChat() {
           {!typing && step === "service" && (
             <div className="flex flex-wrap gap-2 pt-1">
               {SERVICES.map((s) => (
-                <button key={s} onClick={() => handleService(s)} className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors">
+                <button
+                  key={s}
+                  onClick={() => handleService(s)}
+                  className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors"
+                >
                   {s}
                 </button>
               ))}
@@ -237,7 +292,11 @@ export default function BudChat() {
           {!typing && step === "budget" && (
             <div className="flex flex-wrap gap-2 pt-1">
               {BUDGETS.map((b) => (
-                <button key={b} onClick={() => handleBudget(b)} className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors">
+                <button
+                  key={b}
+                  onClick={() => handleBudget(b)}
+                  className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors"
+                >
                   {b}
                 </button>
               ))}
@@ -245,11 +304,17 @@ export default function BudChat() {
           )}
           {!typing && step === "done" && (
             <div className="flex flex-wrap gap-2 pt-1">
-              <Link href="/work" className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors">
+              <Link
+                href="/work"
+                className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors"
+              >
                 See the work →
               </Link>
-              <Link href="/services/digital-employees" className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors">
-                Get your own Bud →
+              <Link
+                href="/services/digital-employees"
+                className="border border-cream/25 text-cream/85 hover:border-red hover:text-cream rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors"
+              >
+                Explore automation →
               </Link>
             </div>
           )}
@@ -263,24 +328,45 @@ export default function BudChat() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter")
-                  (step === "name" ? handleName : step === "email" ? handleEmail : handleDetails)();
+                  (step === "name"
+                    ? handleName
+                    : step === "email"
+                      ? handleEmail
+                      : handleDetails)();
               }}
               placeholder={
                 step === "name"
                   ? "Your name…"
                   : step === "email"
-                  ? "you@business.com"
-                  : "Tell Bud about the project…"
+                    ? "you@business.com"
+                    : "Tell Bud about the project…"
               }
               className="flex-1 bg-navy border border-cream/15 rounded-md px-3 py-2.5 text-sm text-cream placeholder:text-cream/30 outline-none focus:border-cream/40"
             />
             <button
-              onClick={step === "name" ? handleName : step === "email" ? handleEmail : handleDetails}
+              onClick={
+                step === "name"
+                  ? handleName
+                  : step === "email"
+                    ? handleEmail
+                    : handleDetails
+              }
               aria-label="Send"
               className="h-10 w-10 flex items-center justify-center rounded-md bg-red text-cream hover:bg-red-hover transition-colors"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path
+                  d="M5 12h14M13 5l7 7-7 7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>

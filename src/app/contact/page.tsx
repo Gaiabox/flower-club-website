@@ -4,19 +4,21 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 
 const projectTypes = [
-  "The Audit (AI Consulting)",
-  "AI Systems + Digital Employees",
-  "Web Design + Development",
   "Brand Identity",
-  "Content Creation",
-  "AI Animation + Video",
-  "Graphic Design",
-  "Event Creative",
-  "Social Media Management",
-  "SEO",
+  "Website",
+  "Content & Experiences",
+  "Business Automation",
+  "Automation Audit",
   "Multiple Services",
   "Not Sure Yet",
 ];
+const inquiryTypes: Record<string, string> = {
+  brand: "Brand Identity",
+  website: "Website",
+  content: "Content & Experiences",
+  automation: "Business Automation",
+  audit: "Automation Audit",
+};
 
 const budgetRanges = [
   "Under $2,500",
@@ -36,17 +38,20 @@ export default function ContactPage() {
     projectType: "",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
 
   // Arrivals from audit CTAs get the form pre-selected (?type=audit)
   useEffect(() => {
     const type = new URLSearchParams(window.location.search).get("type");
-    if (type === "audit") {
-      setFormData((f) => ({ ...f, projectType: "The Audit (AI Consulting)" }));
+    if (type && inquiryTypes[type]) {
+      setFormData((f) => ({ ...f, projectType: inquiryTypes[type] }));
     }
   }, []);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const ctx = gsap.context(() => {
       gsap.from(".contact-header", {
         y: 40,
@@ -81,11 +86,14 @@ export default function ContactPage() {
     setStatus("sending");
 
     // Best-effort ping to the automation webhook, never blocks the visitor.
-    fetch("https://raucously-pluglike-julene.ngrok-free.dev/webhook/flower-club-contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    }).catch(() => {});
+    fetch(
+      "https://raucously-pluglike-julene.ngrok-free.dev/webhook/flower-club-contact",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      },
+    ).catch(() => {});
 
     try {
       // Netlify Forms, the static form lives in public/__forms.html
@@ -99,7 +107,14 @@ export default function ContactPage() {
       });
       if (res.ok) {
         setStatus("sent");
-        setFormData({ name: "", email: "", company: "", budget: "", projectType: "", message: "" });
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          budget: "",
+          projectType: "",
+          message: "",
+        });
       } else {
         setStatus("error");
       }
@@ -117,11 +132,12 @@ export default function ContactPage() {
             <div className="contact-header mb-12">
               <p className="label mb-4">Contact</p>
               <h1 className="text-display-lg text-navy font-bold mb-6">
-                Let&apos;s Figure Out What&apos;s Holding Growth Back.
+                Let&apos;s build your next chapter.
               </h1>
               <p className="text-navy/60 text-lg leading-relaxed">
-                Whether you need a better website, stronger branding, AI automation, content, or a clearer strategy, 
-                we&apos;ll help identify the biggest opportunities for growth. Expect response within 24 hours.
+                Tell us about your business, what you want to create, and when
+                you need it. We will review your inquiry and follow up to
+                discuss the scope, budget, and next steps.
               </p>
             </div>
 
@@ -132,24 +148,27 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <p className="label mb-2">Response Time</p>
-                <p className="text-navy/70">Within 24 hours</p>
+                <p className="label mb-2">What Happens Next</p>
+                <p className="text-navy/70">
+                  A conversation about your project
+                </p>
               </div>
             </div>
           </div>
 
           {/* Right, Form */}
           <div className="lg:col-span-7">
-            <form
-              onSubmit={handleSubmit}
-              className="contact-form space-y-6"
-            >
+            <form onSubmit={handleSubmit} className="contact-form space-y-6">
               {/* Name */}
               <div>
-                <label className="label mb-2 block">Name *</label>
+                <label htmlFor="name" className="label mb-2 block">
+                  Name *
+                </label>
                 <input
                   type="text"
                   required
+                  id="name"
+                  name="name"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -161,10 +180,14 @@ export default function ContactPage() {
 
               {/* Email */}
               <div>
-                <label className="label mb-2 block">Email *</label>
+                <label htmlFor="email" className="label mb-2 block">
+                  Email *
+                </label>
                 <input
                   type="email"
                   required
+                  id="email"
+                  name="email"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -176,9 +199,13 @@ export default function ContactPage() {
 
               {/* Company */}
               <div>
-                <label className="label mb-2 block">Company</label>
+                <label htmlFor="company" className="label mb-2 block">
+                  Company
+                </label>
                 <input
                   type="text"
+                  id="company"
+                  name="company"
                   value={formData.company}
                   onChange={(e) =>
                     setFormData({ ...formData, company: e.target.value })
@@ -190,9 +217,13 @@ export default function ContactPage() {
 
               {/* Project Type */}
               <div>
-                <label className="label mb-2 block">Project Type *</label>
+                <label htmlFor="projectType" className="label mb-2 block">
+                  Project Type *
+                </label>
                 <select
                   required
+                  id="projectType"
+                  name="projectType"
                   value={formData.projectType}
                   onChange={(e) =>
                     setFormData({ ...formData, projectType: e.target.value })
@@ -200,7 +231,7 @@ export default function ContactPage() {
                   className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg appearance-none cursor-pointer"
                 >
                   <option value="" disabled>
-                    Select a service
+                    What do you need help with?
                   </option>
                   {projectTypes.map((type) => (
                     <option key={type} value={type}>
@@ -212,8 +243,12 @@ export default function ContactPage() {
 
               {/* Budget Range */}
               <div>
-                <label className="label mb-2 block">Budget Range</label>
+                <label htmlFor="budget" className="label mb-2 block">
+                  Budget Range
+                </label>
                 <select
+                  id="budget"
+                  name="budget"
                   value={formData.budget}
                   onChange={(e) =>
                     setFormData({ ...formData, budget: e.target.value })
@@ -233,33 +268,52 @@ export default function ContactPage() {
 
               {/* Message */}
               <div>
-                <label className="label mb-2 block">
+                <label htmlFor="message" className="label mb-2 block">
                   Tell Us About Your Project *
                 </label>
                 <textarea
                   required
                   rows={5}
+                  id="message"
+                  name="message"
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
                   className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/30 resize-none"
-                  placeholder="What are you building? What's the timeline? Any details that help us understand the vision."
+                  placeholder="What does your business do? What would you like us to create? Include your timeline and any useful links."
                 />
               </div>
 
               {/* Submit */}
-              <div className="pt-4">
+              <div className="pt-4" aria-live="polite">
                 {status === "sent" ? (
-                  <p className="text-navy font-semibold text-lg">✓ Message sent, we&apos;ll be in touch within 24 hours.</p>
+                  <p className="text-navy font-semibold text-lg">
+                    ✓ Inquiry received. We will follow up by email to discuss
+                    your project.
+                  </p>
                 ) : status === "error" ? (
                   <div>
-                    <p className="text-red font-semibold mb-3">Something went wrong, please try again.</p>
-                    <button type="submit" className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto">Try Again</button>
+                    <p className="text-red font-semibold mb-3">
+                      Your inquiry could not be sent. Your details are still
+                      here. Please try again.
+                    </p>
+                    <button
+                      type="submit"
+                      className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto"
+                    >
+                      Try Again
+                    </button>
                   </div>
                 ) : (
-                  <button type="submit" disabled={status === "sending"} className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto disabled:opacity-50">
-                    {status === "sending" ? "Sending..." : "Let's Grow"}
+                  <button
+                    type="submit"
+                    disabled={status === "sending"}
+                    className="btn-primary !bg-navy hover:!bg-navy-dark w-full md:w-auto disabled:opacity-50"
+                  >
+                    {status === "sending"
+                      ? "Sending..."
+                      : "Send Project Inquiry"}
                   </button>
                 )}
               </div>

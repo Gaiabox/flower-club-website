@@ -4,9 +4,9 @@ import { ServicesSchema } from "@/components/JsonLd";
 import { buildMeta } from "@/lib/seo";
 
 export const metadata: Metadata = buildMeta({
-  title: "Services, Web Design, AI Employees, Brand Activations & More",
+  title: "Services, Brand Identity, Websites & Creative Production",
   description:
-    "Conversion-focused web design, AI-powered digital employees, brand identity, video production, AI animation, and brand activations. Charlotte NC creative agency serving clients nationwide.",
+    "Brand identity, custom websites, content and experiences, and business automation. Explore how The Flower Club can support your next project.",
   path: "/services",
 });
 

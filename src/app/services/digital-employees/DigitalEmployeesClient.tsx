@@ -1,258 +1,118 @@
-"use client";
-
-import { useEffect } from "react";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import BlueprintDecor from "@/components/BlueprintDecor";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const supportAreas = [
-  "Lead follow-up",
-  "Intake and qualification",
-  "Appointment scheduling",
-  "Reporting and summaries",
-  "Customer communication",
-  "Internal admin",
-  "Content operations",
-  "Recurring back-office tasks",
-];
-
-const buildPrinciples = [
-  "Built around how your business already works",
-  "Designed to reduce friction, not add complexity",
-  "Deployed locally, in the cloud, or in a hybrid setup",
-  "Human-guided where judgment matters",
-];
-
-const deploymentOptions = [
+const workflows = [
   {
-    title: "Cloud",
-    description:
-      "Best for businesses that want flexibility, speed, and lighter infrastructure overhead.",
+    title: "Intake and lead follow-up",
+    body: "Collect the details you need, route inquiries, and trigger follow-up steps so the next person has useful context.",
   },
   {
-    title: "Local Hardware",
-    description:
-      "Best for businesses that want more control, more privacy, and systems that live closer to the business.",
+    title: "Scheduling and reminders",
+    body: "Connect inquiry and appointment workflows, send confirmations, and flag changes that need a person to respond.",
   },
   {
-    title: "Hybrid",
-    description:
-      "Best for businesses that want the balance of cloud scale and local control.",
+    title: "Reporting and summaries",
+    body: "Bring information from agreed sources into recurring reports, with review before important decisions or communication.",
+  },
+  {
+    title: "Recurring administration",
+    body: "Connect repetitive tasks across your tools and define how exceptions are identified and handled.",
   },
 ];
-
-const outcomes = [
-  "Faster response",
-  "Smoother operations",
-  "Less repetitive admin",
-  "More consistency",
-  "A business that can handle more without feeling heavier",
-];
-
-export default function DigitalEmployeesPage() {
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".de-hero", {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.2,
-      });
-
-      gsap.from(".de-section-title", {
-        y: 30,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.08,
-        scrollTrigger: {
-          trigger: ".de-content",
-          start: "top 80%",
-        },
-      });
-
-      gsap.from(".de-card", {
-        opacity: 0,
-        y: 30,
-        duration: 0.65,
-        stagger: 0.08,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".de-grid",
-          start: "top 82%",
-        },
-      });
-
-      gsap.from(".de-cta", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".de-cta",
-          start: "top 85%",
-        },
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-
+export default function DigitalEmployeesClient() {
   return (
-    <div className="blueprint-bg relative min-h-screen pt-32 pb-24 overflow-x-hidden">
-      <BlueprintDecor />
-      <div className="relative z-10 section-padding max-w-6xl mx-auto de-content">
-        <section className="de-hero max-w-4xl mb-20 md:mb-24">
-          <p className="label mb-4">AI-Powered Digital Employees</p>
+    <div className="bg-cream pt-36 pb-24">
+      <div className="section-padding max-w-6xl mx-auto">
+        <header className="max-w-4xl mb-20">
+          <p className="label mb-4">Business Automation</p>
           <h1 className="text-display-xl text-navy font-bold mb-6">
-            AI support for the tasks that eat time and slow growth.
+            Less repetitive work. Clearer handoffs.
           </h1>
-          <p className="text-navy/65 text-xl max-w-3xl leading-relaxed mb-6">
-            We build custom digital employees around your business to handle
-            follow-up, scheduling, intake, reporting, admin, and content
-            support, so your team can focus on the work that matters.
+          <p className="text-navy/75 text-xl leading-relaxed mb-8">
+            We build connected workflows for intake, lead follow-up, scheduling,
+            reporting, and administration. AI is one tool we can use within a
+            defined process, with human review where it matters.
           </p>
-          <p className="text-navy/55 text-lg max-w-3xl leading-relaxed">
-            Built for real businesses. Deployed locally, in the cloud, or in a
-            hybrid setup based on the level of control, privacy, and scale you
-            need.
-          </p>
-        </section>
-
-        <section className="mb-20 md:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-5">
-            <p className="label de-section-title mb-4">What this actually means</p>
-            <h2 className="text-display-sm text-navy font-bold de-section-title">
-              Support systems built for how the business really runs.
-            </h2>
-          </div>
-          <div className="lg:col-span-7">
-            <p className="text-navy/65 text-lg leading-relaxed mb-6 de-section-title">
-              AI-powered digital employees are custom business support systems
-              designed to help your team handle repetitive work with more speed,
-              consistency, and less friction.
-            </p>
-            <p className="text-navy/55 leading-relaxed mb-8 de-section-title">
-              This is not about removing the human side of a business. It&apos;s
-              about making repetitive work easier to manage and creating more
-              room for the parts of the business that actually need human
-              judgment.
-            </p>
-            <div className="de-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {supportAreas.map((item) => (
-                <div
-                  key={item}
-                  className="de-card border border-navy/10 rounded-sm px-5 py-4 bg-white/40"
-                >
-                  <p className="text-navy font-medium">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mb-20 md:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-5">
-            <p className="label de-section-title mb-4">Built around your business</p>
-            <h2 className="text-display-sm text-navy font-bold de-section-title">
-              No generic bot. No one-size-fits-all automation.
-            </h2>
-          </div>
-          <div className="lg:col-span-7">
-            <p className="text-navy/65 text-lg leading-relaxed mb-8 de-section-title">
-              We study where time gets lost, follow-up breaks down, and
-              communication gets inconsistent, then build the right support
-              layer around that.
-            </p>
-            <div className="de-grid grid grid-cols-1 md:grid-cols-2 gap-4">
-              {buildPrinciples.map((principle) => (
-                <div
-                  key={principle}
-                  className="de-card border-t border-navy/15 py-5"
-                >
-                  <p className="text-navy text-lg leading-relaxed">{principle}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mb-20 md:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-5">
-            <p className="label de-section-title mb-4">Deployment options</p>
-            <h2 className="text-display-sm text-navy font-bold de-section-title">
-              Your level of control. Your call.
-            </h2>
-          </div>
-          <div className="lg:col-span-7 de-grid grid grid-cols-1 md:grid-cols-3 gap-5">
-            {deploymentOptions.map((option) => (
-              <div
-                key={option.title}
-                className="de-card bg-navy text-cream rounded-sm p-6"
-              >
-                <p className="label-light mb-3">{option.title}</p>
-                <p className="text-cream/75 leading-relaxed text-sm">
-                  {option.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mb-20 md:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-5">
-            <p className="label de-section-title mb-4">Start with the right layer</p>
-            <h2 className="text-display-sm text-navy font-bold de-section-title">
-              AI-ready or foundation first, we&apos;ll tell you which.
-            </h2>
-          </div>
-          <div className="lg:col-span-7">
-            <p className="text-navy/65 text-lg leading-relaxed mb-5 de-section-title">
-              If the website is weak, outdated, unclear, or not built to
-              convert, we handle that first. If the front end is already solid,
-              we build the AI-powered support layer on top.
-            </p>
-            <p className="text-navy/55 leading-relaxed de-section-title">
-              A stronger operational layer works better when the business
-              already has a clear digital front door.
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-20 md:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-5">
-            <p className="label de-section-title mb-4">Outcome</p>
-            <h2 className="text-display-sm text-navy font-bold de-section-title">
-              The point is simple: make the business easier to run.
-            </h2>
-          </div>
-          <div className="lg:col-span-7 de-grid grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {outcomes.map((outcome) => (
-              <div
-                key={outcome}
-                className="de-card border border-navy/10 rounded-sm px-5 py-4 bg-white/40"
-              >
-                <p className="text-navy font-medium">{outcome}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="de-cta bg-navy rounded-sm p-10 md:p-14 text-center max-w-4xl mx-auto">
-          <p className="label-light mb-4">Want to see where this fits?</p>
-          <h2 className="text-display-sm text-cream font-bold mb-4">
-            Let&apos;s find where AI fits in your business.
+          <Link href="/contact?type=automation" className="btn-primary">
+            Discuss Automation
+          </Link>
+        </header>
+        <section className="mb-20">
+          <h2 className="text-display-sm text-navy font-bold mb-6">
+            Start with a task your team knows well.
           </h2>
-          <p className="text-cream/65 max-w-2xl mx-auto mb-8 leading-relaxed">
-            We&apos;ll look at your website, customer flow, and friction points -
-            then show you what kind of support system makes sense and why.
+          <p className="text-navy/70 text-lg max-w-3xl mb-10">
+            These are examples of workflows we can scope. The connections,
+            permissions, and level of automation depend on your tools and how
+            the task works.
           </p>
-          <Link href="/contact" className="btn-primary">
-            Start a Conversation
+          <div className="grid md:grid-cols-2 gap-10">
+            {workflows.map((item) => (
+              <div key={item.title} className="border-t border-navy/20 pt-6">
+                <h3 className="text-navy font-bold text-xl mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-navy/70 leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="grid md:grid-cols-2 gap-12 mb-20">
+          <h2 className="text-display-sm text-navy font-bold">
+            Define the process, then build the system.
+          </h2>
+          <div className="text-navy/75 text-lg leading-relaxed">
+            <p>
+              We agree on the task, inputs, expected output, and measures of
+              success. Then we connect the tools, test the workflow, and
+              document where a person reviews or takes over.
+            </p>
+            <p className="mt-5">
+              We choose the hosting and access setup around the work. Ongoing
+              monitoring, maintenance, and changes are defined in the support
+              scope.
+            </p>
+          </div>
+        </section>
+        <section className="bg-navy p-8 md:p-12 mb-20">
+          <h2 className="text-display-sm text-cream font-bold mb-6">
+            A focused build or ongoing support.
+          </h2>
+          <p className="text-cream/80 text-lg leading-relaxed max-w-3xl">
+            System builds start at $4,500. Ongoing support retainers start at
+            $2,500 per month. We confirm deliverables, running costs,
+            responsibilities, and support before work begins.
+          </p>
+          <p className="text-cream/75 mt-6 max-w-3xl">
+            If you need to decide which workflows to address, our{" "}
+            <Link
+              href="/services/audit"
+              className="text-cream underline underline-offset-4"
+            >
+              automation audit starts at $2,500
+            </Link>
+            . If the task is already clear, we can discuss the build directly.
+          </p>
+        </section>
+        <section className="mb-20">
+          <h2 className="text-navy font-bold text-2xl mb-4">
+            Looking for AI-assisted creative production?
+          </h2>
+          <p className="text-navy/70 text-lg max-w-3xl">
+            Animation, brand films, and motion design sit within{" "}
+            <Link
+              href="/services#content-experiences"
+              className="underline underline-offset-4"
+            >
+              Content &amp; Experiences
+            </Link>
+            . That is a different service from automating business workflows.
+          </p>
+        </section>
+        <section className="border-t border-navy/20 pt-12">
+          <h2 className="text-display-sm text-navy font-bold mb-6">
+            What would you like to take off your team&apos;s plate?
+          </h2>
+          <Link href="/contact?type=automation" className="btn-primary">
+            Discuss Automation
           </Link>
         </section>
       </div>

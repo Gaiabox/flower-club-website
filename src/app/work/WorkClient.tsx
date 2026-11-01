@@ -1,269 +1,161 @@
 "use client";
-
-import { useEffect, useState, useCallback } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { projects, websites } from "@/lib/portfolio";
 import SiteShowcase from "@/components/SiteShowcase";
-import PortfolioAsset from "@/components/PortfolioAsset";
 import Lightbox from "@/components/Lightbox";
+import BrandFilm from "@/components/BrandFilm";
 import { imageMap, videoMap, posterMap } from "@/components/PortfolioAsset";
 
-gsap.registerPlugin(ScrollTrigger);
-
-interface LightboxState {
-  src: string;
-  alt: string;
-  isVideo: boolean;
-}
-
-/**
- * Defined at module scope on purpose: declaring it inside WorkPage gave it a
- * new identity every render, so opening or closing the lightbox remounted the
- * whole grid, resetting videos and orphaning the scroll-reveal targets.
- */
-function ProjectCard({
-  project,
-  aspect,
-  hideLabel = false,
-  onOpen,
-}: {
-  project: (typeof projects)[0];
-  aspect: "video" | "square" | "portrait";
-  hideLabel?: boolean;
-  onOpen: (slug: string, client: string) => void;
-}) {
+type Media = { src: string; alt: string; isVideo: boolean };
+export default function WorkClient() {
+  const [lightbox, setLightbox] = useState<Media | null>(null);
   return (
-    <div
-      className="work-item group cursor-pointer"
-      onClick={() => onOpen(project.slug, project.client)}
-    >
-      <div className="relative overflow-hidden rounded-sm">
-        <PortfolioAsset
-          slug={project.slug}
-          name={project.client}
-          category={project.category}
-          aspect={aspect}
-          className="group-hover:scale-[1.03] transition-transform duration-700"
-        />
-        {/* Hover overlay, description */}
-        <div className="absolute inset-0 bg-navy-dark/85 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
-          <div>
-            <p className="text-cream/70 text-xs leading-relaxed max-w-xs">
-              {project.description}
-            </p>
-            <div className="flex flex-wrap gap-1.5 mt-3">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[9px] font-mono text-red/80 border border-red/20 px-2 py-0.5 rounded-sm uppercase tracking-wider"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <p className="font-mono text-[9px] text-cream/30 mt-3 uppercase tracking-widest">
-              Click to expand
-            </p>
+    <div className="bg-navy-dark min-h-screen pt-36 pb-24">
+      <div className="section-padding max-w-7xl mx-auto">
+        <header className="mb-16">
+          <p className="label-light mb-4">Our Work</p>
+          <h1 className="text-display-xl text-cream font-bold mb-6">
+            The idea, brought to life.
+          </h1>
+          <p className="text-cream/75 text-xl max-w-2xl leading-relaxed">
+            Explore websites, brand identities, content, and experiences. Each
+            project shows a different part of what we can build with you.
+          </p>
+        </header>
+        <nav
+          aria-label="Work categories"
+          className="flex flex-wrap gap-6 text-cream mb-14"
+        >
+          {[
+            ["websites", "Websites"],
+            ["brand-identity", "Brand Identity"],
+            ["content-experiences", "Content & Experiences"],
+            ["studio-studies", "Studio Studies"],
+          ].map(([id, title]) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className="underline underline-offset-4"
+            >
+              {title}
+            </a>
+          ))}
+        </nav>
+        <section id="websites" className="scroll-mt-28 mb-24">
+          <h2 className="text-display-sm text-cream font-bold mb-8">
+            Websites
+          </h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            {websites.map((site) => (
+              <SiteShowcase
+                key={site.slug}
+                {...site}
+                href={site.url}
+                caseStudyHref={`/work/${site.slug}`}
+              />
+            ))}
           </div>
-        </div>
-      </div>
-      {!hideLabel && (
-        <div className="mt-3">
-          <h3 className="text-cream font-bold text-lg uppercase tracking-wide group-hover:text-red transition-colors duration-300">
-            {project.client}
-          </h3>
-          <p className="label-light mt-0.5 text-[10px]">{project.category}</p>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export default function WorkPage() {
-  const [lightbox, setLightbox] = useState<LightboxState | null>(null);
-
-  const openLightbox = useCallback((slug: string, name: string) => {
-    const video = videoMap[slug];
-    const image = imageMap[slug];
-    if (video) {
-      setLightbox({ src: video, alt: `${name}, brand activation video by The Flower Club creative agency`, isVideo: true });
-    } else if (image) {
-      setLightbox({ src: image, alt: `${name}, creative work by The Flower Club agency`, isVideo: false });
-    }
-  }, []);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header reveal
-      gsap.from(".work-header > *", {
-        y: 30, opacity: 0, duration: 0.9, stagger: 0.12, ease: "power3.out", delay: 0.1,
-      });
-
-      // Section labels slide in from left
-      gsap.utils.toArray<HTMLElement>(".section-label").forEach((el) => {
-        gsap.from(el, {
-          x: -20, opacity: 0, duration: 0.7, ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
-        });
-      });
-
-      // Cards stagger up on scroll, each grid triggered independently
-      gsap.utils.toArray<HTMLElement>(".work-grid-section").forEach((section) => {
-        const items = section.querySelectorAll(".work-item, .site-card");
-        gsap.from(items, {
-          opacity: 0, y: 40, duration: 0.65, stagger: 0.06, ease: "power3.out",
-          scrollTrigger: { trigger: section, start: "top 82%", toggleActions: "play none none none" },
-        });
-      });
-
-      // Hero video row subtle fade
-      gsap.from(".hero-video-row", {
-        opacity: 0, y: 25, duration: 1, ease: "power3.out",
-        scrollTrigger: { trigger: ".hero-video-row", start: "top 85%" },
-      });
-    });
-    return () => ctx.revert();
-  }, []);
-
-  const tier1 = projects.filter((p) => p.tier === 1);
-  const tier2 = projects.filter((p) => p.tier === 2);
-  const tier3 = projects.filter((p) => p.tier === 3);
-
-  return (
-    <>
-      <div className="bg-navy-dark min-h-screen pt-32 pb-24">
-        <div className="section-padding max-w-7xl mx-auto">
-
-          {/* Header */}
-          <div className="work-header mb-20">
-            <p className="label-light mb-4">Portfolio</p>
-            <h1 className="text-display-xl text-cream font-bold mb-4">The Work.</h1>
-            <p className="text-cream/60 text-xl max-w-xl">
-              Activations. Art. Branding. The range is the proof.
-            </p>
-          </div>
-
-          <div className="work-grid space-y-24">
-
-            {/* Tier 1 */}
-            <div className="work-grid-section">
-              <p className="section-label label-light mb-8">Fortune 500 + Cultural Icons</p>
-
-              {/* Video showcase row, landscape + vertical side by side */}
-              {(() => {
-                const videoProjects = tier1.filter((p) => p.video);
-                const imageProjects = tier1.filter((p) => !p.video);
+        </section>
+        {[
+          {
+            id: "brand-identity",
+            title: "Brand Identity",
+            items: projects.filter((p) => p.tier === 2),
+          },
+          {
+            id: "content-experiences",
+            title: "Content & Experiences",
+            items: projects.filter((p) => p.tier !== 2),
+          },
+        ].map((group) => (
+          <section id={group.id} key={group.id} className="scroll-mt-28 mb-24">
+            <h2 className="text-display-sm text-cream font-bold mb-8">
+              {group.title}
+            </h2>
+            <div className="grid md:grid-cols-2 gap-x-8 gap-y-12">
+              {group.items.map((project) => {
+                const video = videoMap[project.slug];
+                const image = posterMap[project.slug] || imageMap[project.slug];
                 return (
-                  <>
-                    {videoProjects.length > 0 && (
-                      <div className="hero-video-row flex flex-col md:flex-row gap-6 mb-6">
-                        {videoProjects[0] && (
-                          <div className="work-item group cursor-pointer md:flex-[3]" onClick={() => openLightbox(videoProjects[0].slug, videoProjects[0].client)}>
-                            <div className="relative overflow-hidden rounded-sm" style={{ paddingTop: "56.25%" }}>
-                              <video
-                                src={videoMap[videoProjects[0].slug]}
-                                poster={posterMap[videoProjects[0].slug]}
-                                muted loop playsInline
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                                onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
-                                onMouseLeave={(e) => { (e.currentTarget as HTMLVideoElement).pause(); (e.currentTarget as HTMLVideoElement).currentTime = 0; }}
-                              />
-                              <div className="absolute inset-0 bg-navy-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-center justify-center">
-                                <div className="w-14 h-14 rounded-full border-2 border-cream flex items-center justify-center">
-                                  <span className="text-cream text-xl ml-1">▶</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="mt-3">
-                              <h3 className="text-cream font-bold text-lg uppercase tracking-wide group-hover:text-red transition-colors duration-300">{videoProjects[0].client}</h3>
-                              <p className="label-light mt-0.5 text-[10px]">{videoProjects[0].category}</p>
-                            </div>
-                          </div>
-                        )}
-                        {videoProjects[1] && (
-                          <div className="work-item group cursor-pointer md:flex-[1]" onClick={() => openLightbox(videoProjects[1].slug, videoProjects[1].client)}>
-                            <div className="relative overflow-hidden rounded-sm" style={{ paddingTop: "177.78%" }}>
-                              <video
-                                src={videoMap[videoProjects[1].slug]}
-                                poster={posterMap[videoProjects[1].slug]}
-                                muted loop playsInline
-                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                                onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
-                                onMouseLeave={(e) => { (e.currentTarget as HTMLVideoElement).pause(); (e.currentTarget as HTMLVideoElement).currentTime = 0; }}
-                              />
-                              <div className="absolute inset-0 bg-navy-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-center justify-center">
-                                <div className="w-14 h-14 rounded-full border-2 border-cream flex items-center justify-center">
-                                  <span className="text-cream text-xl ml-1">▶</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="mt-3">
-                              <h3 className="text-cream font-bold text-lg uppercase tracking-wide group-hover:text-red transition-colors duration-300">{videoProjects[1].client}</h3>
-                              <p className="label-light mt-0.5 text-[10px]">{videoProjects[1].category}</p>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    )}
-
-                    {/* Image brand cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {imageProjects.map((p) => <ProjectCard key={p.slug} onOpen={openLightbox} project={p} aspect="video" />)}
-                    </div>
-                  </>
+                  <article key={project.slug}>
+                    <button
+                      type="button"
+                      className="block relative w-full aspect-[4/3] bg-navy overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-red"
+                      aria-label={`${video ? "Play" : "Expand"} ${project.title}`}
+                      onClick={() =>
+                        setLightbox({
+                          src: video || image,
+                          alt: project.title,
+                          isVideo: Boolean(video),
+                        })
+                      }
+                    >
+                      <Image
+                        src={image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className={
+                          group.id === "brand-identity"
+                            ? "object-contain"
+                            : "object-cover"
+                        }
+                      />
+                      <span className="absolute bottom-4 right-4 bg-navy-dark text-cream px-4 py-2 text-sm">
+                        {video ? "Play video" : "Expand image"}
+                      </span>
+                    </button>
+                    <h3 className="text-cream text-2xl font-bold mt-5">
+                      {project.title}
+                    </h3>
+                    <p className="text-cream/65 mt-2">{project.category}</p>
+                    <p className="text-cream/75 mt-4 leading-relaxed max-w-xl">
+                      {project.description}
+                    </p>
+                  </article>
                 );
-              })()}
+              })}
             </div>
-
-            {/* Websites */}
-            <div className="work-grid-section">
-              <p className="section-label label-light mb-8">WEBSITES</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-8">
-                {websites.map((site) => (
-                  <SiteShowcase
-                    key={site.slug}
-                    href={site.url}
-                    image={site.image}
-                    alt={site.alt}
-                    client={site.client}
-                    title={site.title}
-                    description={site.description}
-                    tags={site.tags}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Tier 2 */}
-            <div className="work-grid-section">
-              <p className="section-label label-light mb-8">LOGOS</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {tier2.map((p) => <ProjectCard key={p.slug} onOpen={openLightbox} project={p} aspect="square" hideLabel />)}
-              </div>
-            </div>
-
-            {/* Tier 3 */}
-            <div className="work-grid-section">
-              <p className="section-label label-light mb-8">PRODUCTIONS</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tier3.map((p) => <ProjectCard key={p.slug} onOpen={openLightbox} project={p} aspect="video" hideLabel />)}
-              </div>
-            </div>
-
+          </section>
+        ))}
+        <section id="studio-studies" className="scroll-mt-28 mb-24">
+          <h2 className="text-display-sm text-cream font-bold mb-5">
+            Studio Studies
+          </h2>
+          <p className="text-cream/75 text-lg max-w-2xl mb-10">
+            In-house explorations in character design, motion, and AI-assisted
+            animation. Made for The Flower Club, separate from commissioned
+            client work.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl">
+            <BrandFilm
+              src="/assets/videos/fc-bloomfire.mp4"
+              poster="/assets/images/fc-bloomfire-thumb.jpg"
+              title="Operation Bloomfire"
+              meta="Studio study · AI-assisted animation"
+              aspect="3/4"
+            />
+            <BrandFilm
+              src="/assets/videos/fc-hoops.mp4"
+              poster="/assets/images/fc-hoops-thumb.jpg"
+              title="Club Ball"
+              meta="Studio study · Character and motion design"
+              aspect="3/4"
+            />
           </div>
-        </div>
+        </section>
+        <section className="border-t border-cream/20 pt-12">
+          <h2 className="text-display-sm text-cream font-bold mb-5">
+            Have a project in mind?
+          </h2>
+          <Link href="/contact" className="btn-primary">
+            Start a Project
+          </Link>
+        </section>
       </div>
-
-      {/* Lightbox */}
-      {lightbox && (
-        <Lightbox
-          src={lightbox.src}
-          alt={lightbox.alt}
-          isVideo={lightbox.isVideo}
-          onClose={() => setLightbox(null)}
-        />
-      )}
-    </>
+      {lightbox && <Lightbox {...lightbox} onClose={() => setLightbox(null)} />}
+    </div>
   );
 }

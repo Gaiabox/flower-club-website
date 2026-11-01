@@ -7,25 +7,26 @@ const pages = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "Studio" },
+  { href: "/contact", label: "Start a Project" },
 ];
 
 const services = [
-  { href: "/services", label: "Web Design + Development" },
-  { href: "/services/digital-employees", label: "AI Employees" },
-  { href: "/services", label: "Brand Identity" },
-  { href: "/services", label: "Brand Activations" },
-  { href: "/services", label: "Video + AI Animation" },
+  { href: "/services#brand-identity", label: "Brand Identity" },
+  { href: "/services#websites", label: "Websites" },
+  { href: "/services#content-experiences", label: "Content & Experiences" },
+  { href: "/services/digital-employees", label: "Business Automation" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-navy-dark border-t border-cream/10 relative overflow-hidden">
       <div className="section-padding max-w-7xl mx-auto pt-16 md:pt-20 pb-8">
-
         {/* Big wordmark */}
-        <Link href="/" className="block text-cream hover:text-cream/80 transition-colors">
+        <Link
+          href="/"
+          className="block text-cream hover:text-cream/80 transition-colors"
+        >
           <span className="text-3xl sm:text-4xl md:text-6xl">
             <FlowerLogo />
           </span>
@@ -68,11 +69,13 @@ export default function Footer() {
           <div className="col-span-2">
             <p className="label-light mb-5">Start a Conversation</p>
             <Link
-              href="/services/audit"
+              href="/contact"
               className="inline-flex items-center gap-3 text-cream text-lg md:text-2xl font-bold hover:text-red transition-colors group"
             >
-              Book the Audit
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
+              Start a Project
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
             </Link>
             <p className="text-cream/40 text-sm mt-6 leading-relaxed">
               Charlotte, NC, serving Miami, New York, Los Angeles, and
@@ -81,8 +84,8 @@ export default function Footer() {
             <div className="mt-8">
               <p className="label-light mb-3">Owner&apos;s Notes</p>
               <p className="text-cream/50 text-sm mb-3 leading-relaxed">
-                Short, occasional notes on brand and AI moves that make
-                owner-run businesses money. No spam, unsubscribe anytime.
+                Occasional notes on brand design, websites, and the creative
+                work happening in our studio. No spam, unsubscribe anytime.
               </p>
               <NewsletterForm />
             </div>
@@ -113,7 +116,7 @@ export default function Footer() {
             © {new Date().getFullYear()} The Flower Club. All rights reserved.
           </p>
           <p className="text-cream/40 text-[11px] font-mono uppercase tracking-wider">
-            Culture-forward. Results-driven.
+            Brand identities. Websites. Creative direction.
           </p>
         </div>
       </div>

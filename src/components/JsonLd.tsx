@@ -1,4 +1,5 @@
 import NextScript from "next/script";
+import { websites, projects } from "@/lib/portfolio";
 import { SITE, SERVICES_SEO, CITIES } from "@/lib/seo";
 
 /**
@@ -44,15 +45,20 @@ export function OrgSchema() {
           name: c.name,
           containedInPlace: {
             "@type": "State",
-            name: c.state === "NC" ? "North Carolina"
-              : c.state === "FL" ? "Florida"
-              : c.state === "NY" ? "New York"
-              : "California",
+            name:
+              c.state === "NC"
+                ? "North Carolina"
+                : c.state === "FL"
+                  ? "Florida"
+                  : c.state === "NY"
+                    ? "New York"
+                    : "California",
           },
         })),
         serviceArea: {
           "@type": "GeoCircle",
-          description: "Nationwide, primary markets: Charlotte NC, Miami FL, New York NY, Los Angeles CA",
+          description:
+            "Nationwide, primary markets: Charlotte NC, Miami FL, New York NY, Los Angeles CA",
         },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -82,10 +88,8 @@ export function OrgSchema() {
           "Cultural Marketing",
           "Fortune 500 Brand Strategy",
         ],
-        slogan: "Culture-Forward. Results-Driven.",
+        slogan: "Brand identities and websites that move you forward.",
         sameAs: [SITE.social.instagram, SITE.social.linkedin],
-        // Notable clients boost E-E-A-T (authority) signals
-        "schema:clientOf": SITE.clients.map((c) => ({ "@type": "Organization", name: c })),
       }}
     />
   );
@@ -110,35 +114,8 @@ export function WebsiteSchema() {
   );
 }
 
-/** Services page, individual Service schemas + FAQ */
+/** Services page: the same four service categories shown in the page copy. */
 export function ServicesSchema() {
-  const faqItems = [
-    {
-      q: "What cities does The Flower Club serve?",
-      a: "The Flower Club is based in Charlotte, NC and actively serves clients in Miami FL, New York NY, and Los Angeles CA. We work with national and international brands.",
-    },
-    {
-      q: "What types of brands does The Flower Club work with?",
-      a: "We work across the full range, Fortune 500 companies like Maker's Mark, Red Bull, Bacardi, Rémy Martin, Courvoisier, Popeyes, and Febreze, as well as independent artists, startups, and cultural organizations.",
-    },
-    {
-      q: "Does The Flower Club do brand activations and experiential events?",
-      a: "Yes, brand activations and experiential event creative is one of our core specialties. We've produced 1000+ events across culture, music, food & beverage, and consumer goods industries.",
-    },
-    {
-      q: "Does The Flower Club offer AI animation services?",
-      a: "Yes. We create cinematic AI animation and motion design for brands, content that would take traditional studios weeks, delivered faster and at scale.",
-    },
-    {
-      q: "Can The Flower Club build a custom website for my brand?",
-      a: "Yes. We design and build fully custom websites, no templates, no shortcuts. Custom code, conversion-focused, built to perform.",
-    },
-    {
-      q: "What makes The Flower Club different from other creative agencies?",
-      a: "We operate at the intersection of culture and commerce, Fortune 500 strategy with independent artist energy. We've built brands across music, CPG, cannabis, hospitality, and entertainment. The range is the proof.",
-    },
-  ];
-
   return (
     <>
       {SERVICES_SEO.map((service) => (
@@ -156,28 +133,19 @@ export function ServicesSchema() {
             areaServed: CITIES.map((c) => ({
               "@type": "City",
               name: c.name,
-              containedInPlace: { "@type": "AdministrativeArea", name: c.state },
+              containedInPlace: {
+                "@type": "AdministrativeArea",
+                name: c.state,
+              },
             })),
             audience: {
               "@type": "Audience",
-              audienceType: "Brands, Artists, Startups, Fortune 500 Companies",
+              audienceType: "Businesses, founders, and creative brands",
             },
             keywords: service.keywords.join(", "),
           }}
         />
       ))}
-      <Script
-      id="ld-service"
-      data={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqItems.map((item) => ({
-            "@type": "Question",
-            name: item.q,
-            acceptedAnswer: { "@type": "Answer", text: item.a },
-          })),
-        }}
-      />
     </>
   );
 }
@@ -192,13 +160,16 @@ export function WorkSchema() {
         "@type": "ItemList",
         "@id": `${SITE.url}/work#portfolio`,
         name: "The Flower Club, Portfolio",
-        description:
-          "Brand activations, video production, AI animation, and design work for Fortune 500 brands and cultural icons.",
-        itemListElement: SITE.clients.map((client, i) => ({
+        description: "Websites, brand identities, content, and experiences.",
+        itemListElement: [...websites, ...projects].map((project, i) => ({
           "@type": "ListItem",
           position: i + 1,
-          name: `${client} × The Flower Club`,
-          description: `Creative work produced for ${client} by The Flower Club creative agency.`,
+          name: project.client,
+          description: project.description,
+          url:
+            "url" in project
+              ? `${SITE.url}/work/${project.slug}`
+              : `${SITE.url}/work#${project.tier === 2 ? "brand-identity" : "content-experiences"}`,
         })),
         provider: { "@id": `${SITE.url}/#organization` },
       }}
@@ -207,7 +178,11 @@ export function WorkSchema() {
 }
 
 /** Breadcrumb schema for inner pages */
-export function BreadcrumbSchema({ items }: { items: { name: string; url: string }[] }) {
+export function BreadcrumbSchema({
+  items,
+}: {
+  items: { name: string; url: string }[];
+}) {
   return (
     <Script
       id="ld-work"

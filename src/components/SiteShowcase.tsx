@@ -1,14 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
 
-/**
- * SiteShowcase, a live client website presented in browser chrome.
- * Links out to the real thing, because the strongest proof a web
- * shop can offer is a site you can go click around in yourself.
- *
- * The anchor wraps only the title and stretches over the card via a
- * pseudo-element, so the whole card stays clickable without giving
- * the link a hundred-word accessible name.
- */
+/** Client website preview with separate project-detail and live-site links. */
 export default function SiteShowcase({
   href,
   image,
@@ -18,6 +11,7 @@ export default function SiteShowcase({
   description,
   tags,
   priority = false,
+  caseStudyHref,
 }: {
   href: string;
   image: string;
@@ -27,6 +21,7 @@ export default function SiteShowcase({
   description: string;
   tags: string[];
   priority?: boolean;
+  caseStudyHref?: string;
 }) {
   const domain = href.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
@@ -54,7 +49,7 @@ export default function SiteShowcase({
         </div>
       </div>
 
-      {/* Meta */}
+      {/* Project details and live website are separate destinations. */}
       <div className="mt-5">
         <p className="label-light mb-2">{client}</p>
         <h3 className="text-cream font-bold text-xl transition-colors duration-300 group-hover:text-red">
@@ -62,13 +57,15 @@ export default function SiteShowcase({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-sm outline-none after:absolute after:inset-0 after:content-[''] focus-visible:ring-2 focus-visible:ring-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+            className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
           >
             {title}
             <span className="sr-only"> (opens the live site in a new tab)</span>
           </a>
         </h3>
-        <p className="mt-2 max-w-lg text-sm leading-relaxed text-cream/55">{description}</p>
+        <p className="mt-2 max-w-lg text-sm leading-relaxed text-cream/55">
+          {description}
+        </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((t) => (
             <span
@@ -79,13 +76,25 @@ export default function SiteShowcase({
             </span>
           ))}
         </div>
-        <span
-          aria-hidden="true"
+        {caseStudyHref && (
+          <Link
+            href={caseStudyHref}
+            className="mt-5 block text-cream font-semibold underline underline-offset-4"
+          >
+            View project details →
+          </Link>
+        )}
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-cream transition-colors group-hover:text-red"
         >
-          Visit the live site
-          <span className="transition-transform group-hover:translate-x-1">↗</span>
-        </span>
+          Visit the live site (new tab)
+          <span className="transition-transform group-hover:translate-x-1">
+            ↗
+          </span>
+        </a>
       </div>
     </article>
   );
