@@ -129,7 +129,7 @@ export default function BudChat() {
     if (!v) return;
     setInput("");
     userSays(v);
-    if (!/.+@.+\..+/.test(v)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || v.length > 254) {
       await say("Hmm, that doesn't look like an email. Mind trying again?");
       return;
     }
@@ -155,6 +155,12 @@ export default function BudChat() {
   };
 
   const handleDetails = async () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.current.email.trim()) || data.current.email.length > 254) {
+      setStep("email");
+      setInput("");
+      await say("A valid email is required before I can send your inquiry. What email should the team use?");
+      return;
+    }
     const v = input.trim();
     if (!v) return;
     setInput("");
@@ -327,10 +333,22 @@ export default function BudChat() {
           )}
         </div>
 
+        <p className="px-4 py-2 text-xs leading-relaxed text-cream/85">
+          Bud is an automated intake form. Your email is required for a reply.
+          Only submitted details are sent to our team through Netlify Forms.
+          Do not share passwords, payment details, or sensitive information.
+          Submitting requests project follow-up, not marketing emails or a contract.
+          {" "}<Link href="/legal/privacy" className="underline">Privacy</Link>
+          {" · "}<Link href="/legal/terms" className="underline">Terms</Link>
+        </p>
         {/* Input */}
         {showInput && (
           <div className="flex items-center gap-2 border-t border-cream/10 px-3 py-3">
             <input
+              type={step === "email" ? "email" : "text"}
+              autoComplete={step === "email" ? "email" : step === "name" ? "name" : "off"}
+              aria-label={step === "email" ? "Email address (required)" : step === "name" ? "Your name" : "Project details"}
+              required
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
