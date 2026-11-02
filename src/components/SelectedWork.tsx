@@ -5,7 +5,7 @@ import { websites } from "@/lib/portfolio";
 export default function SelectedWork() {
   const jade = websites.find((site) => site.slug === "jade-lilly")!;
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+    <div className="selected-work-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <article>
         <Link href="/work/jade-lilly">
           <div className="relative aspect-[4/3] overflow-hidden bg-navy">
@@ -17,11 +17,10 @@ export default function SelectedWork() {
               className="object-cover"
             />
           </div>
-          <h3 className="text-cream text-xl font-bold mt-4">Jade Lilly</h3>
-        </Link>
-        <p className="text-cream/70 mt-2">
+          <div className="asset-caption"><h3 className="text-cream text-xl font-bold mt-4">Jade Lilly</h3>
+        <p>
           Website designed &amp; built by The Flower Club
-        </p>
+        </p></div></Link>
       </article>
       <article>
         <BrandFilm
@@ -31,9 +30,6 @@ export default function SelectedWork() {
           meta="Made for The Flower Club · AI-assisted animation"
           aspect="4/3"
         />
-        <p className="text-cream/70 mt-4">
-          In-house character design and animation
-        </p>
       </article>
       <article>
         <BrandFilm
@@ -43,9 +39,6 @@ export default function SelectedWork() {
           meta="Brand activation · Event content"
           aspect="4/3"
         />
-        <p className="text-cream/70 mt-4">
-          Experience design, creative direction, and content capture
-        </p>
       </article>
       <article>
         <Link href="/work#brand-identity">
@@ -55,12 +48,11 @@ export default function SelectedWork() {
               alt="Bean Locks logo design"
               fill
               sizes="(max-width: 640px) 100vw, 30vw"
-              className="object-contain p-10 md:p-14"
+              className="object-contain p-4 md:p-5"
             />
           </div>
-          <h3 className="text-cream text-xl font-bold mt-4">Bean Locks</h3>
-        </Link>
-        <p className="text-cream/70 mt-2">Logo design &amp; brand identity</p>
+          <div className="asset-caption"><h3 className="text-cream text-xl font-bold mt-4">Bean Locks</h3>
+        <p>Logo design &amp; brand identity</p></div></Link>
       </article>
       <article>
         <Link href="/work/fire-and-ash-cigar-carts">
@@ -73,13 +65,12 @@ export default function SelectedWork() {
               className="object-cover object-top"
             />
           </div>
-          <h3 className="text-cream text-xl font-bold mt-4">
+          <div className="asset-caption"><h3 className="text-cream text-xl font-bold mt-4">
             Fire &amp; Ash Cigar Carts
           </h3>
-        </Link>
-        <p className="text-cream/70 mt-2">
+        <p>
           Custom website, configurator, and CRM connection
-        </p>
+        </p></div></Link>
       </article>
       <article>
         <BrandFilm
@@ -89,9 +80,6 @@ export default function SelectedWork() {
           meta="Made for The Flower Club · Motion design"
           aspect="4/3"
         />
-        <p className="text-cream/70 mt-4">
-          In-house brand film and character animation
-        </p>
       </article>
     </div>
   );

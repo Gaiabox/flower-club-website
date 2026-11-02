@@ -1,3 +1,4 @@
+import SystemsDiagram from "@/components/SystemsDiagram";
 import Image from "next/image";
 import SketchDecor from "@/components/SketchDecor";
 import BrandFilm from "@/components/BrandFilm";
@@ -93,18 +94,7 @@ export default function ServicesClient() {
                   />
                 )}
                 {service.id === "business-automation" && (
-                  <div className="bg-navy p-7 text-cream">
-                    <p className="label-light mb-4">Illustrative Workflow</p>
-                    <ol className="space-y-4">
-                      <li>1. Inquiry arrives from your website</li>
-                      <li>2. Details enter your CRM</li>
-                      <li>3. Follow-up is routed to the right person</li>
-                      <li>4. Your team reviews exceptions</li>
-                    </ol>
-                    <p className="mt-5 text-cream/70 text-sm">
-                      A process example, not a client result or a live demo.
-                    </p>
-                  </div>
+                  <SystemsDiagram />
                 )}
               </div>
             </div>
@@ -112,6 +102,11 @@ export default function ServicesClient() {
               <p className="text-navy/70 leading-relaxed text-lg mb-6">
                 {service.description}
               </p>
+              {service.id === "business-automation" && (
+                <p className="text-navy/80 leading-relaxed mb-6 border-l-2 border-red pl-5">
+                  For Fire &amp; Ash, our work extends beyond the website: a custom cart configurator, HubSpot-connected inquiry capture, and affiliate signup and agreement workflows. We build the customer experience and the operations behind it.
+                </p>
+              )}
               <p className="label mb-3">Scope can include</p>
               <ul className="space-y-2 text-navy/75 mb-7">
                 {service.deliverables.map((item) => (

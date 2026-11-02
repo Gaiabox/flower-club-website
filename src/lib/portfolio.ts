@@ -202,14 +202,14 @@ export const services = [
   {
     id: "business-automation",
     title: "Business Automation",
-    headline: "Keep inquiries moving and give your team time back.",
+    headline: "Your website is the front door. We build what happens behind it.",
     description:
-      "We map tasks such as intake, lead follow-up, scheduling, and reporting, then build connected workflows with AI where it helps. Each project defines what runs automatically, what needs review, and when a person takes over.",
+      "We build custom databases, connect your CRM, automate follow-up, and create the tools your team needs to run the business. From customer intake to affiliate onboarding and reporting, we turn disconnected steps into a working system, with AI where it adds value and people in control.",
     deliverables: [
-      "Workflow discovery and automation audits",
-      "Intake and follow-up systems",
-      "Scheduling and reporting connections",
-      "Monitoring and ongoing support as scoped",
+      "Custom databases, dashboards, and internal tools",
+      "Lead capture, CRM integration, and automated follow-up",
+      "Affiliate onboarding, agreement workflows, and referral tracking",
+      "API connections, reporting, and AI-assisted workflows",
     ],
     example: "Explore business automation",
     proofHref: "/services/digital-employees",
