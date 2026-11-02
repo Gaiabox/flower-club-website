@@ -18,7 +18,7 @@ export const projects: Project[] = [
     category: "Brand Activation",
     tier: 1,
     description:
-      "Full-scale brand activation for Maker's Mark at CultureCon. Immersive experience design, on-site creative direction, and multi-platform content capture for one of culture's most important stages.",
+      "Brand activation at CultureCon, including experience design, on-site creative direction, and content capture.",
     tags: ["Brand Activation", "Event Creative", "Content"],
     video: true,
   },
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     category: "Experiential",
     tier: 1,
     description:
-      "Intimate Instagram dinner activation for Rémy Martin at Art Basel Miami. Premium brand storytelling at the intersection of art, culture, and luxury hospitality.",
+      "A dinner activation for Rémy Martin and Instagram at Art Basel Miami, bringing the brand into an intimate hospitality setting.",
     tags: ["Experiential", "Luxury", "Content Creation"],
     video: true,
   },
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     category: "Brand Activation",
     tier: 1,
     description:
-      "Collaborative activation bringing Red Bull's energy to Daysnatchers' cultural platform. Strategic brand integration, event design, and content creation that felt native, not sponsored.",
+      "Brand integration, event design, and content creation for the Red Bull and Daysnatchers activation.",
     tags: ["Brand Strategy", "Event Creative", "Content Creation"],
   },
   {
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     category: "Brand Campaign",
     tier: 1,
     description:
-      "Campaign creative and brand activations for Bacardi. Premium spirits positioning meets culture-forward execution across multiple touchpoints.",
+      "Campaign creative and brand activation work for Bacardi, connecting the brand with live experiences and supporting content.",
     tags: ["Brand Campaign", "Creative Direction"],
   },
   {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     category: "Brand Creative",
     tier: 1,
     description:
-      "Brand creative work for Popeyes, bringing bold flavor energy to visual identity and campaign assets that resonate with the culture.",
+      "Brand creative and campaign assets for Popeyes. Selected imagery shows the brand in a live activation setting.",
     tags: ["Brand Creative", "Campaign"],
   },
 
@@ -71,29 +71,29 @@ export const projects: Project[] = [
     category: "Brand Activation",
     tier: 1,
     description:
-      "Full experiential brand activation for Febreze at a major outdoor event. Custom booth buildout, brand ambassador program, and product sampling designed to drive authentic consumer engagement.",
+      "An outdoor brand activation for Febreze, including booth buildout, a brand ambassador program, and product sampling.",
     tags: ["Brand Activation", "Experiential", "P&G"],
   },
 
   // TIER 2, Creative/Design Range
   {
-    slug: "jase-candy-land",
+    slug: "bean-locks",
     client: "Bean Locks",
     title: "Bean Locks",
     category: "Brand Identity",
     tier: 2,
     description:
-      "Brand identity and logo design for Bean Locks. Athletic energy meets clean, bold visual architecture, a mark built to move.",
+      "Logo and brand identity for Bean Locks, with a bold mark and a consistent visual direction.",
     tags: ["Logo Design", "Brand Identity", "Sports"],
   },
   {
-    slug: "cash-junkies",
+    slug: "kens-computer-solutions",
     client: "Ken's Computer Solutions",
     title: "Ken's Computer Solutions",
     category: "Brand Identity",
     tier: 2,
     description:
-      "Logo and brand identity for Ken's Computer Solutions. Professional, approachable design language that builds trust on first impression.",
+      "Logo and brand identity for Ken's Computer Solutions, designed to give the technology business a clear, approachable presence.",
     tags: ["Logo Design", "Brand Identity", "Tech"],
   },
   {
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     category: "3D Typography",
     tier: 2,
     description:
-      "Custom 3D typography and brand design for Death B4 Dishonor. Dimensional lettering that hits with weight and intention.",
+      "Custom 3D typography and brand design for Death B4 Dishonor, using dimensional lettering as the central visual element.",
     tags: ["3D Typography", "Brand Design"],
   },
   {
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     category: "Brand Identity",
     tier: 2,
     description:
-      "Full brand identity for KannaGruv, a retro lifestyle brand. From logo to visual system, every element channels nostalgia with modern execution.",
+      "A retro-inspired logo and visual identity for KannaGruv, developed into a consistent brand design system.",
     tags: ["Brand Identity", "Retro", "Lifestyle"],
   },
   // TIER 3, Industry Range
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     category: "Brand Activation",
     tier: 3,
     description:
-      "Video production for Courvoisier's #HerStory campaign. Premium spirits brand storytelling at the intersection of culture and celebration.",
+      "Video production for Courvoisier's #HerStory campaign, documenting the event and its brand experience.",
     tags: ["Video Production", "Brand Activation", "Spirits"],
   },
   {
@@ -134,10 +134,9 @@ export const projects: Project[] = [
     category: "Brand Activation",
     tier: 3,
     description:
-      "Video production for Skillosophy presented by Effen Vodka. Premium spirits brand meets cultural programming, clean execution, authentic storytelling.",
+      "Video production for Skillosophy presented by Effen Vodka, capturing the event and its cultural programming.",
     tags: ["Video Production", "Brand Activation", "Spirits"],
   },
-
 
   {
     slug: "makers-mark-handcrafted",
@@ -146,81 +145,93 @@ export const projects: Project[] = [
     category: "Video Production",
     tier: 3,
     description:
-      "A hand-crafted video for Maker's Mark that captures the brand's heritage and artisan spirit. Intimate storytelling, premium execution, the craft in the bottle reflected in every frame.",
+      "Video production for Maker's Mark, with a focus on the brand's craft and heritage.",
     tags: ["Video Production", "Brand Storytelling", "Spirits"],
   },
 ];
 
 export const services = [
   {
-    title: "The Audit (AI Consulting)",
-    headline: "Find out where the business bleeds money. From $2,500.",
-    description:
-      "Paid diagnosis for owner-run businesses. We map how the work actually happens, find where time and revenue leak, and deliver a roadmap where every fix is priced in dollars per year. Scoped by complexity and task count.",
-    example: "Med spas, law firms, manufacturers + any owner-run business",
-  },
-  {
-    title: "AI-Powered Digital Employees",
-    headline: "Custom support systems for the tasks that slow businesses down.",
-    description:
-      "We build AI-powered digital employees around real business needs, follow-up, scheduling, intake, reporting, admin, and customer communication. System builds from $4,500; monthly retainers from $2,500.",
-    example: "Custom support layers for smoother operations",
-  },
-  {
+    id: "brand-identity",
     title: "Brand Identity",
-    headline: "Your brand is your first impression. Make it count.",
+    headline: "A clear identity for the business you are building.",
     description:
-      "From logo design to full visual systems, we build identities that carry weight. Strategy-driven, design-forward, built to last longer than a trend cycle.",
-    example: "Cash Junkies, pen-and-ink logo with raw intention",
+      "We define how your brand looks and speaks, then create the logo, typography, color palette, and design guidelines that keep it consistent across your website, packaging, and marketing.",
+    deliverables: [
+      "Brand direction and messaging",
+      "Logo and visual identity",
+      "Brand guidelines",
+      "Print, packaging, and launch assets",
+    ],
+    example: "Explore identity work",
+    proofHref: "/work#brand-identity",
+    inquiry: "brand",
   },
   {
-    title: "Web Design + Development",
-    headline: "Sites that perform as good as they look.",
+    id: "websites",
+    title: "Websites",
+    headline: "Turn interest in your business into a clear next step.",
     description:
-      "Modern, responsive, fast. We design and build websites that convert visitors into clients. No templates, no shortcuts, custom code, every time.",
-    example: "Fire & Ash Events + Fire & Ash Cigar Carts",
+      "We plan, write, design, and build custom websites around what your customers need to know. Clear service pages, thoughtful inquiry flows, and responsive design make it easier to explore your offer and get in touch.",
+    deliverables: [
+      "Website strategy and copy",
+      "Custom design and development",
+      "Mobile layouts and on-page SEO",
+      "Forms, booking, and CRM connections as scoped",
+    ],
+    example: "See the Fire & Ash websites",
+    proofHref: "/work#websites",
+    inquiry: "website",
   },
   {
-    title: "Content Creation",
-    headline: "Content that earns attention, not just fills feeds.",
+    id: "content-experiences",
+    title: "Content & Experiences",
+    headline: "Bring your brand into the places people see and experience it.",
     description:
-      "Photo, video, graphics, whatever the medium, we create content with purpose. Every asset is built to work within a larger brand strategy.",
-    example: "Red Bull × Daysnatchers, multi-platform content capture",
+      "From campaign graphics and video to animation and live activations, we carry your identity into the work your audience encounters. Creative direction guides the idea, the production, and the finished assets.",
+    deliverables: [
+      "Campaign and social content",
+      "Video production and photography",
+      "Motion design and AI-assisted animation",
+      "Event creative and brand activations",
+    ],
+    example: "Explore content and activations",
+    proofHref: "/work#content-experiences",
+    inquiry: "content",
   },
   {
-    title: "AI Animation + Video",
-    headline: "Next-gen visuals. Today.",
+    id: "business-automation",
+    title: "Business Automation",
+    headline: "Your website is the front door. We build what happens behind it.",
     description:
-      "We use AI tools to create cinematic animations and video content that would take traditional studios weeks. Faster, bolder, more experimental.",
-    example: "JASE \"Candy Land\", 3D cinematic art + AI animation",
+      "We build custom databases, connect your CRM, automate follow-up, and create the tools your team needs to run the business. From customer intake to affiliate onboarding and reporting, we turn disconnected steps into a working system, with AI where it adds value and people in control.",
+    deliverables: [
+      "Custom databases, dashboards, and internal tools",
+      "Lead capture, CRM integration, and automated follow-up",
+      "Affiliate onboarding, agreement workflows, and referral tracking",
+      "API connections, reporting, and AI-assisted workflows",
+    ],
+    example: "Explore business automation",
+    proofHref: "/services/digital-employees",
+    inquiry: "automation",
+  },
+];
+
+export const projectSteps = [
+  {
+    title: "Tell us what you need.",
+    description:
+      "Share your business, goals, and timeline. We will discuss the project and recommend a scope that fits.",
   },
   {
-    title: "Graphic Design",
-    headline: "Design that communicates, not just decorates.",
+    title: "Set the direction.",
     description:
-      "Marketing materials, packaging, social assets, print, every piece is crafted with the same attention whether it's a billboard or a business card.",
-    example: "Smiths Law, professional design that builds trust",
+      "We agree on the deliverables, budget, and schedule before work begins, then develop the creative direction together.",
   },
   {
-    title: "Event Creative",
-    headline: "Experiences people remember.",
+    title: "Build, review, and launch.",
     description:
-      "From concept to execution, immersive brand activations, event design, and on-site creative direction. We've done it at scale for the biggest brands in the world.",
-    example: "Maker's Mark × J. Cole at Brooklyn Mirage",
-  },
-  {
-    title: "Social Media Management",
-    headline: "Strategy, not just posting.",
-    description:
-      "We build and execute social strategies that grow audiences and drive real engagement. Content calendars, community management, and performance tracking.",
-    example: "Full social strategy across brand portfolios",
-  },
-  {
-    title: "SEO",
-    headline: "Be found by the right people.",
-    description:
-      "Technical SEO, content strategy, and on-page optimization that drives organic growth. We build visibility that compounds over time.",
-    example: "Integrated SEO across all web builds",
+      "We create the work, review it with you, and prepare the final files or website for launch. Ongoing support is scoped separately.",
   },
 ];
 
@@ -238,12 +249,31 @@ export interface WebsiteProject {
 /** Live client sites, the proof behind the web design service. */
 export const websites: WebsiteProject[] = [
   {
+    slug: "jade-lilly",
+    client: "Jade Lilly",
+    title: "A digital world for an experiential artist",
+    description:
+      "We designed and built a website that brings Jade Lilly’s photography, textile installations, and experiences into one world. Visitors can explore the work, discover Strings Attached, and start a project with the artist.",
+    tags: [
+      "Website design & development",
+      "Creative direction",
+      "Artist portfolio",
+    ],
+    url: "https://jadelillystudio.com/",
+    image: "/assets/images/jade-lilly-website.jpg",
+    alt: "Hero artwork from the Jade Lilly website, showing an island of yarn-built creative spaces",
+  },
+  {
     slug: "fire-and-ash-cigar-carts",
     client: "Fire & Ash Cigar Carts",
-    title: "A seven-hole configurator that qualifies the lead",
+    title: "A custom cart, configured before the first conversation",
     description:
-      "An eight-page Next.js build for the manufacturing side of Fire & Ash, where clubs and operators spec a custom cigar humidor cart through a golf scorecard configurator that hands over a qualified lead. Golf structure runs through the whole site, from numbered holes to a scroll-scrubbed film of a ball in flight.",
-    tags: ["Next.js", "Product configurator", "Lead qualification", "HubSpot", "Scroll-scrubbed video"],
+      "An eight-page website that helps golf clubs and operators explore custom cigar humidor carts. A golf-inspired configurator collects their choices and sends the inquiry to HubSpot, giving the sales team context for the next conversation.",
+    tags: [
+      "Website design & development",
+      "Product configurator",
+      "CRM integration",
+    ],
     url: "https://fireandashcigarcarts.com",
     image: "/assets/images/fire-ash-cigar-carts.jpg",
     alt: "Fire and Ash Cigar Carts website showing a custom cigar humidor golf cart at dusk on a Florida golf course with the headline A new era of the back nine",
@@ -251,10 +281,10 @@ export const websites: WebsiteProject[] = [
   {
     slug: "fire-and-ash-events",
     client: "Fire & Ash Events",
-    title: "A match survey that replaced the contact form",
+    title: "An event experience with a clear path to inquiry",
     description:
-      "A five-page site for a Florida luxury mobile cigar lounge, with pricing published up front and every inquiry routed through a five-step match survey instead of a generic contact form. Hand coded with no framework: the scroll rails, the turf wipe set piece, and a 136 photo scrapbook lightbox all ship in under 7KB of JavaScript.",
-    tags: ["Hand coded", "No framework", "Custom inquiry flow", "Local SEO", "Schema markup"],
+      "A five-page website for a Florida mobile cigar lounge. Visitors can explore the experience, see pricing, and browse event photography before completing a five-step survey that captures the details of their event.",
+    tags: ["Website design & development", "Event inquiry flow", "Local SEO"],
     url: "https://fireandashevents.com",
     image: "/assets/images/fire-ash-events.jpg",
     alt: "Fire and Ash Events website home page showing a dark cinematic hero of a mobile cigar lounge with the headline The night slows down when the torch lights",

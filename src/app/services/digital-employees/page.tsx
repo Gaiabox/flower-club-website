@@ -3,9 +3,9 @@ import DigitalEmployeesClient from "./DigitalEmployeesClient";
 import { buildMeta } from "@/lib/seo";
 
 export const metadata: Metadata = buildMeta({
-  title: "AI Employees for Business, Custom AI Automation | The Flower Club",
+  title: "Business Automation & AI Workflows",
   description:
-    "Custom AI-powered digital employees that handle lead follow-up, intake, scheduling, reporting, and admin. Deployed in the cloud, on local hardware, or hybrid. Built around how your business already works, Charlotte NC.",
+    "Custom workflows for intake, follow-up, scheduling, reporting, and recurring administration. Scoped around your tools, team, and review needs.",
   path: "/services/digital-employees",
 });
 

@@ -20,7 +20,8 @@ export default function FlowerWatermark({ className = "" }: { className?: string
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
       gsap.to(el, {
         rotation: 60,
         ease: "none",
@@ -32,7 +33,7 @@ export default function FlowerWatermark({ className = "" }: { className?: string
         },
       });
     });
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (

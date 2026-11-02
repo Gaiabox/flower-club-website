@@ -61,7 +61,7 @@ export default function BrandFilm({
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        className="pointer-events-none absolute inset-0 h-full w-full object-contain"
       />
 
       {/* The control. Covers the card so hover, tap, and keyboard all work. */}

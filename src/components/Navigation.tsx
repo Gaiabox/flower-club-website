@@ -21,104 +21,120 @@ export default function Navigation() {
   }, [pathname]);
 
   // Pages with light (cream) background, nav text must be dark when unscrolled
-  const lightBgPages = ["/services", "/services/digital-employees", "/services/audit", "/contact", "/about"];
-  const isLightPage = lightBgPages.includes(pathname);
+  const lightBgPages = [
+    "/services",
+    "/services/digital-employees",
+    "/services/audit",
+    "/contact",
+    "/services/brand-identity",
+    "/services/business-systems",
+    "/services/charlotte/business-automation",
+  ];
+  const isLightPage =
+    lightBgPages.includes(pathname) ||
+    pathname.startsWith("/legal") ||
+    pathname === "/services/web-design";
 
   const links = [
     { href: "/", label: "Home" },
     { href: "/work", label: "Work" },
     { href: "/services", label: "Services" },
-    { href: "/services/audit", label: "The Audit" },
-    { href: "/services/digital-employees", label: "AI Employees" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/services/web-design", label: "Web Design" },
+    { href: "/services/digital-employees", label: "AI Systems" },
   ];
 
   return (
     <>
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-navy-dark/95 backdrop-blur-md py-4"
-          : isLightPage
-          ? "bg-cream/95 backdrop-blur-sm py-6 border-b border-navy/10"
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="section-padding flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="relative z-50">
-          <span className={`text-xl ${!scrolled && isLightPage && !mobileOpen ? "text-navy" : "text-cream"}`}>
-            <AnimatedLogo />
-          </span>
-        </Link>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`nav-link ${
-                !scrolled && isLightPage
-                  ? "!text-navy hover:!text-red"
-                  : pathname === link.href
-                  ? "!text-cream"
-                  : ""
-              }`}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-navy-dark/95 backdrop-blur-md py-4"
+            : isLightPage
+              ? "bg-cream/95 backdrop-blur-sm py-6 border-b border-navy/10"
+              : "bg-transparent py-6"
+        }`}
+      >
+        <div className="section-padding flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="relative z-50">
+            <span
+              className={`text-xl ${!scrolled && isLightPage && !mobileOpen ? "text-navy" : "text-cream"}`}
             >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/services/audit" className={`!py-3 !px-6 !text-xs ${!scrolled && isLightPage ? "border border-navy text-navy font-bold uppercase tracking-widest text-xs px-6 py-3 hover:bg-navy hover:text-cream transition-colors" : "btn-primary"}`}>
-            Book the Audit
+              <AnimatedLogo />
+            </span>
           </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`nav-link ${
+                  !scrolled && isLightPage
+                    ? "!text-navy hover:!text-red"
+                    : pathname === link.href
+                      ? "!text-cream"
+                      : ""
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
+              className={`!py-3 !px-6 !text-xs ${!scrolled && isLightPage ? "border border-navy text-navy font-bold uppercase tracking-widest text-xs px-6 py-3 hover:bg-navy hover:text-cream transition-colors" : "btn-primary"}`}
+            >
+              Start a Project
+            </Link>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className={`lg:hidden relative z-50 w-11 h-11 flex flex-col justify-center gap-1.5 ${!scrolled && isLightPage && !mobileOpen ? "[&>span]:bg-navy" : ""}`}
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+          >
+            <span
+              className={`block w-full h-0.5 bg-cream transition-all duration-300 ${
+                mobileOpen ? "rotate-45 translate-y-1" : ""
+              }`}
+            />
+            <span
+              className={`block w-full h-0.5 bg-cream transition-all duration-300 ${
+                mobileOpen ? "-rotate-45 -translate-y-1" : ""
+              }`}
+            />
+          </button>
         </div>
+      </nav>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className={`md:hidden relative z-50 w-8 h-8 flex flex-col justify-center gap-1.5 ${!scrolled && isLightPage && !mobileOpen ? "[&>span]:bg-navy" : ""}`}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block w-full h-0.5 bg-cream transition-all duration-300 ${
-              mobileOpen ? "rotate-45 translate-y-1" : ""
-            }`}
-          />
-          <span
-            className={`block w-full h-0.5 bg-cream transition-all duration-300 ${
-              mobileOpen ? "-rotate-45 -translate-y-1" : ""
-            }`}
-          />
-        </button>
-
-      </div>
-    </nav>
-
-    {/* Mobile Menu, sibling of <nav>, NOT inside it: the nav's
+      {/* Mobile Menu, sibling of <nav>, NOT inside it: the nav's
         backdrop-blur creates a containing block that would trap this
         fixed overlay inside the bar and squash it. */}
-    <div
-      className={`md:hidden fixed inset-0 bg-navy-dark z-[45] flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
-        mobileOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
-      }`}
-    >
-      {links.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          className="text-cream text-display-sm font-bold uppercase tracking-wider hover:text-red transition-colors"
-        >
-          {link.label}
+      <div
+        id="mobile-menu"
+        className={`lg:hidden fixed inset-0 bg-navy-dark z-[45] flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
+          mobileOpen
+            ? "opacity-100 pointer-events-auto"
+            : "invisible opacity-0 pointer-events-none"
+        }`}
+      >
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-cream text-2xl font-bold uppercase tracking-wider hover:text-red transition-colors"
+          >
+            {link.label}
+          </Link>
+        ))}
+        <Link href="/contact" className="btn-primary mt-4">
+          Start a Project
         </Link>
-      ))}
-      <Link href="/services/audit" className="btn-primary mt-4">
-        Book the Audit
-      </Link>
-    </div>
+      </div>
     </>
   );
 }

@@ -4,9 +4,9 @@ import { auditFaq } from "./faq";
 import { buildMeta } from "@/lib/seo";
 
 export const metadata: Metadata = buildMeta({
-  title: "AI Audit for Med Spas, Law Firms & Manufacturers, From $2,500",
+  title: "Business Automation Audit, From $2,500",
   description:
-    "Paid AI consulting audit for owner-run businesses: we map how your business runs, find where it bleeds money, and deliver a roadmap with every fix priced in dollars per year. From $2,500, scoped by complexity. Charlotte NC, serving nationwide.",
+    "A focused review of your business workflows, with prioritized automation opportunities, estimated value, and a practical roadmap. From $2,500.",
   path: "/services/audit",
 });
 
