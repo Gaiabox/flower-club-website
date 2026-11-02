@@ -41,3 +41,13 @@ export function track(name: string, details: Record<string, string> = {}) {
     page_path: window.location.pathname,
   });
 }
+
+/** Only include consented coarse attribution in an inquiry. */
+export function inquiryDiscoverySource(): string {
+  if (typeof window === "undefined") return "not_collected";
+  try {
+    const choice = JSON.parse(localStorage.getItem("fc-analytics-choice") || "null");
+    if (choice?.value !== "accepted" || !Number.isFinite(choice.at) || Date.now() - choice.at > 180 * 24 * 60 * 60 * 1000) return "not_collected";
+    return discoverySource();
+  } catch { return "not_collected"; }
+}

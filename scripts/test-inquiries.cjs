@@ -20,9 +20,10 @@ async function submit(body, origin = 'https://theflowerclub.design') {
  assert.equal((await submit({ ...valid, budget: 'unrecognized' })).status, 400);
  assert.equal(calls.length, 0);
  for (const source of ['contact', 'bud']) {
-   assert.equal((await submit({ ...valid, source })).status, 200);
+   assert.equal((await submit({ ...valid, source, discoverySource: "chatgpt" })).status, 200);
    const fields = Object.fromEntries(calls.at(-1).payload.fields.map(f => [f.name, f.value]));
    assert.equal(fields.email, valid.email);
+   assert.match(fields.project_details, /Discovery source: ChatGPT/);
    assert.equal(fields.service_requested, 'Website');
    assert.equal(fields.project_budget, 'Under $5,000');
    assert.match(fields.project_details, new RegExp(source === 'bud' ? 'Bud' : 'website contact form'));

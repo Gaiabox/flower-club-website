@@ -29,8 +29,10 @@ export async function POST(request: NextRequest) {
   const entry = attempts.get(ip) || { count: 0, until: now + 60000 };
   if (++entry.count > 5) return reply("Please wait a minute before trying again", 429);
   attempts.set(ip, entry);
+  const sources: Record<string, string> = { chatgpt: "ChatGPT", perplexity: "Perplexity", claude: "Claude", gemini: "Gemini", google: "Google", bing: "Bing", other_referral: "Other referral", direct_or_unknown: "Direct or unknown", not_collected: "Not collected (analytics not accepted)" };
+  const discovery = sources[value("discoverySource")] || "Unknown";
   const [firstname, ...rest] = name.split(/\s+/);
-  const fields = Object.entries({ email, firstname, lastname: rest.join(" "), company, service_requested: service, project_budget: budget, project_details: `${message}\n\nSubmitted via ${value("source") === "bud" ? "Bud" : "website contact form"}.` }).filter(([,v]) => v).map(([name, value]) => ({ objectTypeId: "0-1", name, value }));
+  const fields = Object.entries({ email, firstname, lastname: rest.join(" "), company, service_requested: service, project_budget: budget, project_details: `${message}\n\nSubmitted via ${value("source") === "bud" ? "Bud" : "website contact form"}.\nDiscovery source: ${discovery}.` }).filter(([,v]) => v).map(([name, value]) => ({ objectTypeId: "0-1", name, value }));
   try {
     const result = await fetch("https://api.hsforms.com/submissions/v3/integration/submit/247865442/d96196be-130b-4b89-997c-7a57d3ef7c71", {
       method: "POST", headers: { "Content-Type": "application/json" },

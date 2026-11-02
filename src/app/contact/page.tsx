@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { track } from "@/lib/analytics";
+import { track, inquiryDiscoverySource } from "@/lib/analytics";
 import gsap from "gsap";
 
 import { SERVICES as projectTypes, BUDGETS as budgetRanges } from "@/lib/inquiry-options";
@@ -78,7 +78,7 @@ export default function ContactPage() {
       const res = await fetch("/api/inquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, website, source: "contact" }),
+        body: JSON.stringify({ ...formData, website, source: "contact", discoverySource: inquiryDiscoverySource() }),
       });
       if (res.ok) {
         setStatus("sent");

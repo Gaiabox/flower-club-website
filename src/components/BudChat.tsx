@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { inquiryDiscoverySource } from "@/lib/analytics";
 import { SERVICES as inquiryServices, BUDGETS as inquiryBudgets } from "@/lib/inquiry-options";
 
 /** Scripted project intake assistant. Uses the same server endpoint as Contact. */
@@ -162,6 +163,7 @@ export default function BudChat() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           source: "bud",
+          discoverySource: inquiryDiscoverySource(),
           website,
           name: data.current.name,
           email: data.current.email,

@@ -32,7 +32,7 @@ export default function PrivacyPage() {
         <p>
           We use inquiry information to respond, evaluate a potential project,
           prepare a proposal, and manage related business communications.
-          Sending an inquiry does not subscribe you to marketing. Do not send
+          If you accept optional analytics, we also attach a coarse discovery source, such as Google or ChatGPT, to your inquiry in HubSpot. We do not attach full referrer URLs or query strings. Sending an inquiry does not subscribe you to marketing. Do not send
           passwords, payment card information, health information, government
           identifiers, or other sensitive or confidential material through these
           forms.
