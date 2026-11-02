@@ -7,9 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/"],
       },
-      // Allow all major AI crawlers explicitly
+      // Search access is separate from model-training preferences.
+      { userAgent: "OAI-SearchBot", allow: "/", disallow: ["/api/"] },
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "ChatGPT-User", allow: "/" },
       { userAgent: "PerplexityBot", allow: "/" },

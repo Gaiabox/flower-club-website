@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
+import { discoverySource } from "@/lib/analytics";
 const KEY = "fc-analytics-choice";
 const MAX_AGE = 180 * 24 * 60 * 60 * 1000;
 type Choice = "accepted" | "declined";
@@ -48,6 +49,7 @@ export default function PrivacyControls() {
   useEffect(() => {
     if (choice === "accepted" && window.gtag) {
       window.gtag("event", "page_view", {
+        discovery_source: discoverySource(),
         page_location: window.location.origin + pathname,
         page_path: pathname,
       });
@@ -64,6 +66,7 @@ export default function PrivacyControls() {
         ad_user_data: "denied",
         ad_personalization: "denied",
       });
+      try { sessionStorage.removeItem("fc-discovery-source"); } catch {}
       const host = window.location.hostname;
       const domains = [
         "",
@@ -85,6 +88,12 @@ export default function PrivacyControls() {
       });
       window.location.reload();
       return;
+    }
+    if (value === "accepted") {
+      const source = discoverySource();
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(...args: unknown[]) { window.dataLayer!.push(args); };
+      window.gtag("set", { discovery_source: source });
     }
     setChoice(value);
     setVisible(false);

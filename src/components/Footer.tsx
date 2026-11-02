@@ -11,7 +11,7 @@ const pages = [
 ];
 
 const services = [
-  { href: "/services#brand-identity", label: "Brand Identity" },
+  { href: "/services/brand-identity", label: "Brand Identity" },
   { href: "/services/web-design", label: "Websites" },
   { href: "/services#content-experiences", label: "Content & Experiences" },
   { href: "/services/digital-employees", label: "Business Automation" },

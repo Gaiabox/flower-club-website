@@ -1,4 +1,4 @@
-import NextScript from "next/script";
+
 import { websites, projects } from "@/lib/portfolio";
 import { SITE, SERVICES_SEO, CITIES } from "@/lib/seo";
 
@@ -9,11 +9,10 @@ import { SITE, SERVICES_SEO, CITIES } from "@/lib/seo";
 
 function Script({ id, data }: { id: string; data: object }) {
   return (
-    <NextScript
+    <script
       id={id}
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );
 }
@@ -29,15 +28,12 @@ export function OrgSchema() {
         "@id": `${SITE.url}/#organization`,
         name: SITE.name,
         url: SITE.url,
-        logo: `${SITE.url}/assets/images/flower-club-logo.png`,
         image: `${SITE.url}/og-card.jpg`,
         description: SITE.description,
-        foundingDate: "2022",
         address: {
           "@type": "PostalAddress",
           addressLocality: SITE.location.city,
           addressRegion: SITE.location.state,
-          postalCode: SITE.location.zip,
           addressCountry: SITE.location.country,
         },
         areaServed: CITIES.map((c) => ({

@@ -85,7 +85,7 @@ export default function Home() {
               {
                 title: "A stronger brand from the first impression.",
                 body: "Bring your positioning, logo, typography, and marketing into one recognizable identity. We build the visual system and the assets you need to put it to work.",
-                href: "/services#brand-identity",
+                href: "/services/brand-identity",
                 label: "Explore Brand Design",
               },
               {

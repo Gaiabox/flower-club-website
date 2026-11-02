@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import LocationServices from "@/components/LocationServices";
 import { buildMeta } from "@/lib/seo";
-export const metadata: Metadata = buildMeta({
+export const metadata: Metadata = { ...buildMeta({
   title: "Brand Identity & Website Design for Nashville",
   description:
     "Brand identity, custom websites, and creative production for Nashville businesses. The Flower Club is a Charlotte-based studio working nationwide.",
   path: "/services/nashville",
-});
+}), robots: { index: false, follow: true } };
 export default function LocationPage() {
   return (
     <LocationServices

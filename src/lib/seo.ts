@@ -14,7 +14,6 @@ export const SITE = {
   location: {
     city: "Charlotte",
     state: "NC",
-    zip: "28201",
     country: "US",
   },
   social: {
@@ -96,6 +95,7 @@ export function buildMeta({
       "custom website design",
       "The Flower Club",
     ],
+    verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION, other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } : undefined },
     robots: {
       index: true,
       follow: true,

@@ -26,9 +26,10 @@ const details: Record<
     approach:
       "A seven-hole, golf-inspired configurator carries the visitor through their choices. The inquiry connects to HubSpot, bringing those details into the next sales conversation. Product storytelling and golf imagery give the rest of the site a consistent direction.",
     delivery: [
-      "Eight-page custom website",
+      "Custom website design and development",
       "Golf-inspired product configurator",
       "Inquiry flow connected to HubSpot",
+      "Affiliate signup and agreement workflows",
       "Responsive layouts and product storytelling",
     ],
   },
@@ -111,6 +112,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </ul>
           </div>
         </section>
+        {project.slug === "fire-and-ash-cigar-carts" && <section className="py-12 border-b border-cream/20"><h2 className="text-3xl font-bold mb-5">From product choices to a sales conversation.</h2><p className="text-lg text-cream/90 max-w-3xl leading-relaxed">The configurator collects the buyer’s choices before the team follows up. The HubSpot connection brings that inquiry into the sales workflow. Our broader work also includes affiliate signup and agreement workflows, connecting the public experience with the operations behind it.</p><p className="text-lg text-cream/90 max-w-3xl mt-5">This case study describes delivered functionality. Revenue gains, hours saved, and conversion improvements have not been measured here.</p><Link href="/services/business-systems" className="inline-block underline mt-6">Explore business systems →</Link></section>}
         <section className="py-16">
           <h2 className="text-display-sm font-bold mb-6">
             Explore the finished site.

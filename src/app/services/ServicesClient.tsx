@@ -10,6 +10,7 @@ export default function ServicesClient() {
     <div className="sketchbook-bg relative min-h-screen pt-36 pb-24 overflow-hidden">
       <SketchDecor />
       <div className="section-padding max-w-6xl mx-auto relative z-10">
+        <nav aria-label="Explore specialist services" className="flex flex-wrap gap-5 mb-8 text-navy underline underline-offset-4"><Link href="/services/brand-identity">Brand identity</Link><Link href="/services/business-systems">Databases &amp; business systems</Link><Link href="/services/charlotte/business-automation">Charlotte automation</Link></nav>
         <header className="mb-16">
           <p className="label mb-4">Services</p>
           <h1 className="text-display-xl text-navy font-bold mb-6">
