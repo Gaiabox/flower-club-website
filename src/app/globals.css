@@ -26,7 +26,7 @@
   }
 
   .nav-link {
-    @apply text-sm font-mono uppercase tracking-widest text-cream/70 hover:text-cream transition-colors duration-300;
+    @apply text-sm font-mono uppercase tracking-widest text-cream/90 hover:text-cream transition-colors duration-300;
   }
 
   .btn-primary {
@@ -40,11 +40,11 @@
   }
 
   .label {
-    @apply font-mono text-xs uppercase tracking-[0.2em] text-navy/50;
+    @apply font-mono text-sm uppercase tracking-[0.15em] text-navy/85;
   }
 
   .label-light {
-    @apply font-mono text-xs uppercase tracking-[0.2em] text-cream/50;
+    @apply font-mono text-sm uppercase tracking-[0.15em] text-cream/85;
   }
 
   .placeholder-asset {
@@ -290,3 +290,15 @@
 }
 .selected-work-grid .asset-caption > p,
 .selected-work-grid figcaption .label-light { display:none; }
+
+/* Films keep their native framing, sharing an aligned baseline on desktop. */
+.selected-film-row { display:grid; gap:1.5rem; align-items:start; }
+.selected-film-row article { min-width:0; }
+@media (min-width:768px) {
+  .selected-film-row { grid-template-columns:81fr 256fr 108fr; }
+}
+@media (max-width:767px) {
+  .selected-film-row article { width:100%; max-width:30rem; margin-inline:auto; }
+  .selected-film-row article:first-child { max-width:22rem; }
+}
+main p:not([class*="label"]):not([class*="text-display"]) { line-height:1.7; }

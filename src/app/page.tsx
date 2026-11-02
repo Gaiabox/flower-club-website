@@ -38,11 +38,11 @@ export default function Home() {
               See What We’ve Made
             </Link>
           </div>
-          <p className="text-cream/75 mt-8 max-w-xl text-sm">
+          <p className="text-cream/85 mt-8 max-w-xl text-sm">
             Strategy, design, development, and creative production. Based in
             Charlotte. Working nationwide.
           </p>
-          <p className="text-cream/65 mt-10 text-xs">
+          <p className="text-cream/85 mt-10 text-xs">
             Featured footage: Maker’s Mark × Rev Run brand activation
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function Home() {
           <h2 className="text-display-md text-cream font-bold mb-6">
             A few things we’ve made.
           </h2>
-          <p className="text-cream/75 text-lg max-w-2xl mb-10">
+          <p className="text-cream/85 text-lg max-w-2xl mb-10">
             Websites, identities, event content, and our own creative
             experiments. Different formats, with a clear idea behind each.
           </p>
@@ -105,7 +105,7 @@ export default function Home() {
                 <h3 className="text-navy font-bold text-2xl mb-4">
                   {item.title}
                 </h3>
-                <p className="text-navy/75 leading-relaxed text-lg mb-5">
+                <p className="text-navy/85 leading-relaxed text-lg mb-5">
                   {item.body}
                 </p>
                 <Link
@@ -158,7 +158,7 @@ export default function Home() {
                 <h3 className="text-navy text-xl font-bold mb-4">
                   {step.title}
                 </h3>
-                <p className="text-navy/75 leading-relaxed">
+                <p className="text-navy/85 leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -181,7 +181,7 @@ export default function Home() {
           <Link href="/contact" className="btn-primary">
             Tell Us About Your Project
           </Link>
-          <p className="text-cream/65 text-sm mt-5">
+          <p className="text-cream/85 text-sm mt-5">
             An inquiry starts a conversation. It does not commit you to a paid
             engagement.
           </p>

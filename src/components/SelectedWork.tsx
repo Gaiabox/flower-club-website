@@ -23,24 +23,6 @@ export default function SelectedWork() {
         </p></div></Link>
       </article>
       <article>
-        <BrandFilm
-          src="/assets/videos/fc-bloomfire.mp4"
-          poster="/assets/images/fc-bloomfire-thumb.jpg"
-          title="Operation Bloomfire"
-          meta="Made for The Flower Club · AI-assisted animation"
-          aspect="4/3"
-        />
-      </article>
-      <article>
-        <BrandFilm
-          src="/assets/videos/makers-mark-culturecon.mp4"
-          poster="/assets/images/makers-mark-culturecon-thumb.jpg"
-          title="Maker’s Mark × CultureCon"
-          meta="Brand activation · Event content"
-          aspect="4/3"
-        />
-      </article>
-      <article>
         <Link href="/work#brand-identity">
           <div className="relative aspect-[4/3] bg-cream">
             <Image
@@ -72,15 +54,35 @@ export default function SelectedWork() {
           Custom website, configurator, and CRM connection
         </p></div></Link>
       </article>
+      <div className="selected-film-row sm:col-span-2 lg:col-span-3">
+      <article>
+        <BrandFilm
+          src="/assets/videos/fc-bloomfire.mp4"
+          poster="/assets/images/fc-bloomfire-thumb.jpg"
+          title="Operation Bloomfire"
+          meta="Made for The Flower Club · AI-assisted animation"
+          aspect="9/16"
+        />
+      </article>
+      <article>
+        <BrandFilm
+          src="/assets/videos/makers-mark-culturecon.mp4"
+          poster="/assets/images/makers-mark-culturecon-thumb.jpg"
+          title="Maker’s Mark × CultureCon"
+          meta="Brand activation · Event content"
+          aspect="16/9"
+        />
+      </article>
       <article>
         <BrandFilm
           src="/assets/videos/fc-hoops.mp4"
           poster="/assets/images/fc-hoops-thumb.jpg"
           title="Club Ball"
           meta="Made for The Flower Club · Motion design"
-          aspect="4/3"
+          aspect="3/4"
         />
       </article>
+      </div>
     </div>
   );
 }

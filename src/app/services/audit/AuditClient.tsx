@@ -35,7 +35,7 @@ export default function AuditClient() {
           <h1 className="text-display-xl text-navy font-bold mb-6">
             Know what to automate before you invest.
           </h1>
-          <p className="text-navy/75 text-xl leading-relaxed mb-6">
+          <p className="text-navy/85 text-xl leading-relaxed mb-6">
             A focused review of how work moves through your business. We
             identify repetitive tasks, assess where automation can help, and
             give you a practical roadmap for what to build first.
@@ -47,7 +47,7 @@ export default function AuditClient() {
           <Link href="/contact?type=audit" className="btn-primary">
             Discuss an Audit
           </Link>
-          <p className="text-navy/70 mt-6">
+          <p className="text-navy/85 mt-6">
             Planning a brand, website, or content project?{" "}
             <Link href="/contact" className="underline underline-offset-4">
               Start a project conversation
@@ -59,7 +59,7 @@ export default function AuditClient() {
           <h2 className="text-display-sm text-navy font-bold mb-8">
             A closer look at the work behind the business.
           </h2>
-          <p className="text-navy/75 text-lg leading-relaxed max-w-3xl mb-10">
+          <p className="text-navy/85 text-lg leading-relaxed max-w-3xl mb-10">
             This service is for teams with recurring intake, follow-up,
             scheduling, reporting, or administrative work. We begin with a
             specific problem and the people affected by it.
@@ -70,7 +70,7 @@ export default function AuditClient() {
                 <h3 className="text-navy font-bold text-xl mb-3">
                   {step.title}
                 </h3>
-                <p className="text-navy/70 leading-relaxed">{step.body}</p>
+                <p className="text-navy/85 leading-relaxed">{step.body}</p>
               </div>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function AuditClient() {
           {auditFaq.map((faq) => (
             <div key={faq.q} className="border-t border-navy/20 py-6">
               <h3 className="text-navy font-bold text-xl mb-3">{faq.q}</h3>
-              <p className="text-navy/70 leading-relaxed">{faq.a}</p>
+              <p className="text-navy/85 leading-relaxed">{faq.a}</p>
             </div>
           ))}
         </section>
@@ -106,7 +106,7 @@ export default function AuditClient() {
           <h2 className="text-display-sm text-navy font-bold mb-5">
             Start with the workflow you want to improve.
           </h2>
-          <p className="text-navy/70 text-lg mb-8">
+          <p className="text-navy/85 text-lg mb-8">
             Tell us what takes too much time and where the handoffs break down.
             We will discuss whether an audit is the right next step.
           </p>

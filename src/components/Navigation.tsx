@@ -33,6 +33,7 @@ export default function Navigation() {
     pathname === "/services/web-design";
 
   const links = [
+    { href: "/", label: "Home" },
     { href: "/work", label: "Work" },
     { href: "/services", label: "Services" },
     { href: "/services/web-design", label: "Web Design" },
@@ -61,7 +62,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-8">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -88,7 +89,7 @@ export default function Navigation() {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden relative z-50 w-11 h-11 flex flex-col justify-center gap-1.5 ${!scrolled && isLightPage && !mobileOpen ? "[&>span]:bg-navy" : ""}`}
+            className={`lg:hidden relative z-50 w-11 h-11 flex flex-col justify-center gap-1.5 ${!scrolled && isLightPage && !mobileOpen ? "[&>span]:bg-navy" : ""}`}
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -112,7 +113,7 @@ export default function Navigation() {
         fixed overlay inside the bar and squash it. */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed inset-0 bg-navy-dark z-[45] flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 bg-navy-dark z-[45] flex flex-col items-center justify-center gap-8 transition-all duration-500 ${
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "invisible opacity-0 pointer-events-none"

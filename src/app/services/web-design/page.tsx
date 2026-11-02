@@ -20,7 +20,7 @@ export default function WebDesignPage() {
           <h1 className="text-display-xl text-navy font-bold max-w-5xl mb-7">
             Give visitors a reason to choose you. Then make it easy to act.
           </h1>
-          <p className="text-navy/75 text-xl leading-relaxed max-w-3xl mb-8">
+          <p className="text-navy/85 text-xl leading-relaxed max-w-3xl mb-8">
             We plan, write, design, and build custom websites for businesses
             with something worth showing. Clear messaging, relevant work, and
             thoughtful inquiry flows help customers understand your offer and
@@ -29,7 +29,7 @@ export default function WebDesignPage() {
           <Link href="/contact?type=website" className="btn-primary">
             Discuss Your Website
           </Link>
-          <p className="text-navy/65 mt-5">
+          <p className="text-navy/85 mt-5">
             Starting fresh or replacing a site that no longer fits? We can help
             define the scope.
           </p>
@@ -40,7 +40,7 @@ export default function WebDesignPage() {
           <h2 className="text-display-md text-cream font-bold mb-6">
             Websites we designed and built.
           </h2>
-          <p className="text-cream/75 text-lg mb-10 max-w-2xl">
+          <p className="text-cream/85 text-lg mb-10 max-w-2xl">
             See the work, the visitor journey, and what we delivered. These are
             our website projects, not template examples.
           </p>
@@ -84,7 +84,7 @@ export default function WebDesignPage() {
             ].map(([title, body]) => (
               <div className="border-t border-navy/20 pt-6" key={title}>
                 <h3 className="text-navy text-2xl font-bold mb-4">{title}</h3>
-                <p className="text-navy/75 leading-relaxed text-lg">{body}</p>
+                <p className="text-navy/85 leading-relaxed text-lg">{body}</p>
               </div>
             ))}
           </div>
@@ -92,7 +92,7 @@ export default function WebDesignPage() {
             <h2 className="text-navy text-3xl font-bold mb-4">
               What does a website project cost?
             </h2>
-            <p className="text-navy/75 text-lg max-w-3xl">
+            <p className="text-navy/85 text-lg max-w-3xl">
               The scope depends on pages, copy, assets, integrations, and the
               features your customers need. We discuss those requirements and
               agree on a proposal before you commit. Hosting, ongoing support,
@@ -121,7 +121,7 @@ export default function WebDesignPage() {
                 <summary className="text-navy font-bold text-lg cursor-pointer">
                   {q}
                 </summary>
-                <p className="text-navy/75 leading-relaxed mt-4">{a}</p>
+                <p className="text-navy/85 leading-relaxed mt-4">{a}</p>
               </details>
             ))}
           </div>

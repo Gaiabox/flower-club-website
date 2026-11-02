@@ -26,7 +26,7 @@ export default function DigitalEmployeesClient() {
           <h1 className="text-display-xl text-navy font-bold mb-6">
             Less repetitive work. Clearer handoffs.
           </h1>
-          <p className="text-navy/75 text-xl leading-relaxed mb-8">
+          <p className="text-navy/85 text-xl leading-relaxed mb-8">
             We build connected workflows for intake, lead follow-up, scheduling,
             reporting, and administration. AI is one tool we can use within a
             defined process, with human review where it matters.
@@ -40,12 +40,12 @@ export default function DigitalEmployeesClient() {
             <h2 className="text-display-sm text-navy font-bold mb-5">
               A new inquiry should start the next step.
             </h2>
-            <p className="text-navy/75 text-lg leading-relaxed">
+            <p className="text-navy/85 text-lg leading-relaxed">
               When a customer reaches out, the details need to reach the right
               person. We connect the form, customer record, notifications, and
               follow-up process so your team can respond with context.
             </p>
-            <p className="text-navy/75 mt-5">
+            <p className="text-navy/85 mt-5">
               If you are copying the same information between tools or losing
               track of who needs a response, start with that workflow.
             </p>
@@ -73,7 +73,7 @@ export default function DigitalEmployeesClient() {
           <h2 className="text-display-sm text-navy font-bold mb-6">
             Start with a task your team knows well.
           </h2>
-          <p className="text-navy/70 text-lg max-w-3xl mb-10">
+          <p className="text-navy/85 text-lg max-w-3xl mb-10">
             These are examples of workflows we can scope. The connections,
             permissions, and level of automation depend on your tools and how
             the task works.
@@ -84,7 +84,7 @@ export default function DigitalEmployeesClient() {
                 <h3 className="text-navy font-bold text-xl mb-3">
                   {item.title}
                 </h3>
-                <p className="text-navy/70 leading-relaxed">{item.body}</p>
+                <p className="text-navy/85 leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
@@ -93,7 +93,7 @@ export default function DigitalEmployeesClient() {
           <h2 className="text-display-sm text-navy font-bold">
             Define the process, then build the system.
           </h2>
-          <div className="text-navy/75 text-lg leading-relaxed">
+          <div className="text-navy/85 text-lg leading-relaxed">
             <p>
               We agree on the task, inputs, expected output, and measures of
               success. Then we connect the tools, test the workflow, and
@@ -115,7 +115,7 @@ export default function DigitalEmployeesClient() {
             $2,500 per month. We confirm deliverables, running costs,
             responsibilities, and support before work begins.
           </p>
-          <p className="text-cream/75 mt-6 max-w-3xl">
+          <p className="text-cream/85 mt-6 max-w-3xl">
             If you need to decide which workflows to address, our{" "}
             <Link
               href="/services/audit"
@@ -130,7 +130,7 @@ export default function DigitalEmployeesClient() {
           <h2 className="text-navy font-bold text-2xl mb-4">
             Looking for AI-assisted creative production?
           </h2>
-          <p className="text-navy/70 text-lg max-w-3xl">
+          <p className="text-navy/85 text-lg max-w-3xl">
             Animation, brand films, and motion design sit within{" "}
             <Link
               href="/services#content-experiences"
@@ -167,7 +167,7 @@ export default function DigitalEmployeesClient() {
               <summary className="font-bold text-navy text-lg cursor-pointer">
                 {question}
               </summary>
-              <p className="text-navy/75 leading-relaxed mt-4">{answer}</p>
+              <p className="text-navy/85 leading-relaxed mt-4">{answer}</p>
             </details>
           ))}
         </section>

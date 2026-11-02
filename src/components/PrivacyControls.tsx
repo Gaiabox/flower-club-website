@@ -17,7 +17,7 @@ export function AnalyticsPreferencesButton() {
     <button
       type="button"
       onClick={() => window.dispatchEvent(new Event("fc-open-privacy"))}
-      className="text-cream/70 underline underline-offset-4"
+      className="text-cream/85 underline underline-offset-4"
     >
       Cookie Settings
     </button>
@@ -113,7 +113,7 @@ export default function PrivacyControls() {
               <h2 className="text-navy font-bold text-lg mb-2">
                 Your privacy choices
               </h2>
-              <p className="text-navy/80 text-sm leading-relaxed">
+              <p className="text-navy/80 text-base leading-relaxed">
                 We use necessary storage to remember this choice. With your
                 permission, Google Analytics helps us understand site use.
                 Optional analytics stays off until you accept.{" "}

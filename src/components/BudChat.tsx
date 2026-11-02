@@ -227,7 +227,7 @@ export default function BudChat() {
           </div>
           <div className="flex-1">
             <p className="text-cream font-bold text-sm leading-tight">Bud</p>
-            <p className="text-cream/50 font-mono text-[10px] uppercase tracking-widest">
+            <p className="text-cream/85 font-mono text-[10px] uppercase tracking-widest">
               Project Assistant
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function BudChat() {
           </span>
         </div>
 
-        <p className="px-4 pt-3 text-cream/75 text-xs leading-relaxed">
+        <p className="px-4 pt-3 text-cream/85 text-xs leading-relaxed">
           Details go to our team through Netlify Forms. Avoid sensitive
           information.{" "}
           <Link href="/legal/privacy" className="underline">
@@ -255,7 +255,7 @@ export default function BudChat() {
               className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}
             >
               <div
-                className={`max-w-[85%] rounded-lg px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-line ${
+                className={`max-w-[85%] rounded-lg px-3.5 py-2.5 text-base leading-relaxed whitespace-pre-line ${
                   m.from === "user"
                     ? "bg-red text-cream"
                     : "bg-navy text-cream/90 border border-cream/10"
@@ -348,7 +348,7 @@ export default function BudChat() {
                     ? "you@business.com"
                     : "Tell Bud about the project…"
               }
-              className="flex-1 bg-navy border border-cream/15 rounded-md px-3 py-2.5 text-sm text-cream placeholder:text-cream/30 outline-none focus:border-cream/40"
+              className="flex-1 bg-navy border border-cream/15 rounded-md px-3 py-2.5 text-sm text-cream placeholder:text-cream/85 outline-none focus:border-cream/40"
             />
             <button
               onClick={

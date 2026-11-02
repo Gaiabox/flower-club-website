@@ -33,7 +33,7 @@ export default function SiteShowcase({
           <span className="h-2.5 w-2.5 rounded-full bg-cream/20" />
           <span className="h-2.5 w-2.5 rounded-full bg-cream/20" />
           <span className="h-2.5 w-2.5 rounded-full bg-cream/20" />
-          <span className="ml-2 truncate rounded-sm bg-navy px-2.5 py-1 font-mono text-[10px] text-cream/45">
+          <span className="ml-2 truncate rounded-sm bg-navy px-2.5 py-1 font-mono text-[10px] text-cream/85">
             {domain}
           </span>
         </div>
@@ -63,14 +63,14 @@ export default function SiteShowcase({
             <span className="sr-only"> (opens the live site in a new tab)</span>
           </a>
         </h3>
-        <p className="mt-2 max-w-lg text-sm leading-relaxed text-cream/55">
+        <p className="mt-2 max-w-lg text-base leading-relaxed text-cream/85">
           {description}
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-cream/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-cream/50"
+              className="rounded-full border border-cream/20 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-cream/85"
             >
               {t}
             </span>

@@ -71,7 +71,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <div className="section-padding max-w-6xl mx-auto">
         <Link
           href="/work#websites"
-          className="text-cream/75 underline underline-offset-4"
+          className="text-cream/85 underline underline-offset-4"
         >
           ← All website work
         </Link>
@@ -94,17 +94,17 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
         <section className="grid md:grid-cols-2 gap-12 py-16 border-b border-cream/20">
           <h2 className="text-display-sm font-bold">The visitor journey.</h2>
-          <p className="text-cream/75 text-lg leading-relaxed">
+          <p className="text-cream/85 text-lg leading-relaxed">
             {detail.context}
           </p>
         </section>
         <section className="grid md:grid-cols-2 gap-12 py-16 border-b border-cream/20">
           <h2 className="text-display-sm font-bold">What we built.</h2>
           <div>
-            <p className="text-cream/75 text-lg leading-relaxed mb-8">
+            <p className="text-cream/85 text-lg leading-relaxed mb-8">
               {detail.approach}
             </p>
-            <ul className="text-cream/75 space-y-3">
+            <ul className="text-cream/85 space-y-3">
               {detail.delivery.map((item) => (
                 <li key={item}>• {item}</li>
               ))}
@@ -115,7 +115,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           <h2 className="text-display-sm font-bold mb-6">
             Explore the finished site.
           </h2>
-          <p className="text-cream/75 text-lg max-w-2xl mb-8">
+          <p className="text-cream/85 text-lg max-w-2xl mb-8">
             See the design, content, and inquiry experience in context.
           </p>
           <a

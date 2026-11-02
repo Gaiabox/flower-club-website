@@ -19,7 +19,7 @@ export default function WorkClient() {
           <h1 className="text-display-xl text-cream font-bold mb-6">
             The idea, brought to life.
           </h1>
-          <p className="text-cream/75 text-xl max-w-2xl leading-relaxed">
+          <p className="text-cream/85 text-xl max-w-2xl leading-relaxed">
             Explore websites, brand identities, content, and experiences. Each
             project shows a different part of what we can build with you.
           </p>
@@ -115,8 +115,8 @@ export default function WorkClient() {
                     <h3 className="text-cream text-2xl font-bold mt-5">
                       {project.title}
                     </h3>
-                    <p className="text-cream/65 mt-2">{project.category}</p>
-                    <p className="text-cream/75 mt-4 leading-relaxed max-w-xl">
+                    <p className="text-cream/85 mt-2">{project.category}</p>
+                    <p className="text-cream/85 mt-4 leading-relaxed max-w-xl">
                       {project.description}
                     </p>
                   </article>
@@ -129,7 +129,7 @@ export default function WorkClient() {
                   <h2 className="text-2xl text-cream font-bold mb-5">
                     Studio Studies
                   </h2>
-                  <p className="text-cream/75 text-lg max-w-2xl mb-10">
+                  <p className="text-cream/85 text-lg max-w-2xl mb-10">
                     In-house explorations in character design, motion, and
                     AI-assisted animation. Made for The Flower Club, separate
                     from commissioned client work.
@@ -155,7 +155,7 @@ export default function WorkClient() {
             )}
           </section>
         ))}
-        <p className="text-cream/65 text-sm leading-relaxed mb-10">
+        <p className="text-cream/85 text-base leading-relaxed mb-10">
           Client names and marks belong to their respective owners. Project
           descriptions identify the scope shown. In-house studies are labeled
           separately.

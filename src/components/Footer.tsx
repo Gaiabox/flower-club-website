@@ -40,7 +40,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-cream/70 hover:text-cream transition-colors text-sm"
+                    className="text-cream/85 hover:text-cream transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-cream/70 hover:text-cream transition-colors text-sm"
+                    className="text-cream/85 hover:text-cream transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
                 →
               </span>
             </Link>
-            <p className="text-cream/40 text-sm mt-6 leading-relaxed">
+            <p className="text-cream/85 text-sm mt-6 leading-relaxed">
               Charlotte, NC, serving Miami, New York, Los Angeles, and
               everywhere in between.
             </p>
@@ -85,7 +85,7 @@ export default function Footer() {
                 href={SITE.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cream/60 hover:text-cream transition-colors text-xs font-mono uppercase tracking-widest"
+                className="text-cream/85 hover:text-cream transition-colors text-xs font-mono uppercase tracking-widest"
               >
                 Instagram
               </a>
@@ -93,7 +93,7 @@ export default function Footer() {
                 href={SITE.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cream/60 hover:text-cream transition-colors text-xs font-mono uppercase tracking-widest"
+                className="text-cream/85 hover:text-cream transition-colors text-xs font-mono uppercase tracking-widest"
               >
                 LinkedIn
               </a>
@@ -104,19 +104,19 @@ export default function Footer() {
         <div className="flex flex-wrap gap-x-6 gap-y-3 mt-10 text-sm">
           <Link
             href="/legal/privacy"
-            className="text-cream/70 underline underline-offset-4"
+            className="text-cream/85 underline underline-offset-4"
           >
             Privacy &amp; Cookies
           </Link>
           <Link
             href="/legal/terms"
-            className="text-cream/70 underline underline-offset-4"
+            className="text-cream/85 underline underline-offset-4"
           >
             Website Terms
           </Link>
           <Link
             href="/legal/accessibility"
-            className="text-cream/70 underline underline-offset-4"
+            className="text-cream/85 underline underline-offset-4"
           >
             Accessibility
           </Link>
@@ -124,10 +124,10 @@ export default function Footer() {
         </div>
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-16 pt-6 border-t border-cream/10">
-          <p className="text-cream/40 text-[11px] font-mono uppercase tracking-wider">
+          <p className="text-cream/85 text-[11px] font-mono uppercase tracking-wider">
             © {new Date().getFullYear()} The Flower Club. All rights reserved.
           </p>
-          <p className="text-cream/40 text-[11px] font-mono uppercase tracking-wider">
+          <p className="text-cream/85 text-[11px] font-mono uppercase tracking-wider">
             Brand identities. Websites. Creative direction.
           </p>
         </div>

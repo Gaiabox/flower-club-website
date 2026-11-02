@@ -130,7 +130,7 @@ export default function ContactPage() {
               <h1 className="text-display-lg text-navy font-bold mb-6">
                 Let&apos;s build your next chapter.
               </h1>
-              <p className="text-navy/60 text-lg leading-relaxed">
+              <p className="text-navy/85 text-xl leading-relaxed">
                 Tell us about your business, what you want to create, and when
                 you need it. We will review your inquiry and follow up to
                 discuss the scope, budget, and next steps.
@@ -140,12 +140,12 @@ export default function ContactPage() {
             <div className="contact-info space-y-8">
               <div>
                 <p className="label mb-2">Based In</p>
-                <p className="text-navy/70">Charlotte, NC</p>
+                <p className="text-navy/85">Charlotte, NC</p>
               </div>
 
               <div>
                 <p className="label mb-2">What Happens Next</p>
-                <p className="text-navy/70">
+                <p className="text-navy/85">
                   A conversation about your project
                 </p>
               </div>
@@ -178,7 +178,7 @@ export default function ContactPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/30"
+                  className="w-full bg-transparent border-b-2 border-navy/50 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/85"
                   placeholder="Your name"
                 />
               </div>
@@ -197,7 +197,7 @@ export default function ContactPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/30"
+                  className="w-full bg-transparent border-b-2 border-navy/50 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/85"
                   placeholder="you@business.com"
                 />
               </div>
@@ -215,7 +215,7 @@ export default function ContactPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, company: e.target.value })
                   }
-                  className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/30"
+                  className="w-full bg-transparent border-b-2 border-navy/50 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/85"
                   placeholder="Company or brand name"
                 />
               </div>
@@ -233,7 +233,7 @@ export default function ContactPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, projectType: e.target.value })
                   }
-                  className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg appearance-none cursor-pointer"
+                  className="w-full bg-transparent border-b-2 border-navy/50 py-3 text-navy focus:border-red outline-none transition-colors text-lg appearance-none cursor-pointer"
                 >
                   <option value="" disabled>
                     What do you need help with?
@@ -258,7 +258,7 @@ export default function ContactPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, budget: e.target.value })
                   }
-                  className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg appearance-none cursor-pointer"
+                  className="w-full bg-transparent border-b-2 border-navy/50 py-3 text-navy focus:border-red outline-none transition-colors text-lg appearance-none cursor-pointer"
                 >
                   <option value="" disabled>
                     Select a range
@@ -285,12 +285,12 @@ export default function ContactPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full bg-transparent border-b-2 border-navy/20 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/30 resize-none"
+                  className="w-full bg-transparent border-b-2 border-navy/50 py-3 text-navy focus:border-red outline-none transition-colors text-lg placeholder:text-navy/85 resize-none"
                   placeholder="What does your business do? What would you like us to create? Include your timeline and any useful links."
                 />
               </div>
 
-              <p className="text-navy/75 text-sm leading-relaxed">
+              <p className="text-navy/85 text-base leading-relaxed">
                 We use these details to respond to your inquiry. Please do not
                 include passwords, patient information, financial account
                 details, or other sensitive information. Read our{" "}

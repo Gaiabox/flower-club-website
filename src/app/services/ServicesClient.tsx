@@ -15,7 +15,7 @@ export default function ServicesClient() {
           <h1 className="text-display-xl text-navy font-bold mb-6">
             Design that earns attention. Systems that keep it moving.
           </h1>
-          <p className="text-navy/70 text-xl max-w-3xl leading-relaxed">
+          <p className="text-navy/85 text-xl max-w-3xl leading-relaxed">
             Brand identities and custom websites are at the center of our work.
             Content, experiences, and business automation help carry that work
             forward. Choose the support you need for a single project or an
@@ -61,7 +61,7 @@ export default function ServicesClient() {
                         className="object-contain p-12"
                       />
                     </div>
-                    <p className="text-navy/70 mt-3 text-sm">
+                    <p className="text-navy/85 mt-3 text-sm">
                       Bean Locks · Logo &amp; brand identity
                     </p>
                   </>
@@ -99,7 +99,7 @@ export default function ServicesClient() {
               </div>
             </div>
             <div>
-              <p className="text-navy/70 leading-relaxed text-lg mb-6">
+              <p className="text-navy/85 leading-relaxed text-lg mb-6">
                 {service.description}
               </p>
               {service.id === "business-automation" && (
@@ -108,7 +108,7 @@ export default function ServicesClient() {
                 </p>
               )}
               <p className="label mb-3">Scope can include</p>
-              <ul className="space-y-2 text-navy/75 mb-7">
+              <ul className="space-y-2 text-navy/85 mb-7">
                 {service.deliverables.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
@@ -126,7 +126,7 @@ export default function ServicesClient() {
                       ? "/services/web-design"
                       : service.proofHref
                   }
-                  className="text-navy/70 underline underline-offset-4"
+                  className="text-navy/85 underline underline-offset-4"
                 >
                   {service.example} →
                 </Link>
@@ -138,13 +138,13 @@ export default function ServicesClient() {
           <h2 className="text-navy text-2xl font-bold mb-4">
             Project or ongoing partner?
           </h2>
-          <p className="text-navy/70 text-lg leading-relaxed max-w-3xl">
+          <p className="text-navy/85 text-lg leading-relaxed max-w-3xl">
             We scope brand, website, and production projects around their
             deliverables. For ongoing creative or automation support, we agree
             on priorities and a monthly scope. You do not need a paid audit to
             start a creative project.
           </p>
-          <p className="text-navy/70 mt-5 max-w-3xl">
+          <p className="text-navy/85 mt-5 max-w-3xl">
             If your operational needs are unclear, our{" "}
             <Link
               className="underline underline-offset-4"
@@ -159,7 +159,7 @@ export default function ServicesClient() {
           <h2 className="text-display-sm text-cream font-bold mb-4">
             Tell us what you have in mind.
           </h2>
-          <p className="text-cream/75 text-lg mb-8 max-w-2xl">
+          <p className="text-cream/85 text-lg mb-8 max-w-2xl">
             Share the goal, the timeline, and where you need help. We will
             recommend a scope and explain what happens next.
           </p>
