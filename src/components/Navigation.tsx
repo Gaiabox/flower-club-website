@@ -26,6 +26,9 @@ export default function Navigation() {
     "/services/digital-employees",
     "/services/audit",
     "/contact",
+    "/services/brand-identity",
+    "/services/business-systems",
+    "/services/charlotte/business-automation",
   ];
   const isLightPage =
     lightBgPages.includes(pathname) ||
