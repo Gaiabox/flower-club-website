@@ -41,7 +41,7 @@ export default function PrivacyPage() {
       <section>
         <h2>Hosting, forms, and recipients</h2>
         <p>
-          Netlify hosts the website and processes form submissions for our team.
+          Netlify hosts the website. HubSpot processes and stores project inquiries for our team.
           Hosting and delivery systems can process technical information such as
           IP addresses, request times, device and browser information, and
           security logs. Authorized team members and service providers may
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
           other countries where they operate.
         </p>
         <p>
-          This version of the contact form sends submissions to Netlify Forms.
+          The contact form and Bud send submitted inquiry details to HubSpot.
           It does not send a duplicate to the previous temporary automation
           webhook. We do not sell inquiry information or use this website to
           share it for cross-context behavioral advertising. Information may

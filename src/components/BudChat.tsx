@@ -2,35 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { SERVICES as inquiryServices, BUDGETS as inquiryBudgets } from "@/lib/inquiry-options";
 
-/** Scripted project intake assistant. Uses the same Netlify form as Contact. */
+/** Scripted project intake assistant. Uses the same server endpoint as Contact. */
 
 type Msg = { from: "bud" | "user"; text: string };
 type Step =
   "name" | "email" | "service" | "budget" | "details" | "sending" | "done";
 
-const SERVICES = [
-  "Brand Identity",
-  "Website",
-  "Content & Experiences",
-  "Business Automation",
-  "Automation Audit",
-  "Not sure yet",
-];
-const BUDGETS = [
-  "Under $2,500",
-  "$2,500–$5,000",
-  "$5,000–$15,000",
-  "$15,000+",
-  "Let's discuss",
-];
+const SERVICES = inquiryServices;
+const BUDGETS = inquiryBudgets;
 const SERVICE_MAP: Record<string, string> = {
   "Brand Identity": "Brand Identity",
   Website: "Website",
   "Content & Experiences": "Content & Experiences",
   "Business Automation": "Business Automation",
   "Automation Audit": "Automation Audit",
-  "Not sure yet": "Not Sure Yet",
+  "Not Sure Yet": "Not Sure Yet",
 };
 const SERVICE_REPLIES: Record<string, string> = {
   "Brand Identity":
@@ -42,7 +30,7 @@ const SERVICE_REPLIES: Record<string, string> = {
     "Thanks. The team will discuss the workflow and what it needs. What budget range do you have in mind?",
   "Automation Audit":
     "Audits start at $2,500, with the scope agreed before work begins. What budget range do you have in mind?",
-  "Not sure yet":
+  "Not Sure Yet":
     "That is fine. The team can help define the scope. Do you have a budget range in mind?",
 };
 
@@ -81,6 +69,7 @@ export default function BudChat() {
   const [typing, setTyping] = useState(false);
   const [step, setStep] = useState<Step>("name");
   const [input, setInput] = useState("");
+  const [website, setWebsite] = useState("");
   const data = useRef({ name: "", email: "", service: "", budget: "" });
   const bodyRef = useRef<HTMLDivElement>(null);
   const started = useRef(false);
@@ -168,18 +157,19 @@ export default function BudChat() {
     setStep("sending");
     await say("On it, passing this to the team…", 700);
     try {
-      const res = await fetch("/__forms.html", {
+      const res = await fetch("/api/inquiries", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          "form-name": "contact",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          source: "bud",
+          website,
           name: data.current.name,
           email: data.current.email,
           company: "",
           projectType: data.current.service,
           budget: data.current.budget,
           message: `${v}\n\n- collected by Bud, the automated project assistant`,
-        }).toString(),
+        }),
       });
       if (!res.ok) throw new Error("submit failed");
       setStep("done");
@@ -244,7 +234,7 @@ export default function BudChat() {
         </div>
 
         <p className="px-4 pt-3 text-cream/85 text-xs leading-relaxed">
-          Details go to our team through Netlify Forms. Avoid sensitive
+          Details go to our team through HubSpot. Avoid sensitive
           information.{" "}
           <Link href="/legal/privacy" className="underline">
             Privacy Policy
@@ -335,12 +325,13 @@ export default function BudChat() {
 
         <p className="px-4 py-2 text-xs leading-relaxed text-cream/85">
           Bud is an automated intake form. Your email is required for a reply.
-          Only submitted details are sent to our team through Netlify Forms.
+          Submitted details are sent to our team through HubSpot.
           Do not share passwords, payment details, or sensitive information.
           Submitting requests project follow-up, not marketing emails or a contract.
           {" "}<Link href="/legal/privacy" className="underline">Privacy</Link>
           {" · "}<Link href="/legal/terms" className="underline">Terms</Link>
         </p>
+        <div className="hidden" aria-hidden="true"><label>Leave blank<input name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} /></label></div>
         {/* Input */}
         {showInput && (
           <div className="flex items-center gap-2 border-t border-cream/10 px-3 py-3">

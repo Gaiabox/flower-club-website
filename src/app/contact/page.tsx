@@ -5,15 +5,8 @@ import Link from "next/link";
 import { track } from "@/lib/analytics";
 import gsap from "gsap";
 
-const projectTypes = [
-  "Brand Identity",
-  "Website",
-  "Content & Experiences",
-  "Business Automation",
-  "Automation Audit",
-  "Multiple Services",
-  "Not Sure Yet",
-];
+import { SERVICES as projectTypes, BUDGETS as budgetRanges } from "@/lib/inquiry-options";
+
 const inquiryTypes: Record<string, string> = {
   brand: "Brand Identity",
   website: "Website",
@@ -22,17 +15,9 @@ const inquiryTypes: Record<string, string> = {
   audit: "Automation Audit",
 };
 
-const budgetRanges = [
-  "Under $2,500",
-  "$2,500–$5,000",
-  "$5,000–$15,000",
-  "$15,000–$30,000",
-  "$30,000+",
-  "Let's Discuss",
-];
-
 export default function ContactPage() {
   const started = useRef(false);
+  const [website, setWebsite] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -90,14 +75,10 @@ export default function ContactPage() {
     track("project_inquiry_submit", { source: "contact" });
 
     try {
-      // Netlify Forms, the static form lives in public/__forms.html
-      const res = await fetch("/__forms.html", {
+      const res = await fetch("/api/inquiries", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          "form-name": "contact",
-          ...formData,
-        }).toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, website, source: "contact" }),
       });
       if (res.ok) {
         setStatus("sent");
@@ -164,6 +145,9 @@ export default function ContactPage() {
                 }
               }}
             >
+              <div className="hidden" aria-hidden="true">
+                <label>Leave blank<input name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
+              </div>
               {/* Name */}
               <div>
                 <label htmlFor="name" className="label mb-2 block">
