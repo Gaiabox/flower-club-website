@@ -7,7 +7,11 @@ const attempts = new Map<string, { count: number; until: number }>();
 export async function POST(request: NextRequest) {
   const reply = (error: string, status: number) => NextResponse.json({ error }, { status });
   const origin = request.headers.get("origin");
-  if (!origin || origin !== request.nextUrl.origin) return reply("Invalid origin", 403);
+  const allowedOrigins = new Set(["https://theflowerclub.design", "https://www.theflowerclub.design"]);
+  // Netlify may expose an internal origin in nextUrl after proxying.
+  const host = request.headers.get("host");
+  if (host && (/^deploy-preview-\d+--flowerclub\.netlify\.app$/.test(host) || /^localhost:\d+$/.test(host))) allowedOrigins.add(`${host.startsWith("localhost:") ? "http" : "https"}://${host}`);
+  if (!origin || !allowedOrigins.has(origin)) return reply("Invalid origin", 403);
   if (Number(request.headers.get("content-length") || 0) > 20000) return reply("Request too large", 413);
   const raw = await request.text();
   if (raw.length > 20000) return reply("Request too large", 413);
