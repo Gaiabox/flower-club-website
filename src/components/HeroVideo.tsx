@@ -2,17 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 
-/**
- * HeroVideo, the looping clip behind the hero.
- *
- * Mounts only on desktop. A `hidden md:block` video still downloads on
- * phones, it is just invisible, which was costing mobile visitors about
- * 1.4MB for something they never see. Rendering nothing until we know
- * the viewport is wide means the file is never requested there.
- *
- * The hero's CSS background image sits underneath on every device, so
- * there is no empty frame while this decides.
- */
+/** Shared hero footage. Reduced-motion visitors retain the existing poster. */
 export default function HeroVideo({
   src,
   poster,
@@ -27,7 +17,7 @@ export default function HeroVideo({
   useEffect(() => {
     const wide = window.matchMedia("(min-width: 768px)");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setShow(wide.matches && !reduce.matches);
+    const update = () => setShow(!reduce.matches);
     update();
     wide.addEventListener("change", update);
     reduce.addEventListener("change", update);
@@ -71,3 +61,4 @@ export default function HeroVideo({
     </>
   );
 }
+

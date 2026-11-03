@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { projects, websites } from "@/lib/portfolio";
+import MobileWorkGallery from "@/components/MobileWorkGallery";
 import SiteShowcase from "@/components/SiteShowcase";
 import Lightbox from "@/components/Lightbox";
 import BrandFilm from "@/components/BrandFilm";
@@ -12,7 +13,9 @@ type Media = { src: string; alt: string; isVideo: boolean };
 export default function WorkClient() {
   const [lightbox, setLightbox] = useState<Media | null>(null);
   return (
-    <div className="bg-navy-dark min-h-screen pt-36 pb-24">
+    <>
+    <MobileWorkGallery />
+    <div className="desktop-work-page bg-navy-dark min-h-screen pt-36 pb-24">
       <div className="section-padding max-w-7xl mx-auto">
         <header className="mb-16">
           <p className="label-light mb-4">Our Work</p>
@@ -171,5 +174,7 @@ export default function WorkClient() {
       </div>
       {lightbox && <Lightbox {...lightbox} onClose={() => setLightbox(null)} />}
     </div>
+    </>
   );
 }
+
