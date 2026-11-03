@@ -100,6 +100,112 @@ const selected = [
   studies[1],
 ];
 
+function Arrow({ direction = "right" }: { direction?: "left" | "right" }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      style={{ transform: direction === "left" ? "rotate(180deg)" : undefined }}
+    >
+      <path
+        d="M4 12h15m-6-6 6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+function ExpandIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+function PreviewVideo({
+  src,
+  poster,
+  title,
+}: {
+  src: string;
+  poster: string;
+  title: string;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const el = ref.current!;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let visible = false;
+    const update = () => {
+      if (
+        visible &&
+        !motion.matches &&
+        !document.hidden &&
+        !document.querySelector(".mobile-project-dialog[open]")
+      )
+        el.play().catch(() => {});
+      else el.pause();
+    };
+    const observer = new IntersectionObserver(
+      ([item]) => {
+        visible = item.isIntersecting && item.intersectionRatio >= 0.6;
+        update();
+      },
+      { threshold: [0, 0.6] },
+    );
+    observer.observe(el);
+    const modalObserver = new MutationObserver(update);
+    modalObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["open"],
+    });
+    motion.addEventListener("change", update);
+    document.addEventListener("visibilitychange", update);
+    return () => {
+      observer.disconnect();
+      modalObserver.disconnect();
+      motion.removeEventListener("change", update);
+      document.removeEventListener("visibilitychange", update);
+      el.pause();
+    };
+  }, []);
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      preload="none"
+      aria-label={`${title}, muted preview`}
+      onMouseEnter={() => {
+        if (!window.matchMedia("(prefers-reduced-motion:reduce)").matches)
+          ref.current?.play().catch(() => {});
+      }}
+      onMouseLeave={() => ref.current?.pause()}
+    />
+  );
+}
 function Viewer({
   entries,
   index,
@@ -191,7 +297,7 @@ function Viewer({
               }
               aria-label="Previous image or video"
             >
-              ←
+              <Arrow direction="left" />
             </button>
             <span aria-live="polite">
               {mediaIndex + 1} / {entry.media.length}{" "}
@@ -203,23 +309,34 @@ function Viewer({
               }
               aria-label="Next image or video"
             >
-              →
+              <Arrow />
             </button>
           </div>
         )}
         <p>{entry.description}</p>
-        {entry.href && <Link href={entry.href}>Explore the case study ↗</Link>}
+        {entry.href && (
+          <Link href={entry.href}>
+            Explore the case study <Arrow />
+          </Link>
+        )}
       </div>
       <footer>
-        <button onClick={() => change(index - 1)} aria-label="Previous project">
-          ←
+        <button
+          className="mobile-previous-project"
+          onClick={() => change(index - 1)}
+          aria-label="Previous project"
+        >
+          <Arrow direction="left" />
+          <span>Previous</span>
         </button>
         <button
           className="mobile-next-project"
           onClick={() => change(index + 1)}
         >
-          Next project{" "}
-          <span>{entries[(index + 1) % entries.length].title} ↗</span>
+          <span className="mobile-next-label">
+            Next project <Arrow />
+          </span>
+          <span>{entries[(index + 1) % entries.length].title}</span>
         </button>
       </footer>
     </dialog>
@@ -234,14 +351,23 @@ function Card({ entry, onClick }: { entry: Entry; onClick: () => void }) {
         aria-label={`Explore ${entry.title}`}
       >
         <div className="mobile-project-art">
-          <Image
-            src={entry.image}
-            alt={entry.title}
-            fill
-            sizes="(max-width:767px) 86vw, 1px"
-          />
+          {entry.media.some((m) => m.video) ? (
+            <PreviewVideo
+              src={entry.media.find((m) => m.video)!.src}
+              poster={entry.image}
+              title={entry.title}
+            />
+          ) : (
+            <Image
+              src={entry.image}
+              alt={entry.title}
+              fill
+              sizes="(max-width:767px) 92vw, 1px"
+            />
+          )}
           <span className="mobile-open-icon" aria-hidden="true">
-            ↗
+            <ExpandIcon />
+            <span>Expand</span>
           </span>
         </div>
         <div className="mobile-project-caption">
@@ -323,14 +449,14 @@ function Row({
             disabled={active === 0}
             aria-label={`Previous ${title} project`}
           >
-            ←
+            <Arrow direction="left" />
           </button>
           <button
             onClick={() => move(1)}
             disabled={active >= entries.length - 1}
             aria-label={`Next ${title} project`}
           >
-            →
+            <Arrow />
           </button>
         </div>
       </div>
@@ -376,19 +502,30 @@ export default function MobileWorkGallery({
             start: "top 76px",
             end: () => `+=${distance() + window.innerHeight * 0.25}`,
             pin: true,
+            refreshPriority: 1,
             scrub: true,
             invalidateOnRefresh: true,
-            onUpdate: (self) =>
-              setActive(
-                Math.min(
-                  selected.length - 1,
-                  Math.round(self.progress * (selected.length - 1)),
-                ),
-              ),
+            onUpdate: (self) => {
+              const offset = self.progress * distance();
+              const cards = Array.from(track.children) as HTMLElement[];
+              let closest = 0;
+              cards.forEach((card, i) => {
+                if (
+                  Math.abs(card.offsetLeft - 24 - offset) <
+                  Math.abs(cards[closest].offsetLeft - 24 - offset)
+                )
+                  closest = i;
+              });
+              setActive(closest);
+            },
           },
         });
 
-        const refresh = () => ScrollTrigger.refresh();
+        const refresh = () => {
+          ScrollTrigger.sort();
+          ScrollTrigger.refresh();
+          window.dispatchEvent(new Event("fc-mobile-work-ready"));
+        };
         document.fonts.ready.then(refresh);
         const observer = new ResizeObserver(refresh);
         observer.observe(track);
@@ -445,7 +582,9 @@ export default function MobileWorkGallery({
             <span>
               {active + 1} / {selected.length}
             </span>
-            <Link href="/work">Explore all work ↗</Link>
+            <Link href="/work">
+              Explore all work <Arrow />
+            </Link>
           </div>
         </>
       ) : (
@@ -503,7 +642,7 @@ export default function MobileWorkGallery({
               in <em>mind?</em>
             </h2>
             <Link href="/contact" className="btn-primary">
-              Start a Project ↗
+              Start a Project <Arrow />
             </Link>
           </section>
         </>

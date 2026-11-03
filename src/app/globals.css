@@ -418,3 +418,23 @@ main p:not([class*="label"]):not([class*="text-display"]) { line-height:1.7; }
     line-height:1.08;
   }
 }
+
+/* Mobile media is unframed; its own artwork supplies the background. */
+.mobile-statement-image { display:none; }
+@media (max-width:767px) {
+  .mobile-project-art,.tone-identity .mobile-project-art,.tone-portrait .mobile-project-art { background:transparent; }
+  .mobile-project-art img,.tone-identity .mobile-project-art img { object-fit:contain; padding:0; }
+  .mobile-project-art video { width:100%; height:100%; object-fit:contain; }
+  .mobile-selected-rail .tone-portrait { flex-basis:54vw; }
+  .mobile-selected-rail .tone-experience { flex-basis:88vw; }
+  .mobile-open-icon { width:auto; height:44px; border-radius:0; gap:8px; display:flex; padding:0 12px; background:rgba(18,29,51,.9); color:#FAF7F2; font-size:.7rem; font-weight:500; }
+  .mobile-selected-footer a,.mobile-viewer-copy a { display:inline-flex; align-items:center; gap:8px; }
+  .mobile-rail-controls button,.mobile-media-nav button { display:inline-grid; place-items:center; }
+  .mobile-project-dialog > footer > .mobile-previous-project { width:auto; border-radius:0; border:0; display:flex; align-items:center; gap:6px; font-size:.75rem; }
+  .mobile-next-project { text-align:right; }
+  .mobile-next-project .mobile-next-label { display:flex; justify-content:flex-end; align-items:center; gap:8px; font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; }
+  .mobile-statement-image { display:block; position:absolute; inset:0; background-image:inherit; background-size:cover; background-position:center; will-change:transform; }
+}
+@media (max-width:767px) {
+  .mobile-viewer-stage,.mobile-viewer-stage.tone-identity { background:transparent; }
+}
