@@ -438,3 +438,9 @@ main p:not([class*="label"]):not([class*="text-display"]) { line-height:1.7; }
 @media (max-width:767px) {
   .mobile-viewer-stage,.mobile-viewer-stage.tone-identity { background:transparent; }
 }
+@media (max-width:767px) {
+  html,body { overflow-x:clip; }
+  .mobile-project-dialog > footer > button.mobile-previous-project:first-child {
+    width:auto; min-width:100px; border:0; border-radius:0; display:flex; align-items:center; gap:8px; font-size:.75rem;
+  }
+}
