@@ -21,7 +21,7 @@ export default function FlowerWatermark({ className = "" }: { className?: string
     const el = ref.current;
     if (!el) return;
     const mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
+    mm.add("(min-width:768px) and (prefers-reduced-motion: no-preference)", () => {
       gsap.to(el, {
         rotation: 60,
         ease: "none",
@@ -32,6 +32,9 @@ export default function FlowerWatermark({ className = "" }: { className?: string
           scrub: 1.5,
         },
       });
+    });
+    mm.add("(max-width:767px) and (prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo(el, { rotation:-35 }, { rotation:145, ease:"none", scrollTrigger:{ trigger:el.parentElement, start:"top bottom", end:"bottom top", scrub:true, invalidateOnRefresh:true } });
     });
     return () => mm.revert();
   }, []);

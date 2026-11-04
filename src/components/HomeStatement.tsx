@@ -13,6 +13,9 @@ export default function HomeStatement() {
         scrollTrigger: { trigger: ref.current, start: "top 85%", end: "center 55%", scrub: 0.6 },
       });
     });
+    mm.add("(max-width:767px) and (prefers-reduced-motion:no-preference)", () => {
+      gsap.fromTo(ref.current!.querySelector(".mobile-statement-image"), { yPercent:-7, scale:1.18 }, { yPercent:7, scale:1.18, ease:"none", scrollTrigger:{trigger:ref.current,start:"top bottom",end:"bottom top",scrub:true,invalidateOnRefresh:true} });
+    });
     return () => mm.revert();
   }, []);
   return (
@@ -20,6 +23,7 @@ export default function HomeStatement() {
         className="statement-sec relative py-20 md:py-28 overflow-hidden border-t border-cream/5 w-full"
         style={{ backgroundImage: "url('/assets/images/culture-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
       >
+        <div className="mobile-statement-image" aria-hidden="true" />
         <div className="absolute inset-0 bg-navy-dark/70" />
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <p className="label-light mb-6 text-center">The Standard</p>

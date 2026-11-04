@@ -3,12 +3,15 @@ import HeroVideo from "@/components/HeroVideo";
 import FlowerWatermark from "@/components/FlowerWatermark";
 import HomeStatement from "@/components/HomeStatement";
 import ClientTicker from "@/components/ClientTicker";
+import MobileWorkGallery from "@/components/MobileWorkGallery";
+import MobileHomeMotion from "@/components/MobileHomeMotion";
 import SelectedWork from "@/components/SelectedWork";
 import { projectSteps } from "@/lib/portfolio";
 export default function Home() {
   return (
     <>
-      <section className="relative min-h-[90svh] flex items-center bg-navy-dark pt-36 pb-24 overflow-hidden">
+      <MobileHomeMotion />
+      <section className="home-hero relative min-h-[90svh] flex items-center bg-navy-dark pt-36 pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/assets/images/hero-bg.jpg')" }}
@@ -17,7 +20,7 @@ export default function Home() {
           src="/assets/videos/makers-mark-rev-run-teaser.mp4"
           poster="/assets/images/hero-bg.jpg"
         />
-        <div className="absolute inset-0 bg-navy-dark/75" />
+        <div className="hero-shade absolute inset-0 bg-navy-dark/75" />
         <div className="relative z-10 section-padding max-w-7xl mx-auto w-full relative z-10">
           <p className="label-light mb-5">
             The Flower Club · Brand &amp; Digital Design
@@ -50,7 +53,8 @@ export default function Home() {
       <ClientTicker />
       <section className="bg-navy py-20 md:py-28 relative overflow-hidden" id="selected-work">
         <FlowerWatermark className="w-[560px] md:w-[760px] -right-36 md:-right-48 -top-40 text-cream opacity-[0.04]" />
-        <div className="relative z-10 section-padding max-w-7xl mx-auto">
+        <MobileWorkGallery pinned />
+        <div className="desktop-selected-content relative z-10 section-padding max-w-7xl mx-auto">
           <p className="label-light mb-4">Selected Work</p>
           <h2 className="text-display-md text-cream font-bold mb-6">
             A few things we’ve made.
@@ -68,7 +72,7 @@ export default function Home() {
           </Link>
         </div>
       </section>
-      <section className="bg-cream py-20 md:py-28">
+      <section id="after-selected-work" className="bg-cream py-20 md:py-28">
         <div className="relative z-10 section-padding max-w-7xl mx-auto">
           <p className="label mb-4">What Do You Need To Move Forward?</p>
           <h2 className="text-display-md text-navy font-bold mb-12">
@@ -190,3 +194,4 @@ export default function Home() {
     </>
   );
 }
+
