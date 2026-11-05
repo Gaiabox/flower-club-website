@@ -7,7 +7,16 @@ const pages = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
+  { href: "/guides", label: "Guides" },
   { href: "/contact", label: "Start a Project" },
+];
+
+const places = [
+  { href: "/services/new-york", label: "New York" },
+  { href: "/services/florida", label: "Florida" },
+  { href: "/services/charlotte", label: "Charlotte" },
+  { href: "/where-we-work", label: "Atlanta" },
+  { href: "/where-we-work", label: "Los Angeles" },
 ];
 
 const services = [
@@ -79,6 +88,20 @@ export default function Footer() {
             <p className="text-cream/85 text-sm mt-6 leading-relaxed">
               Charlotte, NC, serving Miami, New York, Los Angeles, and
               everywhere in between.
+            </p>
+            <p className="text-cream/85 text-sm mt-4 leading-relaxed">
+              <Link href="/where-we-work" className="underline underline-offset-4">
+                Where we&apos;ve worked
+              </Link>
+              :{" "}
+              {places.map((pl, i) => (
+                <span key={pl.label}>
+                  {i > 0 && " · "}
+                  <Link href={pl.href} className="hover:text-cream transition-colors">
+                    {pl.label}
+                  </Link>
+                </span>
+              ))}
             </p>
             <div className="flex gap-6 mt-6">
               <a

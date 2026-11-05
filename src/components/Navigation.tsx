@@ -33,6 +33,7 @@ export default function Navigation() {
   const isLightPage =
     lightBgPages.includes(pathname) ||
     pathname.startsWith("/legal") ||
+    pathname.startsWith("/guides") ||
     pathname === "/services/web-design";
 
   const links = [
