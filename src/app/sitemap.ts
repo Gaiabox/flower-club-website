@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { websites } from "@/lib/portfolio";
+import { GUIDES } from "@/lib/guides";
 import { SITE } from "@/lib/seo";
 
-const CITY_PAGES = ["charlotte"];
+const CITY_PAGES = ["charlotte", "new-york", "florida"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -46,6 +47,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/services/brand-identity",
       "/services/business-systems",
       "/services/charlotte/business-automation",
+      "/where-we-work",
+      "/guides",
       "/legal/privacy",
       "/legal/terms",
       "/legal/accessibility",
@@ -53,6 +56,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE.url}${path}`,
       changeFrequency: "monthly" as const,
       priority: 0.5,
+    })),
+    ...GUIDES.map((g) => ({
+      url: `${SITE.url}/guides/${g.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
     ...CITY_PAGES.map((city) => ({
       url: `${SITE.url}/services/${city}`,

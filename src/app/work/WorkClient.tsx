@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { projects, websites } from "@/lib/portfolio";
+import { PROJECT_LOCATION } from "@/lib/locations";
 import MobileWorkGallery from "@/components/MobileWorkGallery";
 import SiteShowcase from "@/components/SiteShowcase";
 import Lightbox from "@/components/Lightbox";
@@ -118,7 +119,20 @@ export default function WorkClient() {
                     <h3 className="text-cream text-2xl font-bold mt-5">
                       {project.title}
                     </h3>
-                    <p className="text-cream/85 mt-2">{project.category}</p>
+                    <p className="text-cream/85 mt-2">
+                      {project.category}
+                      {PROJECT_LOCATION[project.slug] && (
+                        <>
+                          {" · "}
+                          <Link
+                            href={PROJECT_LOCATION[project.slug].href}
+                            className="underline underline-offset-4"
+                          >
+                            {PROJECT_LOCATION[project.slug].label}
+                          </Link>
+                        </>
+                      )}
+                    </p>
                     <p className="text-cream/85 mt-4 leading-relaxed max-w-xl">
                       {project.description}
                     </p>
