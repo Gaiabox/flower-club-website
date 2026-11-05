@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#1B2A4A"/>
+  <g transform="translate(5 5) scale(1.5)">
+    <g fill="#FFD700" stroke="#1B2A4A" stroke-width="2" stroke-linejoin="round">
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(0 18 18)"/>
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(45 18 18)"/>
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(90 18 18)"/>
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(135 18 18)"/>
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(180 18 18)"/>
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(225 18 18)"/>
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(270 18 18)"/>
+      <ellipse cx="18" cy="9" rx="4.5" ry="7.5" transform="rotate(315 18 18)"/>
+    </g>
+    <circle cx="18" cy="18" r="8.5" fill="#F4A300" stroke="#1B2A4A" stroke-width="2.2"/>
+    <circle cx="18" cy="18" r="4.5" fill="#1B2A4A"/>
+    <circle cx="16.2" cy="17.2" r="1.1" fill="#FFD700"/>
+    <circle cx="19.8" cy="17.2" r="1.1" fill="#FFD700"/>
+    <circle cx="18" cy="20.2" r="1.1" fill="#FFD700"/>
+  </g>
+</svg>
